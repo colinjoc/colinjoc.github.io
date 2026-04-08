@@ -1,0 +1,17 @@
+{{ define "main" }}
+<h1>{{ .Title }}</h1>
+{{ .Content }}
+{{ $pages := .Pages }}
+{{ if $pages }}
+<div class="card-grid">
+  {{ range $pages.ByDate.Reverse }}
+  <a class="card" href="{{ .Permalink }}">
+    {{ if .Params.domain }}<div class="domain">{{ .Params.domain }}</div>{{ end }}
+    <h3>{{ .Title }}</h3>
+    {{ if .Params.headline }}<div class="headline">{{ .Params.headline }}</div>{{ end }}
+    {{ if .Params.metric_value }}<div class="metric">{{ .Params.metric_name }}: {{ .Params.metric_value }}</div>{{ end }}
+  </a>
+  {{ end }}
+</div>
+{{ end }}
+{{ end }}

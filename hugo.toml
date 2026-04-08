@@ -1,0 +1,11 @@
+baseURL = 'https://example.com/'
+languageCode = 'en-us'
+title = 'Col — AI Research & Engineering'
+
+[params]
+  description = 'Hypothesis-Driven Research across science and engineering'
+
+buildFuture = true
+
+[markup.goldmark.renderer]
+  unsafe = true

@@ -1,0 +1,10 @@
+{{ define "main" }}
+<article>
+  <h1>{{ .Title }}</h1>
+  {{ if .Params.headline }}<p class="hero" style="color: var(--muted); font-size: 1.1rem;">{{ .Params.headline }}</p>{{ end }}
+  {{ if .Params.domain }}<span class="badge">{{ .Params.domain }}</span>{{ end }}
+  {{ if .Params.date }}<span style="color: var(--muted); font-size: 0.85rem;">{{ .Date.Format "January 2, 2006" }}</span>{{ end }}
+  <hr style="margin: 1.5rem 0; border: none; border-top: 1px solid var(--border);">
+  {{ .Content }}
+</article>
+{{ end }}
