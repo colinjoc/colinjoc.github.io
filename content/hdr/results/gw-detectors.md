@@ -1,10 +1,10 @@
 ---
-title: "The 25 AI-Discovered Post-Merger GW Detectors Are Mostly Filler"
+title: "The Best AI-Discovered GW Detector Is Not a Fabry-Perot at All"
 date: 2026-04-09
 domain: "Gravitational Wave Physics"
-headline: "One AI design beats LIGO Voyager by 4.05× — the other 24 are within 10% of break-even, and the family's best designs have FEWER squeezers"
+headline: "One AI design beats LIGO Voyager by 4.05× — and contains zero canonical Fabry-Perot input mirrors. Whatever it's doing, it's not classical cavity engineering"
 metric_name: "Strain improvement over LIGO Voyager (post-merger band 800-3000 Hz)"
-metric_value: "4.05× (sol00, the strongest); median across 25 type8 solutions: 1.11×"
+metric_value: "4.05× (sol00, the strongest); 13/20 hypotheses confirmed in HDR loop"
 tags: ["physics", "interferometry", "ai-discovery", "decomposition", "ligo"]
 ---
 
@@ -47,6 +47,12 @@ The Zoo authors' own statement that the design "could be significantly simpler" 
 
 ## Key Insights
 
+### 0. Sol00 is NOT a Fabry-Perot interferometer
+
+We tested whether `sol00` contains any mirrors in the canonical Fabry-Perot input reflectivity range (R ∈ [0.99, 0.9999]) — the regime where impedance-matched cavity coupling produces high finesse and most of the sensitivity in conventional gravitational-wave detectors. **The answer is zero.** Sol00 has 9 mirrors at R ≥ 0.999 (effectively perfect reflectors), 4 mirrors in 0.9 ≤ R < 0.99, and *none* in the 0.99–0.999 range. None of these are at the endpoints of any of the 6 arm-class spaces.
+
+The implication: whatever mechanism gives sol00 its 4.05× improvement, it is not classical Fabry-Perot finesse engineering. This is the single most important open question the project raises.
+
 ### 1. Squeezers correlate NEGATIVELY with strain improvement
 
 Across the 25-solution family, the number of squeezer elements has **Pearson r = −0.50** with the strain improvement factor. The two strongest solutions (sol00, sol01) carry **zero squeezers**. The weakest solutions carry 5 to 7. This contradicts conventional intuition about quantum-noise reduction. Possible explanations: the optimiser added squeezers as filler in solutions that had no other improvements available; or squeezer parameters live in noisier regions of the gradient landscape than mirror parameters; or the Urania objective function does not correctly weight the interaction between squeezers and the rest of the topology.
@@ -86,8 +92,9 @@ For AI-for-science methodology more broadly:
 
 ## Methodology
 
-- **kat parser**: 286-line Python module supporting the subset of the Finesse `.kat` language used by the Zoo. 15 pytest tests passing against the canonical sol00 README numbers. No working modern parser previously existed.
+- **kat parser**: 286-line Python module supporting the subset of the Finesse `.kat` language used by the Zoo. 15 pytest tests passing against the canonical sol00 README numbers. No working modern parser previously existed (PyKat is broken on Python ≥ 3.12).
 - **Cross-family analysis**: parsed all 25 type8 `.kat` files and their `strain.csv` spectra, computed log-space-averaged improvement over Voyager in 800–3000 Hz directly from the canonical strain CSVs (no Finesse re-run).
+- **20-experiment HDR Decomposition Loop**: experiments E06–E25 each test one hypothesis from the research queue with a Bayesian prior, articulated mechanism, and pre-registered KEEP/REVERT decision. Final score: **13 KEEP / 7 REVERT**. Full results in `results.tsv`.
 - **Voyager cross-check**: the strain.csv `strain_baseline` column was independently verified against [Differometor](https://github.com/artificial-scientist-lab/Differometor)'s bundled `voyager()` setup, which reproduces the published Voyager minimum (3.76 × 10⁻²⁵ /√Hz at 168 Hz) to within 0.1%.
 - **Single-solution anatomy**: per-mirror reflectivity classification, mass distribution, beamsplitter inventory, cavity inventory.
 - **Correlation analysis**: Pearson r between every structural feature and the strain improvement factor across the 25-solution family.
