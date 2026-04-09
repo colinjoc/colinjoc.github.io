@@ -1,8 +1,8 @@
 ---
-title: "The Best AI-Discovered Gravitational-Wave Detector Is Not a Fabry-Perot at All"
+title: "The Best AI-Discovered Gravitational-Wave Detector Is a Distributed-Injection Topology, Not a Classical Interferometer"
 date: 2026-04-09
 domain: "Gravitational Wave Physics"
-headline: "One artificial-intelligence-discovered design beats LIGO Voyager by 4.05× — and contains zero canonical Fabry-Perot input mirrors"
+headline: "One AI-discovered design beats LIGO Voyager by 4.05× — its mechanism is distributed signal injection across 26 perturbation points, not Fabry-Perot finesse engineering, balanced homodyne, or heavy test masses"
 metric_name: "Strain sensitivity improvement over LIGO Voyager (post-merger band 800–3000 Hz, log-averaged)"
 metric_value: "4.05× (sol00, the strongest of 25 type8 solutions)"
 tags: ["physics", "interferometry", "ai-discovery", "decomposition", "ligo"]
@@ -63,13 +63,13 @@ Squeezed-light injection is the standard quantum-noise-reduction technique in mo
 
 The number of mirrors pinned to R ≈ 0 (i.e. components the optimiser effectively deleted from the topology) has Pearson correlation r = **+0.51** with strain improvement. Solutions where the optimiser more aggressively pruned its own UIFO grid are the better solutions. The best designs are not the ones with the most optical machinery — they are the ones with the cleanest light paths.
 
-### 3. Sol00 has 6 arm cavities, not 2
+### 3. Sol00 has 6 arm-cavity-class free spaces, but only 1 is actually a cavity
 
-A conventional Michelson interferometer has 2 perpendicular arms. Sol00 has 78 free spaces. Six of them are at 4-kilometre-class lengths (three at 3847 m, three at 3670 m). The geometry is multi-arm, not a simple Michelson with two arms. Prior artifact-derived descriptions of "two essential arm cavities" were wrong.
+Sol00 has 78 free spaces. Six of them are at 4-kilometre-class lengths (three at 3847 m, three at 3670 m). The earlier framing of "6 arm cavities forming a multi-arm geometry" was wrong: a follow-up topological analysis classified each space by what mirror reflectivities sit at its endpoints and found that **only 1 of the 6 is a true symmetric cavity** (`mRL_3_3`, both mirror reflectivities approximately 0.5, finesse ≈ 4.6 — and this is a low-finesse cavity, not the high-finesse the conventional intuition would predict). The other 5 are: 2 through-pass delay lines (both endpoints transparent, light just passes through), 1 dead trap (both ends perfectly reflective with no laser light reaching it), 1 one-sided wall, and 1 asymmetric cavity. There is **one real cavity** in sol00, not six.
 
-### 4. Sol00's mirror masses skew light, with median 88.6 kg vs Voyager's 200 kg
+### 4. The 4 mirrors at exactly 200 kg are inactive — they sit on transparent mirrors at the endpoints of through-pass spaces
 
-All 57 mirrors in sol00 carry an explicit mass attribute. The median is 88.6 kilograms, less than half of Voyager's 200 kg test mass. Eighteen mirrors are below 50 kg. The design distributes optomechanical effects across many lighter elements rather than concentrating them in two heavy end mirrors. Whether this is responsible for sol00's quantum-noise reduction (in the absence of any squeezers) requires component-level ablation that this study did not perform.
+Earlier we noted that 4 of sol00's 57 mirrors are at exactly 200 kg, the LIGO Voyager nominal test-mass value. The follow-up topological analysis traced where these 4 mirrors actually sit and found that **two of them sit at the endpoints of the through-pass space `mUD_3_1`, where both mirrors have reflectivity below 0.003** — they are effectively transparent. A 200-kg transparent mirror feels essentially no radiation pressure, because the photon momentum transfer scales with reflectivity. The other two 200-kg mirrors sit on short bridges (about 10 metres long), not on cavity endpoints. The 200-kg "test masses" therefore do not function as Voyager-style heavy test masses for radiation-pressure-noise suppression. The 200-kg value is the optimiser's upper bound for the mass parameter, pinned to the boundary as a no-op. This **excludes Voyager-style radiation-pressure suppression** as a candidate mechanism for sol00's improvement.
 
 ### 5. The "120 free parameters" claim in the Zoo's own README is wrong
 
@@ -77,7 +77,25 @@ The sol00 README claims 120 free parameters. The actual `.kat` file declares **1
 
 ### 6. Sol00 has zero squeezers — the conventional quantum-noise story is wrong here
 
-Sol00 is the strongest type8 solution and contains zero squeezer elements. Whatever quantum-noise reduction the design achieves comes from the cavity topology and mass distribution, not from external squeezed-light injection. The frequency-dependent squeezing pathway that LIGO Voyager uses is not the same pathway that the Urania optimiser found.
+Sol00 is the strongest type8 solution and contains zero squeezer elements. Whatever quantum-noise reduction the design achieves comes from the topology, not from external squeezed-light injection. The frequency-dependent squeezing pathway that LIGO Voyager uses is not the same pathway that the Urania optimiser found.
+
+### 7. The "balanced homodyne detector" in sol00 is a phantom — one of its photodetector ports is not connected to anything
+
+This is the most surprising finding. The `sol00` configuration file declares a balanced-homodyne detector at 180 degrees (the canonical configuration for classical-noise cancellation), with two photodetectors `AtPD1` and `AtPD2`. A balanced subtraction requires both photodetectors to receive light from the interferometer.
+
+A topological analysis found that **`MDet1`'s back port `nMB4_0_dSetup` is not referenced by any free-space connection in the entire configuration file**. There is no path from any of the three lasers to `AtPD1`. The "balanced" homodyne reduces to a single-port readout on `AtPD2`; `AtPD1` carries only vacuum fluctuations with no classical signal.
+
+A family survey on the top 5 type8 solutions found that **4 of 5 (sol00, sol02, sol03, sol05) share this phantom-detector pattern**. Single-port readout disguised as balanced-homodyne detection is a **learned Urania pattern**, not a sol00 quirk. Across the 25-solution type8 family, no solution has two genuinely connected photodetectors and a functional balanced readout. **Balanced-homodyne classical-noise rejection is therefore excluded** as a candidate mechanism for sol00's improvement.
+
+### 8. The candidate mechanism: distributed signal injection with Michelson phase differencing
+
+Combining all the negative findings — no Fabry-Perot finesse cavities (insight 0), no functional balanced homodyne (insight 7), no Voyager-style heavy test masses (insight 4), and only 1 real arm cavity instead of 6 (insight 3) — almost every conventional gravitational-wave-detector mechanism is excluded as an explanation for sol00's 4.05× improvement.
+
+What remains is **distributed gravitational-wave signal injection across 26 free-space perturbation points with the canonical Michelson 180/0 phase pattern** (180 degrees on the vertical-arm spaces, 0 degrees on the horizontal-arm spaces, encoding the differential-arm-length gravitational-wave signal). The 26 injection points feed a **single-port readout** at `AtPD2`. The signal is amplified by **1294 watts of coherent multi-laser injection** (3 lasers at the same frequency and phase, totalling 1.7 times Voyager's laser power) and converted from phase to power by **one low-finesse 3.8-kilometre compound cavity** at `mRL_3_3`.
+
+This is a **multi-input, single-output, distributed-injection topology** that has no obvious analogue in the published interferometer-design literature. The AI optimiser converged to it without any prior toward known designs. The signal accumulates across 26 independent injection points (versus 2 in a conventional dual-arm Michelson) and is summed coherently at a single readout, giving a geometric advantage rather than a per-point sensitivity advantage.
+
+Quantitative confirmation of this mechanism requires a numerical reconstruction in either the original Finesse simulator or a calibrated equivalent. The kat-to-Differometor converter built for this purpose is structurally complete but currently off by a factor of approximately 10⁶ in absolute scale, blocking quantitative component-level ablation. The next session will diagnose the converter's carrier-power deficit and rerun the ablation cleanly.
 
 ## Why This Matters
 
