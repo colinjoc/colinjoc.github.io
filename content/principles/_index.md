@@ -14,3 +14,9 @@ All problems are computable. The question is whether you've defined what "correc
 
 Define success first. A test is just the runnable form of "I'll know it when it passes." The medium doesn't matter — code, AI, or a team. Once success is defined, the answer is just a search problem.
 
+## 3. Be Bayesian
+
+Intelligence is memory plus prediction. Working with AI is no different.
+
+State your prior before you look at the data. Update only on evidence. Anything else is narrative dressed up as research.
+
