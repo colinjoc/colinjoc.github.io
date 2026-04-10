@@ -5,9 +5,15 @@
 {{ $results = where $results ".Params.weight" "!=" nil }}
 {{ $top3 := first 3 ($results.ByWeight) }}
 {{ if $top3 }}
-<h2>Surprising Results</h2>
-{{ range $top3 }}
-<p><strong><a href="{{ .Permalink }}">{{ .Title }}</a></strong> — {{ .Params.headline }}</p>
-{{ end }}
+<h2>Notable Discoveries</h2>
+<div class="card-grid">
+  {{ range $top3 }}
+  <a class="card" href="{{ .Permalink }}">
+    {{ if .Params.domain }}<div class="domain">{{ .Params.domain }}</div>{{ end }}
+    <h3>{{ .Title }}</h3>
+    {{ if .Params.blurb }}<div class="headline">{{ .Params.blurb }}</div>{{ else if .Params.headline }}<div class="headline">{{ .Params.headline }}</div>{{ end }}
+  </a>
+  {{ end }}
+</div>
 {{ end }}
 {{ end }}

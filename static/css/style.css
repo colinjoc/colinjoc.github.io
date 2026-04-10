@@ -23,6 +23,7 @@
 
 body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  font-size: 0.85rem;
   background: var(--bg);
   color: var(--text);
   line-height: 1.6;
@@ -40,8 +41,8 @@ nav {
   flex-wrap: wrap;
   align-items: center;
 }
-nav .site-title { font-weight: 700; font-size: 1.1rem; margin-right: auto; }
-nav a { color: var(--muted); text-decoration: none; font-size: 0.9rem; }
+nav .site-title { font-weight: 700; font-size: 1.6rem; margin-right: auto; }
+nav a { color: var(--muted); text-decoration: none; font-size: 0.78rem; }
 nav a:hover { color: var(--accent); }
 
 h1 { font-size: 1.8rem; margin: 1.5rem 0 0.5rem; }
@@ -52,7 +53,7 @@ a { color: var(--accent); }
 
 .hero { margin: 2rem 0 3rem; }
 .hero h1 { font-size: 2.2rem; margin-bottom: 0.5rem; }
-.hero p { color: var(--muted); font-size: 1.1rem; }
+.hero p { color: var(--muted); font-size: 0.95rem; }
 
 .card-grid {
   display: grid;
@@ -71,14 +72,14 @@ a { color: var(--accent); }
   transition: border-color 0.2s;
 }
 .card:hover { border-color: var(--accent); }
-.card .domain { font-size: 0.75rem; color: var(--accent); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.3rem; }
-.card h3 { margin: 0 0 0.5rem; font-size: 1rem; }
-.card .headline { font-size: 0.85rem; color: var(--muted); margin-bottom: 0.5rem; }
-.card .metric { font-size: 0.8rem; font-family: monospace; color: var(--accent); }
+.card .domain { font-size: 0.65rem; color: var(--accent); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.3rem; }
+.card h3 { margin: 0 0 0.5rem; font-size: 0.9rem; }
+.card .headline { font-size: 0.75rem; color: var(--muted); margin-bottom: 0.5rem; }
+.card .metric { font-size: 0.7rem; font-family: monospace; color: var(--accent); }
 
 .badge {
   display: inline-block;
-  font-size: 0.7rem;
+  font-size: 0.6rem;
   padding: 0.15rem 0.5rem;
   border-radius: 999px;
   background: var(--accent);
@@ -86,7 +87,7 @@ a { color: var(--accent); }
   margin-right: 0.3rem;
 }
 
-table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.85rem; }
+table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.75rem; }
 th, td { padding: 0.5rem; text-align: left; border-bottom: 1px solid var(--border); }
 th { font-weight: 600; }
 
@@ -108,4 +109,4 @@ article img {
   border: 1px solid var(--border);
 }
 
-footer { margin-top: 3rem; padding-top: 1rem; border-top: 1px solid var(--border); color: var(--muted); font-size: 0.8rem; }
+footer { margin-top: 3rem; padding-top: 1rem; border-top: 1px solid var(--border); color: var(--muted); font-size: 0.7rem; }
