@@ -110,11 +110,25 @@ An early warning system based on this model would work as follows: each morning,
 
 The perfect precision of the model means operators would not waste resources responding to false alarms. Every flagged day represents genuine elevated risk.
 
+## What the Model Found: Market Prices as a Risk Signal
+
+One of the most interesting features in the model is the negative electricity price indicator. On days when the minimum spot price drops below zero, the risk score increases. This is not an arbitrary correlation. Negative prices are a market signal of structural oversupply: there is more generation than demand, and the market is paying consumers to take the surplus. The reason this matters for blackout risk is that negative prices discourage synchronous generators (gas, coal, nuclear) from running, because they lose money for every hour they operate. When synchronous generators shut down, the grid loses the machines that provide voltage regulation and reactive power support. The market, designed to minimise electricity costs, inadvertently creates the conditions for overvoltage cascading.
+
+Spain experienced over 500 hours of negative electricity prices in 2025, more than double the full-year total for 2024. This trend is accelerating across Europe as solar capacity grows faster than grid infrastructure and energy storage can accommodate. The Iberian blackout occurred during one of these negative-price periods. The model captures this relationship: days with negative prices, combined with high solar fraction and low synchronous generation, are systematically flagged as high-risk.
+
+## The Protection Relay Problem
+
+The ENTSO-E investigation found that some renewable installations had overvoltage protection thresholds set below regulatory limits, causing them to disconnect prematurely when voltage rose. Each disconnection removed generation from the grid, but because these generators were in fixed power factor mode, each disconnection also removed their reactive power contribution, causing voltage to rise further and triggering more disconnections. The cascade was self-reinforcing.
+
+Additionally, shunt reactors -- devices specifically designed to absorb excess reactive power and suppress voltage rises -- were physically available in the grid but required manual activation. During the 24-second cascade, there was no time for human operators to connect them. Automated protection coordination could have activated these devices within milliseconds of detecting the voltage rise, potentially arresting the cascade before it became uncontrollable.
+
 ## The Bigger Picture
 
 The Iberian blackout is the first major casualty of a transition that every industrialised country is undertaking: replacing spinning synchronous generators with power-electronic inverter-based resources. The technical challenge is not merely "more solar means less inertia" -- that is the simplified version that dominated initial media coverage. The real challenge is that the displacement of synchronous generation removes voltage control authority at the exact moment when grid conditions (light loading, high exports, negative prices) create conditions favouring overvoltage.
 
 Solar energy did not cause this blackout. Insufficient voltage control infrastructure, outdated protection relay settings, fixed power factor operating modes, manual (rather than automatic) reactive power management, and incomplete visibility of rooftop solar production by the transmission system operator caused this blackout. The ENTSO-E report issued 22 recommendations, centred on improved reactive power control, mandatory grid-forming capability for new renewable installations, and enhanced real-time monitoring.
+
+The conditions that produced this blackout are not unique to Spain. Germany, Australia, California, and other regions with rapidly growing solar capacity are approaching or have already experienced periods where inverter-based resources provide the majority of generation. The voltage control challenge applies everywhere that solar and wind displace synchronous machines without corresponding investment in reactive power infrastructure.
 
 The transition to renewable energy is necessary and irreversible. But the Iberian blackout demonstrates that grid operation practices, protection system design, and market dispatch rules must evolve alongside the generation mix. The overvoltage cascade was not an inevitable consequence of high solar penetration -- it was the consequence of operating a 21st-century generation fleet on a 20th-century control architecture.
 
