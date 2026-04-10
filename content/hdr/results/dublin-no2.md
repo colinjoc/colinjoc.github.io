@@ -1,13 +1,16 @@
 ---
 title: "It's the Diesels, Not the Coal: Source Attribution of Dublin's NO2 Exceedances"
 date: 2026-04-09
-weight: 5
+weight: 16
+blurb: "Dublin's Pearse Street has 3.2 times the WHO limit for NO2. The smoky-coal ban helped particulates but did nothing for nitrogen dioxide. No single fix works — and at current fleet turnover, the EU 2030 target is not reached until 2047."
 domain: "Environment / Air Quality"
 headline: "A source-attribution model trained on hourly NO2 data from 7 Irish monitoring stations (2019-2025) achieves holdout MAE 2.01 ug/m3 (R-squared 0.965) and WHO exceedance AUC 0.989, identifying diesel vehicle traffic as the dominant NO2 source at Dublin kerbside stations -- COVID lockdown reduced traffic-station NO2 by 25% (34% at rush hours) while background stations were unaffected. Bus electrification alone reduces Pearse Street NO2 by only 3.2 ug/m3 (10%); achieving the EU 2030 limit of 20 ug/m3 requires combined congestion charging, low-emission zones, and fleet turnover."
 metric_name: "MAE on hourly NO2 (ug/m3); 5-fold temporal cross-validation; holdout = last 6 months"
 metric_value: "Baseline MAE 7.36; Final MAE 2.01 (73% improvement); R-squared 0.965; WHO exceedance AUC 0.989; Pearse St annual mean 32 ug/m3 (3.2x WHO guideline); COVID rush-hour reduction 34%"
 tags: ["environment", "air-quality", "NO2", "Dublin", "Cork", "Ireland", "source-attribution", "diesel", "traffic", "WHO-guidelines", "EU-2030", "COVID-lockdown", "XGBoost", "hypothesis-driven-research"]
 ---
+
+*This is a short summary. For the full technical write-up, see the [detailed paper](https://github.com/colinjoc/hdr_autoresearch/blob/master/applications/dublin_no2/paper.md).*
 
 ## The Problem
 
