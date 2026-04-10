@@ -2,7 +2,7 @@
 {{ if not .IsHome }}<h1>{{ .Title }}</h1>{{ end }}
 {{ .Content }}
 {{ $pages := .Pages }}
-{{ if $pages }}
+{{ if and $pages (not .IsHome) }}
 <div class="card-grid">
   {{ range $pages.ByWeight }}
   <a class="card" href="{{ .Permalink }}">
