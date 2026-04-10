@@ -2,13 +2,15 @@
 title: "Decomposing AI-Discovered Gravitational-Wave Detectors"
 date: 2026-04-10
 weight: 11
-blurb: "AI discovered 50 gravitational-wave detector designs that nobody understands. We decomposed the best one and found it uses distributed signal injection across 26 points — not the Fabry-Perot cavities everyone assumed."
+blurb: "AI discovered 50 new gravitational-wave detector designs that nobody understands. We decomposed the best one and found it works by a completely different mechanism than the textbook approach."
 domain: "Physics / Gravitational-Wave Instrumentation"
 headline: "The best AI-discovered detector improves on LIGO Voyager by 4.05× — via a multi-input topology with no classical analogue"
 metric_name: "Log-averaged strain improvement over LIGO Voyager (800–3000 Hz)"
 metric_value: "4.05× for sol00 (median of the 25-solution family: 1.11×)"
 tags: ["gravitational-waves", "interferometry", "AI-for-science", "structural-analysis", "topology"]
 ---
+
+*This is a short summary. For the full technical write-up, see the [detailed paper](https://github.com/colinjoc/hdr_autoresearch/blob/master/applications/gw_detectors/paper.md).*
 
 ## The Problem
 

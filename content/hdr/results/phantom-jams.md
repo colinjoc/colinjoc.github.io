@@ -2,13 +2,15 @@
 title: "Four Smart Cars Dissolve a Phantom Traffic Jam on the Sugiyama Ring Road"
 date: 2026-04-09
 weight: 2
-blurb: "Phantom traffic jams form with no crash or obstacle. We found that just 4 out of 22 vehicles running adaptive cruise control suppress them by 93%. Three vehicles are not enough."
+blurb: "Phantom traffic jams form with no crash or obstacle. We found that just 4 out of 22 vehicles with smart cruise control suppress them almost entirely. Three is not enough — the transition is sharp."
 domain: "Transportation / Traffic Flow Control"
 headline: "Four Adaptive Cruise Control (ACC) vehicles among 22 human drivers (18.2% penetration) reduce phantom traffic jam wave amplitude from 8.17 to 0.55 m/s (93.3% reduction) on the canonical Sugiyama ring road; the transition is sharp -- three ACC vehicles (13.6%) still leave a 1.77 m/s wave; FollowerStopper requires 22.7% penetration for comparable suppression but imposes a 61% throughput penalty"
 metric_name: "Wave amplitude (mean per-timestep max-min velocity in steady-state window) on a 22-vehicle / 230-metre Intelligent Driver Model ring road; secondary metrics: velocity variance, throughput (Edie's generalised definition), fuel proxy (VT-Micro simplified), minimum spacing"
 metric_value: "Phase 1 winner ACC at 18.2%: wave_amp 0.55 m/s (93.3% reduction from 8.17 m/s baseline); Phase B sweep critical penetration: 4/22 (18.2%) for ACC, 5/22 (22.7%) for FollowerStopper; ACC throughput at 18.2%: 930 veh/hr (only 10.5% reduction from baseline 1039 veh/hr)"
 tags: ["transportation", "traffic-flow", "phantom-jams", "autonomous-vehicles", "ring-road", "IDM", "ACC", "wave-suppression", "hypothesis-driven-research"]
 ---
+
+*This is a short summary. For the full technical write-up, see the [detailed paper](https://github.com/colinjoc/hdr_autoresearch/blob/master/applications/phantom_jams/paper.md).*
 
 ## The Problem
 

@@ -2,13 +2,15 @@
 title: "120 Pre-Registered Experiments Could Not Beat the Baseline — Until We Looked at the One City That Publishes Per-Stage Timestamps"
 date: 2026-04-09
 weight: 3
-blurb: "Why does a duplex take 48 days to permit in Austin and 605 in San Francisco? We ran 120 ML experiments — none helped. The answer was structural: only one US city publishes per-stage timestamps."
+blurb: "Why does a duplex take 48 days to permit in Austin and 605 in San Francisco? We ran 120 experiments — none helped. The answer was structural: only one US city publishes the per-stage data needed to diagnose the bottleneck."
 domain: "Urban Operations / Public Services"
 headline: "XGBoost with 13 raw features plateaus at MAE 89.40 days across 5 US cities — every one of 120 single-change experiments reverted. Adding two Seattle-only stage columns collapses MAE to 24.68 days (3.6x improvement). The bottleneck was data access, not modelling."
 metric_name: "Mean Absolute Error on building permit duration (days)"
 metric_value: "89.40 days cross-city baseline → 24.68 days Seattle with stage data (3.6x improvement); NYC BIS 4-stage model hits 4.04 days on its subset (22x)"
 tags: ["urban-operations", "public-services", "negative-result", "process-mining", "housing-policy", "open-data"]
 ---
+
+*This is a short summary. For the full technical write-up, see the [detailed paper](https://github.com/colinjoc/hdr_autoresearch/blob/master/applications/building_permits/paper.md).*
 
 ## The Problem
 

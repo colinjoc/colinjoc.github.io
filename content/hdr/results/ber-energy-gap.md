@@ -2,13 +2,15 @@
 title: "Why Does an A-Rated Irish Home Use Almost the Same Energy as a G-Rated One?"
 date: 2026-04-09
 weight: 8
-blurb: "Why does an A-rated Irish home use almost the same energy as a G-rated one? A single feature — the dwelling form factor — explains 38% of the gap. Cavity wall insulation is the cheapest fix at EUR 28 per kWh saved."
+blurb: "Why does an A-rated Irish home use almost the same energy as a G-rated one? The shape of the building matters more than any other factor. Cavity wall insulation is the cheapest single fix."
 domain: "Energy / Building Performance"
 headline: "An ExtraTrees model trained on 100,000 synthetic BER certificates achieves R2=0.88 predicting DEAP-calculated energy values, revealing that dwelling form factor (surface-to-volume ratio) is the single most powerful predictor of BER rating, and that cavity wall insulation is the most cost-effective retrofit at EUR28 per kWh/m2/yr saved -- but the published performance gap literature warns that actual energy savings from retrofits are only 50-70% of what BER improvement predicts"
 metric_name: "MAE on BER Energy Value (kWh/m2/yr) regression; 5-fold stratified cross-validation; 100k synthetic BER certificates calibrated to SEAI published statistics"
 metric_value: "Baseline CV MAE 61.04 (XGBoost); Tournament winner 55.51 (ExtraTrees); Final CV MAE 33.03 (+46% improvement); Holdout MAE 30.60, R2=0.921"
 tags: ["energy", "buildings", "BER", "DEAP", "performance-gap", "retrofit", "Ireland", "SEAI", "prebound", "rebound", "housing", "XGBoost", "ExtraTrees", "hypothesis-driven-research"]
 ---
+
+*This is a short summary. For the full technical write-up, see the [detailed paper](https://github.com/colinjoc/hdr_autoresearch/blob/master/applications/ber_energy_gap/paper.md).*
 
 ## The Problem
 

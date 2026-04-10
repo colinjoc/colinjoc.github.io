@@ -2,13 +2,15 @@
 title: "Live Fuel Moisture from Sentinel-2 Outpredicts the Fire Weather Index for Very Large Fires in Iberia"
 date: 2026-04-09
 weight: 6
-blurb: "What predicts when an Iberian wildfire becomes a very large fire? Satellite-derived live fuel moisture outpredicts the operational Fire Weather Index that fire services currently use."
+blurb: "What predicts when a wildfire becomes catastrophic? Satellite measurements of how dry the vegetation actually is outpredict the fire danger index that fire services currently use."
 domain: "Environment / Wildfire Risk"
 headline: "Satellite-derived live fuel moisture (LFMC) alone achieves AUC 0.725 vs the operational Fire Weather Index at 0.701 for predicting very large fire (>500 ha) transitions in Portugal and Spain. Combining FWI + LFMC + drought index reaches AUC 0.807. A Ridge logistic classifier with 20 features achieves holdout AUC 0.795 on the 2025 fire season and correctly flags the August 2025 NW Iberia 22-VLF cluster (AUC 0.816)."
 metric_name: "AUC on holdout year (2025 fire season)"
 metric_value: "Baseline XGBoost: 0.643 → Ridge with LFMC+SPEI: 0.795 (+15.2 pp); LFMC alone (0.725) beats FWI alone (0.701) as single predictor"
 tags: ["environment", "wildfire", "remote-sensing", "mediterranean", "sentinel-2", "fire-weather-index", "drought", "iberia"]
 ---
+
+*This is a short summary. For the full technical write-up, see the [detailed paper](https://github.com/colinjoc/hdr_autoresearch/blob/master/applications/iberian_wildfire/paper.md).*
 
 ## The Problem
 

@@ -2,13 +2,15 @@
 title: "The Night-Time Wet-Bulb Hypothesis Does Not Survive a Pre-Registered Test on 9,276 City-Weeks"
 date: 2026-04-09
 weight: 1
-blurb: "Does night-time humidity predict which heat waves kill? We pre-registered 22 hypotheses and tested across 30 cities. The answer is no — and it survives 10 robustness checks."
+blurb: "Does night-time humidity predict which heat waves kill? We tested 22 pre-registered hypotheses across 30 cities. The answer is no — and it holds up across 10 different ways of checking."
 domain: "Public Health / Climate Hazards"
 headline: "REFUTED — of 22 flagship night-time wet-bulb hypotheses tested against a tight atmospheric baseline on 30 US + EU cities x 13 years, only one keeps, and that one is a 4-week memory signal not a physiology signal; the literature's night-Tw threshold rule is operationally worse than a dry-bulb strawman in a counterfactual early-warning-system evaluation"
 metric_name: "Lethal-heatwave-week classifier Area Under the Receiver Operating Characteristic curve (AUC-ROC) on a 9,276-city-week panel; Mean Absolute Error in deaths per week on the weekly excess-deaths regression target"
 metric_value: "Phase 2 best MAE 40.33 deaths/week (15.1% improvement over baseline 47.49) with ZERO night-Tw features in the winning set; R09 binary classifier AUC 0.9804 without night-Tw; HDR minimal detector AUC 0.9696 on 2 features"
 tags: ["public-health", "climate", "heat-mortality", "wet-bulb", "hypothesis-testing", "negative-result", "early-warning-systems"]
 ---
+
+*This is a short summary. For the full technical write-up, see the [detailed paper](https://github.com/colinjoc/hdr_autoresearch/blob/master/applications/heat_mortality/paper.md).*
 
 ## The Problem
 

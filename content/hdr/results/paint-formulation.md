@@ -2,13 +2,15 @@
 title: "Hypothesis-Driven Research Beats Published Bayesian-Optimisation Baseline on Real Lacquer Data"
 date: 2026-04-09
 weight: 13
-blurb: "We re-analysed a published lacquer dataset with 204 pre-registered experiments and beat the authors Gaussian Process baseline by 13-28% on 3 of 4 targets. Per-target model selection matters more than a unified model."
+blurb: "We re-tested a published lacquer dataset with 204 experiments and found a better approach: choose a different model for each paint property instead of forcing one model to do everything."
 domain: "Coatings / Materials Science"
 headline: "Per-target physics-informed ensemble cuts the published Gaussian-Process baseline's MAE by 12.7% on gloss, 23.0% on hiding power, 27.9% on cupping (and ties on scratch hardness) on the Borgert et al. 2024 PURformance dataset"
 metric_name: "Mean Absolute Error against the published Gaussian Process baseline on the PURformance 2K polyurethane lacquer dataset"
 metric_value: "−12.7% gloss, −23.0% hiding power, −27.9% cupping (3 of 4 targets, real measured data)"
 tags: ["materials", "coatings", "small-data", "reproduction", "physics-informed"]
 ---
+
+*This is a short summary. For the full technical write-up, see the [detailed paper](https://github.com/colinjoc/hdr_autoresearch/blob/master/applications/paint_formulation/paper.md).*
 
 ## The Problem
 

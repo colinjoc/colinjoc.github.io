@@ -2,13 +2,15 @@
 title: "When the Linear Baseline Is Almost as Good: A 3D-Printing Strength Predictor at N=50"
 date: 2026-04-09
 weight: 12
-blurb: "Can ML improve 3D-printing strength prediction on just 50 samples? Barely — only 1 of 50 experiments kept. But a discovered print recipe dominates the slicer default by 59% strength and 54% less time."
+blurb: "Can machine learning improve 3D-printing strength on just 50 samples? Barely — only 1 of 50 experiments improved the baseline. But a discovered print recipe is 59% stronger and 54% faster than the slicer default."
 domain: "Additive Manufacturing"
 headline: "1 KEEP out of 50 hypothesis-driven experiments — and a discovered Polylactic Acid recipe that dominates the Cura slicer default by +59% strength, −54% time, −51% energy on a tiny dataset"
 metric_name: "Tensile-strength prediction Mean Absolute Error on a Fused Deposition Modelling dataset"
 metric_value: "4.2921 MPa (3.4% improvement over baseline 4.4421 MPa)"
 tags: ["additive-manufacturing", "small-data", "physics-informed", "discovery", "occam"]
 ---
+
+*This is a short summary. For the full technical write-up, see the [detailed paper](https://github.com/colinjoc/hdr_autoresearch/blob/master/applications/3d_printing/paper.md).*
 
 ## The Problem
 

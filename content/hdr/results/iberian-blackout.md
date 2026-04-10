@@ -2,13 +2,15 @@
 title: "Can Public Grid Data Predict a Blackout? Testing the Limits on the 2025 Iberian Cascade"
 date: 2026-04-09
 weight: 9
-blurb: "Could the April 2025 Iberian blackout have been predicted from public data? Partially — the model ranks pre-cascade hours in the top 10% of risk — but the data needed for real prediction does not exist publicly."
+blurb: "Could the April 2025 Iberian blackout have been predicted from public data? Partially — but the data needed for real prediction simply does not exist publicly. The gap is data type, not quantity."
 domain: "Energy / Power System Stability"
 headline: "A frequency excursion predictor trained on publicly available ENTSO-E generation and load data for Spain (2023-2025) achieves holdout AUC 0.888 on the 28 April 2025 Iberian blackout day and ranks the pre-cascade hours in the top 10% of historical risk -- but cannot produce a binary alert (max predicted probability 0.10), demonstrating that public 15-minute data provides a useful risk-ranking signal but is fundamentally insufficient for operational cascade prediction"
 metric_name: "AUC-ROC on binary frequency excursion (>200 mHz from 50 Hz) classification; 5-fold temporal cross-validation; holdout = April 28, 2025"
 metric_value: "Baseline CV AUC 0.613; Phase 2 winner CV AUC 0.640 (+4.4%); holdout AUC 0.888; pre-cascade hours ranked top 10%; binary detection failed (max P=0.101)"
 tags: ["energy", "power-systems", "blackout", "cascading-failure", "frequency-stability", "renewable-integration", "SNSP", "inertia", "XGBoost", "ENTSO-E", "hypothesis-driven-research"]
 ---
+
+*This is a short summary. For the full technical write-up, see the [detailed paper](https://github.com/colinjoc/hdr_autoresearch/blob/master/applications/iberian_blackout/paper.md).*
 
 ## The Problem
 

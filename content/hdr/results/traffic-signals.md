@@ -2,13 +2,15 @@
 title: "A 20-Line Rule Matches Deep RL for Traffic Signals"
 date: 2026-04-10
 weight: 14
-blurb: "Can a simple rule-based controller match deep reinforcement learning for traffic signals? Yes — a 20-line adaptive rule matches the RL benchmark, and we can explain exactly why it works."
+blurb: "Can a simple rule match a sophisticated AI for traffic signal timing? Yes — a 20-line rule matches the AI benchmark, and unlike the AI, we can explain exactly why it works."
 domain: "Transportation Engineering"
 headline: "Two parameters cut wait times by 49% on the standard traffic simulator — matching deep reinforcement learning with no training"
 metric_name: "Average Wait Time reduction vs Webster optimal fixed-time controller (7 scenarios)"
 metric_value: "−49.10% mean, −59.8% on the high-demand scenario"
 tags: ["transportation", "control", "reinforcement-learning", "discovery", "occam"]
 ---
+
+*This is a short summary. For the full technical write-up, see the [detailed paper](https://github.com/colinjoc/hdr_autoresearch/blob/master/applications/traffic_signals/paper.md).*
 
 ## The Problem
 

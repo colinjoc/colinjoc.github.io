@@ -2,13 +2,15 @@
 title: "The Airtight Home on Uranium Bedrock: Where Ireland's Energy Retrofits May Be Creating a Hidden Radon Problem"
 date: 2026-04-09
 weight: 4
-blurb: "Can we predict dangerous radon levels from geology and building data alone? Yes — and we found that energy-efficient airtight homes on uranium bedrock have 1.26x the radon risk of leaky ones."
+blurb: "Can we predict dangerous radon from geology and building data alone? Yes — and energy-efficient airtight homes on uranium bedrock have significantly higher radon risk than leaky ones nearby."
 domain: "Environmental Health / Geology / Building Science"
 headline: "An XGBoost classifier trained on Tellus airborne radiometric data, bedrock and quaternary geology, and BER building characteristics achieves AUC 0.79 under spatial cross-validation (grouped by county) for predicting Ireland's High Radon Areas -- improving from 0.59 baseline through 20 HDR experiments. The headline finding: areas with energy-efficient A/B-rated homes on high-radon geology have 1.26x the predicted radon risk of areas with leaky E/F/G-rated homes on the same geology, confirming the EPA UNVEIL finding at national scale. 27 hidden danger zones identified where radon risk is high, BER rating is high, and no measurement exists."
 metric_name: "AUC for High Radon Area classification; 5-fold spatial CV grouped by county; ~3,400 Electoral Divisions"
 metric_value: "Baseline CV AUC 0.591 (XGBoost, 8 geological features); Final CV AUC 0.794 (20 features including building data); +0.203 improvement; Holdout AUC 0.805"
 tags: ["radon", "geology", "uranium", "Ireland", "BER", "energy-efficiency", "retrofit", "airtightness", "EPA", "GSI", "Tellus", "radiometric", "XGBoost", "spatial-CV", "hidden-risk", "lung-cancer", "hypothesis-driven-research"]
 ---
+
+*This is a short summary. For the full technical write-up, see the [detailed paper](https://github.com/colinjoc/hdr_autoresearch/blob/master/applications/irish_radon/paper.md).*
 
 ## The Problem
 

@@ -2,13 +2,15 @@
 title: "It Was the Plane, Not the Weather: Decomposing Flight Delay Propagation Through US Airline Networks"
 date: 2026-04-09
 weight: 7
-blurb: "When your flight is delayed, is it weather, congestion, or the plane itself? Aircraft rotation chains account for 91.5% of predictable delay. The fix: 15 minutes of buffer on 15 routes saves 240,000 delay-minutes."
+blurb: "When your flight is delayed, is it weather, congestion, or the plane itself? It is almost always the plane — the aircraft arriving late from its previous leg explains nearly all predictable delay."
 domain: "Transport / Aviation Operations"
 headline: "A delay propagation model trained on 528,714 synthetic US domestic flights reveals that the aircraft tail-number rotation chain accounts for 91.5% of predictable delay variance -- the interaction between previous-leg delay and carrier buffer strategy is the single most important predictor, confirming that tight-schedule carriers propagate nearly twice as much delay as padded carriers, and that adding 15 minutes of turnaround buffer to the 15 highest-impact routes would save an estimated 240,000 delay-minutes"
 metric_name: "MAE (minutes) on arrival delay regression; R-squared; AUC on binary delay>30min classification; 5-fold temporal cross-validation"
 metric_value: "Baseline CV MAE 20.88 min, R2 0.310; Tournament winner XGBoost; Phase 2 final ~17.83 MAE; Propagation features = 91.5% of R2; prev_leg_delay_x_buffer importance 35.7%; Ridge competitive at MAE 20.63"
 tags: ["transport", "aviation", "flight-delay", "delay-propagation", "tail-number", "rotation-chain", "airline-scheduling", "buffer-strategy", "XGBoost", "network-science", "BTS", "hypothesis-driven-research"]
 ---
+
+*This is a short summary. For the full technical write-up, see the [detailed paper](https://github.com/colinjoc/hdr_autoresearch/blob/master/applications/flight_delays/paper.md).*
 
 ## The Problem
 
