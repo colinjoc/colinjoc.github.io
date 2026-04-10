@@ -9,7 +9,7 @@ title: "Colin O'Callaghan"
 
 ## About
 
-This site has some thoughts on AI and its applications. Feel free to get in touch via [GitHub](https://github.com/colinjoc) or [LinkedIn](https://www.linkedin.com/in/REPLACE-ME).
+This site has some thoughts on AI and its applications. Feel free to get in touch via [GitHub](https://github.com/colinjoc) or [LinkedIn](https://www.linkedin.com/in/colin-j-o-callaghan).
 
 ## What's Here
 
