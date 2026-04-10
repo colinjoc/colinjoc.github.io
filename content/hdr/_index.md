@@ -4,7 +4,7 @@ title: "HDR Methodology"
 
 ## Hypothesis-Driven Research
 
-HDR is a systematic methodology for finding **novel solutions** to scientific and engineering problems. The search explores across the idea space, not just a hill climb from where it started (as could be argued [AutoResearch](https://github.com/suzgunmirac/auto-research) does). It applies to any domain where you can evaluate a hypothesis computationally — whether that's fitting a model to data or running a physics simulation.
+HDR is a systematic methodology for finding **novel solutions** to scientific and engineering problems. The search explores across the idea space, not just a hill climb from where it started (as could be argued [AutoResearch](https://github.com/karpathy/autoresearch) does). It applies to any domain where you can evaluate a hypothesis computationally — whether that's fitting a model to data or running a physics simulation.
 
 ### The Core Loop
 
