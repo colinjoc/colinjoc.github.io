@@ -81,4 +81,4 @@ This study uses synthetic BER data, not the actual SEAI dataset. The performance
 
 ---
 
-*Built with the [HDR methodology]({{< ref "/hdr/methodology" >}}). Source code at `applications/ber_energy_gap/`.*
+*Built with the [HDR methodology](/hdr/). Source code at `applications/ber_energy_gap/`.*

@@ -137,4 +137,4 @@ For operational fire management, an LFMC-augmented danger rating would give fire
 
 Source code: [`applications/iberian_wildfire/`](https://github.com/colmconn/generalized_hdr_autoresearch/tree/main/applications/iberian_wildfire)
 
-Built with the [HDR methodology]({{< ref "/hdr/methodology" >}}).
+Built with the [HDR methodology](/hdr/).

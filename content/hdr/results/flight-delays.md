@@ -148,4 +148,4 @@ No actual weather data (METAR observations) were used. Adding direct weather fea
 
 *Source code: [generalized_hdr_autoresearch/applications/flight_delays](https://github.com/colurw/generalized_hdr_autoresearch)*
 
-*Methodology: [Hypothesis-Driven Research protocol](/hdr/methodology/)*
+*Methodology: [Hypothesis-Driven Research protocol](/hdr/)*

@@ -111,4 +111,4 @@ The model is trained on calibrated synthetic data matching published Irish radon
 
 *Full code, 208-citation literature review, and 20-experiment results log available at [github.com/colinjoc/hdr_autoresearch/applications/irish_radon](https://github.com/colinjoc/hdr_autoresearch/tree/master/applications/irish_radon)*
 
-*This project was produced using the [HDR methodology](/hdr/methodology/) -- a systematic approach to scientific computing that treats model building as a series of pre-registered, single-change experiments with Bayesian priors and keep/revert decisions.*
+*This project was produced using the [HDR methodology](/hdr/) -- a systematic approach to scientific computing that treats model building as a series of pre-registered, single-change experiments with Bayesian priors and keep/revert decisions.*
