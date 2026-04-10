@@ -10,8 +10,8 @@ This site outlines Hypothesis-Driven Research, an autonomous methodology for fin
 
 ## What's Here
 
-**[AI Design Principles](/principles/)** — How I think about building with AI.
+**[HDR Results Portfolio](/hdr/results/)** — All completed projects and findings.
 
 **[HDR Methodology](/hdr/)** — The Hypothesis-Driven Research framework: literature review, pre-registered experiments, and automated discovery.
 
-**[HDR results portfolio](/hdr/results/)** — All completed projects and findings.
+**[AI Design Principles](/principles/)** — How I think about building with AI.
