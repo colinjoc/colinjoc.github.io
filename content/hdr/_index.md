@@ -33,6 +33,16 @@ Every experiment follows an 8-step cycle:
 
 **Simulation-based**: Optimise designs via GPU-accelerated differentiable simulation. Find configurations that outperform published solutions under realistic physics constraints.
 
+### Adversarial Peer Review
+
+Every project passes through two independent review gates before publication. A separate AI agent — with no access to the research agent's conversation history — audits the work:
+
+**Results review** (after experiments, before writing): The reviewer re-runs experiments to check reproducibility, audits for cherry-picking, flags overclaiming, and proposes missing experiments. Any suggested experiments must be run — the research agent cannot decline.
+
+**Paper review** (after writing, before publishing): The reviewer reads only the paper — simulating a blind peer review. It checks whether claims match evidence, whether the headline carries appropriate qualifiers, and whether a reader could replicate the work. Again, any suggested experiments must be run and the results reported honestly, even if they weaken the headline.
+
+No project is published to this site until the reviewer signs off.
+
 ### The Key Principle
 
 > **The goal is DISCOVERY, not model-fitting.** An R² of 0.95 on a known dataset is infrastructure. The novel result is what the model *finds*: new materials, new designs, new physical insights.
