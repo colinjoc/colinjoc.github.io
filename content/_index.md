@@ -1,15 +1,15 @@
 ---
-title: "Col"
+title: "Colin O'Callaghan"
 ---
 
 <div class="hero">
-<h1>Col</h1>
+<h1>Colin O'Callaghan</h1>
 <p>AI-assisted research across science and engineering.</p>
 </div>
 
 ## About
 
-*[Your blurb here — who you are, what you do, what you care about.]*
+This site has some thoughts on AI and its applications. Feel free to get in touch via [GitHub](https://github.com/colinjoc) or [LinkedIn](https://www.linkedin.com/in/REPLACE-ME).
 
 ## What's Here
 
@@ -17,4 +17,4 @@ title: "Col"
 
 **[HDR Methodology](/hdr/)** — Hypothesis-Driven Research: a systematic methodology for finding novel solutions to scientific and engineering problems using GPU-accelerated simulation and ML.
 
-**[Results Portfolio](/hdr/results/)** — Completed HDR projects with findings. Each project produces genuine novel insights, not just model-fitting.
+**[HDR results portfolio](/hdr/results/)** — Completed HDR projects with findings. Each project produces genuine novel insights, not just model-fitting.

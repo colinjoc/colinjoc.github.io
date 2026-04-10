@@ -1,6 +1,6 @@
 baseURL = 'https://colinjoc.github.io/'
 languageCode = 'en-us'
-title = 'Col — AI Research & Engineering'
+title = "Colin O'Callaghan — AI Research"
 
 [params]
   description = 'Hypothesis-Driven Research across science and engineering'
