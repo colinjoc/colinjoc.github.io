@@ -21,10 +21,11 @@ Every experiment follows an 8-step cycle:
 
 ### Why It Works
 
-- **Literature review seeds many hypotheses** from different subfields — the search explores across the idea space, not just uphill from where it started
+- **Literature review seeds 100+ hypotheses** from different subfields — the search explores across the idea space, not just uphill from where it started
 - **Negative results accumulate** — the knowledge base prevents retreading dead ends
-- **Bayesian discipline** prevents both premature convergence and endless repetition
-- **Isolation principle** identifies which ideas actually contribute
+- **Bayesian discipline** prevents both premature convergence and endless repetition — priors are calibrated every 20 experiments, used to order work by expected information gain, and updated after each result to retire dead clusters and amplify productive ones
+- **Isolation principle** identifies which ideas actually contribute — after the main loop converges, an interaction sweep tests promising pairs of individually-rejected changes to catch combinatorial effects that single-variable testing misses
+- **Explicit impact scoring** ranks each hypothesis on expected effect size, novelty, and mechanistic clarity — with a mandatory 20% long-shot quota to prevent the queue from becoming purely confirmatory
 
 ### Two Problem Types
 
