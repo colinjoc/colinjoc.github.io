@@ -41,7 +41,8 @@ nav {
   flex-wrap: wrap;
   align-items: center;
 }
-nav .site-title { font-weight: 700; font-size: 1.6rem; margin-right: auto; }
+nav .site-title { font-weight: 700; font-size: 1.3rem; margin-right: auto; }
+nav .site-title a { font-size: inherit; }
 nav a { color: var(--muted); text-decoration: none; font-size: 0.78rem; }
 nav a:hover { color: var(--accent); }
 
