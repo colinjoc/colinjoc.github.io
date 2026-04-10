@@ -2,10 +2,7 @@
 title: "Colin O'Callaghan"
 ---
 
-<div class="hero">
-<h1>Colin O'Callaghan</h1>
-<p>AI-assisted research across science and engineering.</p>
-</div>
+AI-assisted research across science and engineering.
 
 ## About
 
