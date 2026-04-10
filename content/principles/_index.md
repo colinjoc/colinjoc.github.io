@@ -20,3 +20,7 @@ Intelligence is memory plus prediction. Working with AI is no different.
 
 State your prior before you look at the data. Update only on evidence. Anything else is narrative dressed up as research.
 
+## 4. Information is data that helps you make predictions. The rest is noise.
+
+Data that doesn't improve a prediction isn't information. It is noise (entropy).
+
