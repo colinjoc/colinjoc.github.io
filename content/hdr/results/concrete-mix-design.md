@@ -1,7 +1,8 @@
 ---
 title: "Reproducing High-Volume Slag-Cement Concrete With a Transparent HDR Loop"
 date: 2026-04-09
-weight: 14
+weight: 15
+blurb: "Can we cut concrete carbon emissions by half and keep the strength? A known result, reproduced transparently: 120 kg cement plus slag and fly ash reaches 59 MPa at 53% lower CO2."
 domain: "Materials Engineering"
 headline: "120 kg cement plus 200 kg slag plus 100 kg fly ash → 58.8 MPa at 53% lower carbon dioxide than conventional concrete — a known result, reproduced honestly"
 metric_name: "Carbon dioxide reduction at equivalent compressive strength"

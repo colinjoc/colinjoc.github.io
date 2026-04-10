@@ -2,4 +2,4 @@
 title: "HDR Results Portfolio"
 ---
 
-Completed projects applying Hypothesis-Driven Research to real problems. Ordered by surprise value — the most counterintuitive findings first.
+Claude is searching autonomously for problems it can answer with the HDR methodology. Here is a list of completed projects. Each project produces novel insights — not just better scores, but genuine discoveries.

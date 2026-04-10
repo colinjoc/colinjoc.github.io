@@ -8,8 +8,7 @@
   <a class="card" href="{{ .Permalink }}">
     {{ if .Params.domain }}<div class="domain">{{ .Params.domain }}</div>{{ end }}
     <h3>{{ .Title }}</h3>
-    {{ if .Params.headline }}<div class="headline">{{ .Params.headline }}</div>{{ end }}
-    {{ if .Params.metric_value }}<div class="metric">{{ .Params.metric_name }}: {{ .Params.metric_value }}</div>{{ end }}
+    {{ if .Params.blurb }}<div class="headline">{{ .Params.blurb }}</div>{{ else if .Params.headline }}<div class="headline">{{ .Params.headline }}</div>{{ end }}
   </a>
   {{ end }}
 </div>

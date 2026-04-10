@@ -2,6 +2,7 @@
 title: "Why DART Collapsed: Predicting Cascading Delay Days on Dublin's Commuter Rail"
 date: 2026-04-09
 weight: 5
+blurb: "Why did DART punctuality collapse from 93% to 65% in four months? The answer is the September 2024 timetable change — it accounts for 49% of the signal. Not weather, not signalling."
 domain: "Transport / Railway Operations"
 headline: "A cascading delay day predictor trained on synthetic daily-punctuality data calibrated to published Irish Rail reports (2023-2025) achieves cross-validated AUC 0.971 and holdout AUC 1.000, identifying the September 2024 timetable change as the dominant mechanism behind DART's punctuality collapse from 92.8% to 64.5% -- the timetable-wind interaction is the strongest single HDR feature, confirming that reduced buffer times made the system structurally fragile to weather"
 metric_name: "AUC-ROC on binary bad-day classification (>15% of DART services delayed >5 min); 5-fold temporal cross-validation; holdout = last 3 months"
