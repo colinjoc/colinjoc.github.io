@@ -4,7 +4,7 @@
 {{ $pages := .Pages }}
 {{ if $pages }}
 <div class="card-grid">
-  {{ range $pages.ByDate.Reverse }}
+  {{ range $pages.ByWeight }}
   <a class="card" href="{{ .Permalink }}">
     {{ if .Params.domain }}<div class="domain">{{ .Params.domain }}</div>{{ end }}
     <h3>{{ .Title }}</h3>

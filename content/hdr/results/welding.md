@@ -1,6 +1,7 @@
 ---
 title: "Refuting the Textbook Heat-Input Hypothesis: Cooling Time Beats Heat Input 5× on Arc-Welding HAZ Prediction"
 date: 2026-04-09
+weight: 9
 domain: "Manufacturing / Welding Metallurgy"
 headline: "H1 REFUTED — heat input alone gives R²=0.485, not the textbook ≥0.80; the Rosenthal cooling time t_8/5 adds 5× more accuracy than heat input on its own; 30.5% MAE improvement over the raw-features baseline"
 metric_name: "Heat-Affected Zone (HAZ) half-width prediction Mean Absolute Error on arc-welding parameters"

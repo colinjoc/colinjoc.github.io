@@ -1,6 +1,7 @@
 ---
 title: "Decomposing AI-Discovered Gravitational-Wave Detectors"
 date: 2026-04-10
+weight: 10
 domain: "Physics / Gravitational-Wave Instrumentation"
 headline: "The best AI-discovered detector improves on LIGO Voyager by 4.05× — via a multi-input topology with no classical analogue"
 metric_name: "Log-averaged strain improvement over LIGO Voyager (800–3000 Hz)"

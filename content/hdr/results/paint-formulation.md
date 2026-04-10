@@ -1,6 +1,7 @@
 ---
 title: "Hypothesis-Driven Research Beats Published Bayesian-Optimisation Baseline on Real Lacquer Data"
 date: 2026-04-09
+weight: 12
 domain: "Coatings / Materials Science"
 headline: "Per-target physics-informed ensemble cuts the published Gaussian-Process baseline's MAE by 12.7% on gloss, 23.0% on hiding power, 27.9% on cupping (and ties on scratch hardness) on the Borgert et al. 2024 PURformance dataset"
 metric_name: "Mean Absolute Error against the published Gaussian Process baseline on the PURformance 2K polyurethane lacquer dataset"

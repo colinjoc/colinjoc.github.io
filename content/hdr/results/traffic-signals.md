@@ -1,6 +1,7 @@
 ---
 title: "A 20-Line Rule Matches Deep RL for Traffic Signals"
 date: 2026-04-10
+weight: 13
 domain: "Transportation Engineering"
 headline: "Two parameters cut wait times by 49% on the standard traffic simulator — matching deep reinforcement learning with no training"
 metric_name: "Average Wait Time reduction vs Webster optimal fixed-time controller (7 scenarios)"

@@ -1,6 +1,7 @@
 ---
 title: "120 Pre-Registered Experiments Could Not Beat the Baseline — Until We Looked at the One City That Publishes Per-Stage Timestamps"
 date: 2026-04-09
+weight: 3
 domain: "Urban Operations / Public Services"
 headline: "XGBoost with 13 raw features plateaus at MAE 89.40 days across 5 US cities — every one of 120 single-change experiments reverted. Adding two Seattle-only stage columns collapses MAE to 24.68 days (3.6x improvement). The bottleneck was data access, not modelling."
 metric_name: "Mean Absolute Error on building permit duration (days)"

@@ -1,6 +1,7 @@
 ---
 title: "Why Does an A-Rated Irish Home Use Almost the Same Energy as a G-Rated One?"
 date: 2026-04-09
+weight: 7
 domain: "Energy / Building Performance"
 headline: "An ExtraTrees model trained on 100,000 synthetic BER certificates achieves R2=0.88 predicting DEAP-calculated energy values, revealing that dwelling form factor (surface-to-volume ratio) is the single most powerful predictor of BER rating, and that cavity wall insulation is the most cost-effective retrofit at EUR28 per kWh/m2/yr saved -- but the published performance gap literature warns that actual energy savings from retrofits are only 50-70% of what BER improvement predicts"
 metric_name: "MAE on BER Energy Value (kWh/m2/yr) regression; 5-fold stratified cross-validation; 100k synthetic BER certificates calibrated to SEAI published statistics"

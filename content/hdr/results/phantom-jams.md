@@ -1,6 +1,7 @@
 ---
 title: "Four Smart Cars Dissolve a Phantom Traffic Jam on the Sugiyama Ring Road"
 date: 2026-04-09
+weight: 2
 domain: "Transportation / Traffic Flow Control"
 headline: "Four Adaptive Cruise Control (ACC) vehicles among 22 human drivers (18.2% penetration) reduce phantom traffic jam wave amplitude from 8.17 to 0.55 m/s (93.3% reduction) on the canonical Sugiyama ring road; the transition is sharp -- three ACC vehicles (13.6%) still leave a 1.77 m/s wave; FollowerStopper requires 22.7% penetration for comparable suppression but imposes a 61% throughput penalty"
 metric_name: "Wave amplitude (mean per-timestep max-min velocity in steady-state window) on a 22-vehicle / 230-metre Intelligent Driver Model ring road; secondary metrics: velocity variance, throughput (Edie's generalised definition), fuel proxy (VT-Micro simplified), minimum spacing"

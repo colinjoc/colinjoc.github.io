@@ -1,6 +1,7 @@
 ---
 title: "The Night-Time Wet-Bulb Hypothesis Does Not Survive a Pre-Registered Test on 9,276 City-Weeks"
 date: 2026-04-09
+weight: 1
 domain: "Public Health / Climate Hazards"
 headline: "REFUTED — of 22 flagship night-time wet-bulb hypotheses tested against a tight atmospheric baseline on 30 US + EU cities x 13 years, only one keeps, and that one is a 4-week memory signal not a physiology signal; the literature's night-Tw threshold rule is operationally worse than a dry-bulb strawman in a counterfactual early-warning-system evaluation"
 metric_name: "Lethal-heatwave-week classifier Area Under the Receiver Operating Characteristic curve (AUC-ROC) on a 9,276-city-week panel; Mean Absolute Error in deaths per week on the weekly excess-deaths regression target"

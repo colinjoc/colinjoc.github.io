@@ -1,6 +1,7 @@
 ---
 title: "Can Public Grid Data Predict a Blackout? Testing the Limits on the 2025 Iberian Cascade"
 date: 2026-04-09
+weight: 8
 domain: "Energy / Power System Stability"
 headline: "A frequency excursion predictor trained on publicly available ENTSO-E generation and load data for Spain (2023-2025) achieves holdout AUC 0.888 on the 28 April 2025 Iberian blackout day and ranks the pre-cascade hours in the top 10% of historical risk -- but cannot produce a binary alert (max predicted probability 0.10), demonstrating that public 15-minute data provides a useful risk-ranking signal but is fundamentally insufficient for operational cascade prediction"
 metric_name: "AUC-ROC on binary frequency excursion (>200 mHz from 50 Hz) classification; 5-fold temporal cross-validation; holdout = April 28, 2025"

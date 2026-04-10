@@ -1,6 +1,7 @@
 ---
 title: "When the Linear Baseline Is Almost as Good: A 3D-Printing Strength Predictor at N=50"
 date: 2026-04-09
+weight: 11
 domain: "Additive Manufacturing"
 headline: "1 KEEP out of 50 hypothesis-driven experiments — and a discovered Polylactic Acid recipe that dominates the Cura slicer default by +59% strength, −54% time, −51% energy on a tiny dataset"
 metric_name: "Tensile-strength prediction Mean Absolute Error on a Fused Deposition Modelling dataset"
