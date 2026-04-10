@@ -1,0 +1,13 @@
+{{ define "main" }}
+{{ .Content }}
+
+{{ $results := where .Site.RegularPages "Section" "hdr" }}
+{{ $results = where $results ".Params.weight" "!=" nil }}
+{{ $top3 := first 3 ($results.ByWeight) }}
+{{ if $top3 }}
+<h2>Surprising Results</h2>
+{{ range $top3 }}
+<p><strong><a href="{{ .Permalink }}">{{ .Title }}</a></strong> — {{ .Params.headline }}</p>
+{{ end }}
+{{ end }}
+{{ end }}
