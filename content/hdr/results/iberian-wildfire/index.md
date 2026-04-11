@@ -1,10 +1,10 @@
 ---
-title: "Recent Fire Activity Predicts Catastrophic Wildfire Weeks Better Than Historical Fire Danger"
+title: "Lagged Fire Activity Outperforms Seasonal Climatology for Predicting Catastrophic Wildfire Weeks"
 date: 2026-04-10
 weight: 6
-blurb: "Which weeks on the Iberian Peninsula produce catastrophic wildfires? We tested three predictor families using 14 years of real satellite fire data. Recent fire dynamics -- not traditional fire danger indices -- are the strongest signal."
+blurb: "Which weeks on the Iberian Peninsula produce catastrophic wildfires? We tested three predictor families derived from fire activity data using 14 years of satellite observations. Recent fire dynamics -- not historical seasonal patterns -- are the strongest signal, even after controlling for fire persistence."
 domain: "Wildfire Risk / Mediterranean Fire Ecology"
-tags: ["wildfire", "fire-risk", "Portugal", "Spain", "Iberian-Peninsula", "EFFIS", "very-large-fires", "fire-weather-index", "fuel-moisture", "MODIS", "temporal-cross-validation"]
+tags: ["wildfire", "fire-risk", "Portugal", "Spain", "Iberian-Peninsula", "EFFIS", "very-large-fires", "autoregressive", "MODIS", "temporal-cross-validation"]
 ---
 
 *This is a short summary. For the full technical write-up, see the [detailed paper](https://github.com/colinjoc/hdr_autoresearch/blob/master/applications/iberian_wildfire/paper.md).*
@@ -13,52 +13,59 @@ tags: ["wildfire", "fire-risk", "Portugal", "Spain", "Iberian-Peninsula", "EFFIS
 
 The Iberian Peninsula burns more than any other part of Western Europe. Portugal and Spain between them lose hundreds of thousands of hectares of forest every year, and in extreme years -- 2017, 2022, 2025 -- the losses reach catastrophic levels. In June 2017, the Pedrogao Grande fire killed 66 people in central Portugal. In August 2025, 22 simultaneous very large fires overwhelmed suppression capacity across northwestern Iberia.
 
-Not all fire weeks are equal. Most weeks during the fire season produce moderate burning that suppression crews can contain. But a small fraction of weeks -- roughly one in eight -- produce very large fires that account for the vast majority of total burned area and virtually all fire fatalities. If those weeks could be identified in advance, resources could be pre-positioned and alerts escalated before fires grow beyond control.
+Not all fire weeks are equal. Most weeks during the fire season produce moderate burning that suppression crews can contain. But a small fraction of weeks -- roughly one in eight -- produce very large fires (VLFs, over 5,000 hectares burned at the country level) that account for the vast majority of total burned area and virtually all fire fatalities.
 
-The standard tool is the Fire Weather Index (FWI), a system originally developed for Canadian boreal forests and now used operationally across the European Union. A competing approach uses satellite-derived live fuel moisture content (LFMC), which measures how dry the living vegetation actually is. A third approach tracks cumulative drought stress. We asked: which of these three predictor families best identifies the weeks that produce very large fires?
+We asked: what signals from fire activity data best identify these catastrophic weeks? We constructed three predictor families from satellite-detected fire observations: seasonal climatology (what usually burns each week of the year), recent fire dynamics (how current burning compares to historical norms and what burned in recent weeks), and cumulative season stress (total fire activity year-to-date). We deliberately did not include actual meteorological data (temperature, humidity, wind, the Fire Weather Index) in this study, which limits the scope of our conclusions.
 
 ## What We Found
 
-We used 14 years (2012-2025) of real weekly fire statistics from the European Forest Fire Information System (EFFIS), covering every detected wildfire in Portugal and Spain. We tested three predictor families using strict temporal cross-validation -- always training on past years and testing on future years, never allowing information leakage.
+We used 14 years (2012-2025) of real weekly fire statistics from the European Forest Fire Information System (EFFIS), covering every detected wildfire in Portugal and Spain. We tested predictor families using strict temporal cross-validation -- always training on past years and testing on future years -- with 95% bootstrap confidence intervals.
 
-- Recent fire activity dynamics -- how this week's burning compares to historical patterns, what happened last week and the week before -- far outperform traditional fire weather indices for predicting very large fire weeks. The fuel moisture proxy achieves a cross-validated area under the receiver operating characteristic curve (AUC) of 0.952, versus 0.809 for fire weather features alone.
-- Combining all three predictor families does not improve over the full baseline model. The fuel moisture proxy carries the dominant signal; adding fire weather and drought features on top provides no additional lift.
-- Gradient-boosted trees (XGBoost) achieve a cross-validated AUC of 0.993 and perfect identification of all 14 very large fire weeks in the 2025 holdout year. Logistic regression achieves AUC 0.926 -- strong but not as effective as the tree-based models.
-- The top predictors are historical average burned area for each week (capturing seasonal fire climatology), the ratio of current-week fire activity to the historical average (the anomaly signal), and previous-week burned area (the momentum signal).
+**Recent fire activity features dominate.** The ratio of current burning to historical averages, plus lagged burned area from the previous 1-2 weeks, achieves a cross-validated area under the receiver operating characteristic curve (AUC) of 0.952 (95% confidence interval: 0.934-0.968). Seasonal climatology features alone achieve AUC 0.809 (CI: 0.768-0.848). The confidence intervals do not overlap. This advantage holds with both Ridge logistic regression and XGBoost, and across VLF thresholds from 1,000 to 20,000 hectares.
 
-![Recent fire dynamics outperform fire weather indices for predicting very large fire weeks](plots/headline_finding.png)
+**But nearly half of VLF weeks are persistence events.** 47% of VLF weeks are immediately preceded by another VLF week -- the same fire burning across a weekly boundary. A trivial persistence baseline (predict VLF from last week's burned area alone) achieves AUC 0.814. When we restrict evaluation to VLF onset events only (excluding weeks that continue an existing VLF), the recent fire activity advantage persists (AUC 0.921 vs. 0.799) but the overall metrics are modestly lower. This means the model is partly detecting fires that are already burning, which is less useful operationally than predicting new VLF onset.
 
-## Why That's Surprising
+**Tree models substantially outperform linear models.** XGBoost achieves AUC 0.993 in temporal cross-validation, compared to 0.926 for Ridge logistic regression, indicating nonlinear threshold effects in VLF transitions. Per-year analysis shows XGBoost exceeds AUC 0.977 in every test year from 2015 to 2025.
 
-The expectation from the fire science literature was that fire weather -- temperature, humidity, wind, precipitation combined into the FWI system -- would be the primary predictor of which weeks produce very large fires. The FWI system is the operational standard across the European Union, and billions of euros in suppression resource allocation decisions are made on the basis of FWI forecasts.
+![Predictor family comparison: recent fire activity features outperform seasonal climatology in both Ridge and XGBoost](plots/headline_finding.png)
 
-What we found instead is that the strongest predictor of a very large fire week is what has been burning recently. This makes physical sense -- a week of active large fires indicates that the fuel moisture, wind, and drought conditions are already aligned for extreme fire behavior. But it inverts the operational logic. The current approach asks "will weather conditions support large fires?" The more predictive approach asks "are conditions already producing large fires?"
+## What This Does NOT Show
 
-The difference matters because fire weather can be extreme without producing large fires (when fuels are still green, or when ignitions are suppressed), and large fires can occur under apparently moderate fire weather (when drought has preconditioned fuels over weeks or months). Recent fire activity integrates all of these factors into a single observable signal.
+An earlier version of this paper claimed that "fuel moisture proxies outpredict fire weather indices." That claim was wrong, for three reasons:
 
-![The top predictors combine historical fire seasonality with recent fire anomalies](plots/feature_importance.png)
+1. **No actual fire weather data was used.** The seasonal climatology features (historical averages and maxima of fire activity) are not fire weather measurements. The Fire Weather Index is computed from temperature, humidity, wind, and precipitation. None of these variables were included.
 
-## What It Means
+2. **The "fuel moisture proxy" was not fuel moisture.** It was lagged fire activity -- an autoregressive feature, not a physical measurement of vegetation moisture content. Labelling it "LFMC" borrowed credibility from the remote-sensing fuel moisture literature.
 
-For fire managers on the Iberian Peninsula, this finding suggests a specific operational improvement: track not just forecasted fire weather but actual ongoing fire activity relative to seasonal expectations. When the ratio of current burning to historical average exceeds a threshold during fire season, escalate the alert level and pre-position heavy suppression resources. This "anomaly-based" alert would have correctly identified every very large fire week in the 2025 holdout test.
+3. **The comparison was between autoregressive features and a seasonal baseline.** Finding that "what is burning now" outpredicts "what usually burns this week" is expected because current conditions are more informative than long-term averages.
 
-The seasonal risk profile shows that Portugal's peak fire risk is concentrated in a narrow window from late July through September, while Spain's risk is more diffuse across the summer. Both countries show that late-season fires (September-October) are particularly dangerous when preceded by weeks of active burning -- the cumulative drought and fuel depletion create conditions for rapid fire growth.
+The revised paper uses honest terminology throughout: "recent fire activity" instead of "fuel moisture proxy," and "seasonal climatology" instead of "fire weather proxy." Whether actual meteorological fire weather indices are outperformed remains an open question requiring gridded reanalysis data.
 
-For the broader question of fire risk under climate change: if the predictive signal is dominated by recent fire activity rather than weather alone, then the increasing frequency and duration of fire seasons documented by climate projections will compound risk in a way that weather-based indices may underestimate. Each large fire week makes the next one more likely, creating a positive feedback that fixed fire weather thresholds cannot capture.
+![47% of VLF weeks are persistence events -- the same fire continuing across a weekly boundary](plots/persistence_analysis.png)
 
-![Seasonal risk profile for Portugal and Spain shows distinct fire regime patterns](plots/seasonal_risk.png)
+## Why It Still Matters
+
+Even with the corrected framing, the finding is operationally relevant. The recent fire activity features capture a real signal: when burning significantly exceeds seasonal expectations, conditions (weather, fuel moisture, drought, suppression capacity) are aligned for extreme fire behavior. This signal predicts *new* VLF onset (AUC 0.921), not just ongoing fires.
+
+For fire agencies already monitoring EFFIS weekly statistics, tracking the ratio of current fire activity to the historical average for each calendar week provides a useful alert signal. When current-week burning exceeds twice the historical average during fire season, the probability of new VLFs developing is elevated.
+
+However, this is a modest operational suggestion, not an alert system. Country-level weekly indicators lack the spatial specificity and temporal precision that operational fire management requires.
+
+![Threshold sensitivity: the advantage of recent fire activity features increases at more extreme VLF thresholds](plots/threshold_sensitivity.png)
 
 ## How We Did It
 
-We downloaded 14 years of weekly fire statistics (fire counts and burned area) from the European Forest Fire Information System (EFFIS) via the GWIS country profile API, supplemented by MODIS-derived burned area data (MCD64A1) and GlobFire event records from the GWIS data archive. All data are real satellite observations -- no synthetic data were used at any stage. We defined a "very large fire week" as a country-week with total burned area exceeding 5,000 hectares, which captures approximately 13 percent of fire-season weeks and accounts for the overwhelming majority of total burned area and fire impacts.
+We downloaded 14 years of weekly fire statistics from the European Forest Fire Information System (EFFIS) via the GWIS country profile API, supplemented by MODIS-derived burned area data (MCD64A1) and GlobFire event records. All data are real satellite observations -- no synthetic data were used. We defined a "very large fire week" as a country-week with total burned area exceeding 5,000 hectares (with sensitivity analysis at 1,000-20,000 ha).
 
-We designed three predictor families to approximate the operational fire risk concepts without requiring gridded climate reanalysis data: a fire weather proxy (historical fire danger patterns), a fuel moisture proxy (recent fire activity dynamics), and a drought proxy (cumulative year-to-date fire stress). Six model families were evaluated in a tournament using temporal cross-validation, with 2025 held out as the final test. Full data sources, code, 105 pre-registered hypotheses, and the experiment log are in the [project repository](https://github.com/colinjoc/hdr_autoresearch/tree/master/applications/iberian_wildfire).
+We designed three predictor families from fire activity data: seasonal climatology (10 features), recent fire activity (10 features), and cumulative season stress (7 features). Six model families were evaluated in a tournament using temporal cross-validation, with per-year AUC breakdown and 95% bootstrap confidence intervals. New experiments addressing persistence effects, onset-only evaluation, and threshold sensitivity were added in response to adversarial peer review.
+
+Full data sources, code, and experiment logs are in the [project repository](https://github.com/colinjoc/hdr_autoresearch/tree/master/applications/iberian_wildfire).
 
 ## Further Reading
 
-- San-Miguel-Ayanz J et al. "Forest Fires in Europe, Middle East and North Africa 2023." *JRC Technical Report* (2024). [EFFIS Annual Report](https://data.effis.emergency.copernicus.eu/effis/reports-and-publications/annual-fire-reports/Annual_Report_2023.pdf) -- the annual European fire statistics report.
 - Tedim F et al. "Defining Extreme Wildfire Events: Difficulties, Challenges, and Impacts." *Fire* (2018). [doi:10.3390/fire1010009](https://doi.org/10.3390/fire1010009) -- typology of extreme fire events.
+- Taylor SW et al. "Wildfire Prediction to Inform Fire Management: Statistical Science Challenges." *Statistical Science* (2013). -- review of time-series approaches to wildfire forecasting.
 - Turco M et al. "Decreasing Fires in Mediterranean Europe." *PLOS ONE* (2016). [doi:10.1371/journal.pone.0150663](https://doi.org/10.1371/journal.pone.0150663) -- century-scale decline in fire frequency offset by increased severity.
 
 ---
-📂 **[HDR methodology](https://github.com/colinjoc/hdr_autoresearch)**
+Full technical paper and review response available in the [project repository](https://github.com/colinjoc/hdr_autoresearch/tree/master/applications/iberian_wildfire).
