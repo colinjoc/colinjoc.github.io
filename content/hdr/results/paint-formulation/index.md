@@ -1,13 +1,13 @@
 ---
 title: "Different Paint Properties Need Different Models"
-date: 2026-04-09
+date: 2026-04-11
 weight: 13
 blurb: "A published study used one model for all four paint quality targets. We found that no single model wins all four -- picking the right model for each property and adding one or two physics-informed features beats the published baseline on three out of four targets."
 domain: "Coatings / Materials Science"
 tags: ["materials", "coatings", "small-data", "reproduction", "physics-informed"]
 ---
 
-*This is a short summary. For the full technical write-up, see the [detailed paper](https://github.com/colinjoc/hdr_autoresearch/blob/master/applications/paint_formulation/paper.md).*
+*This is a short summary. For the full technical write-up, see the [detailed paper](https://github.com/colinjoc/hdr_autoresearch/blob/main/applications/paint_formulation/paper.md).*
 
 ## The Question
 
@@ -43,7 +43,7 @@ For the machine-learning community: cross-validation matters enormously on small
 
 ## How We Did It
 
-We used the published 65-sample two-component polyurethane lacquer dataset from Zenodo, with four normalised composition variables, film thickness, and four performance targets measured under standard coating test protocols. We reproduced the published baseline under five-fold cross-validation (stricter than the original single split), ran a four-family tournament per target, then 204 single-change experiments testing 22 physics-informed features, hyperparameter swaps, and model-family swaps. Eleven experiments were kept across the four targets (5.5 percent keep rate). A discovery sweep screened 7,785 candidate formulations across five generation strategies. Full code, data reference, and the 204-experiment log are in the [project repository](https://github.com/colinjoc/hdr_autoresearch/tree/master/applications/paint_formulation).
+We used the published 65-sample two-component polyurethane lacquer dataset from Zenodo, with four normalised composition variables, film thickness, and four performance targets measured under standard coating test protocols. We reproduced the published baseline under five-fold cross-validation (stricter than the original single split), ran a four-family tournament per target, then 204 single-change experiments testing 22 physics-informed features, hyperparameter swaps, and model-family swaps. Eleven experiments were kept across the four targets (5.5 percent keep rate). A discovery sweep screened 7,785 candidate formulations across five generation strategies. Full code, data reference, and the 204-experiment log are in the [project repository](https://github.com/colinjoc/hdr_autoresearch/tree/main/applications/paint_formulation).
 
 ## Further Reading
 
@@ -52,4 +52,4 @@ We used the published 65-sample two-component polyurethane lacquer dataset from 
 - Geurts P, Ernst D, Wehenkel L. "Extremely Randomized Trees." *Machine Learning* (2006). [doi:10.1007/s10994-006-6226-1](https://doi.org/10.1007/s10994-006-6226-1) -- the randomised ensemble method that won three of four targets.
 
 ---
-📂 **[HDR methodology](https://github.com/colinjoc/hdr_autoresearch)**
+📂 **[HDR methodology](https://github.com/colinjoc/hdr_autoresearch)** — the framework and full project history

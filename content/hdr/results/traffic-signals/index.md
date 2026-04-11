@@ -1,17 +1,17 @@
 ---
 title: "A 20-Line Rule Matches the Best AI for Traffic Lights"
-date: 2026-04-09
+date: 2026-04-11
 weight: 14
-blurb: "The deep learning literature claims 30 to 50 percent reductions in traffic wait times. A 20-line rule with four parameters and no training achieves the same thing. Eight out of nine proposed improvements failed in both simulators."
+blurb: "Researchers have spent a decade training complex neural networks to time traffic lights, reporting large reductions in wait times. We found that a short deterministic rule with no training at all achieves the same improvement -- and nearly all proposed refinements made things worse."
 domain: "Transportation Engineering"
 tags: ["transportation", "control", "reinforcement-learning", "discovery", "traffic-signals"]
 ---
 
-*This is a short summary. For the full technical write-up, see the [detailed paper](https://github.com/colinjoc/hdr_autoresearch/blob/master/applications/traffic_signals/paper.md).*
+*This is a short summary. For the full technical write-up, see the [detailed paper](https://github.com/colinjoc/hdr_autoresearch/blob/main/applications/traffic_signals/paper.md).*
 
 ## The Question
 
-Traffic lights waste your time. The global standard for fixed-time signal control dates to 1958: a formula that computes the optimal cycle length and green-time split from the traffic flow on each approach. It never adapts to what is actually happening on the road. Over the past decade, the adaptive control literature has converged on deep learning methods -- neural networks that learn to time signals by trial and error in simulation -- and these consistently report 30 to 50 percent reductions in wait time over the 1958 formula.
+Traffic lights waste your time. The global standard for fixed-time signal control dates to 1958: [Webster's formula](https://trid.trb.org/View/115048) computes the optimal cycle length and green-time split from the traffic flow on each approach. It never adapts to what is actually happening on the road. Over the past decade, the adaptive control literature has converged on deep learning methods -- neural networks that learn to time signals by trial and error in simulation -- and these consistently report 30 to 50 percent reductions in wait time over the 1958 formula.
 
 A parallel line of work, less published and less cited, has shown that simple deterministic rules can also achieve large improvements. But no study has systematically compared these simple rules against the deep learning results on the same benchmarks. We asked: does a simple rule, properly tuned, match deep learning?
 
@@ -22,7 +22,7 @@ Yes. A 20-line rule with four integer parameters and no training cuts average wa
 - The rule works by draining the current phase completely before switching, then yielding to whichever other approach has the most waiting vehicles. A preemption clause handles cases where one approach accumulates a much longer queue than the currently active one.
 - Eight out of nine proposed improvements -- cumulative wait overrides, soft maximum green times, asymmetric thresholds, density-based switching, pressure-based switching, minimum-burst constraints, anticipatory rates, and starvation guards -- failed in both a lightweight custom simulator and the standard traffic simulation tool. Simplicity won.
 - The gain comes primarily from eliminating the waste at the end of each fixed-time phase: the 1958 formula commits to a green duration before seeing traffic, so it often holds green for an empty approach while vehicles accumulate elsewhere.
-- The rule was developed on a lightweight custom simulator, then validated on the standard simulation tool used in the academic literature. The top-level finding transferred, but the optimal parameter values did not -- a cautionary tale about relying on simplified simulators for tuning.
+- The rule was developed on a lightweight custom simulator, then validated on the standard [SUMO](https://www.eclipse.org/sumo/) simulator used in the academic literature. The top-level finding transferred, but the optimal parameter values did not -- a cautionary tale about relying on simplified simulators for tuning.
 
 ![The simple rule matches deep learning's 30-50 percent improvement range](plots/headline_finding.png)
 
@@ -40,7 +40,7 @@ The practical implication for the deep learning traffic signal community is that
 
 ## How We Did It
 
-We ran 38 experiments across two simulators: a custom lightweight simulator for fast iteration (about 1.5 seconds per experiment) and the standard Simulation of Urban Mobility tool with its reinforcement-learning wrapper for validation (about 30 seconds per experiment). The baseline was the 1958 optimal fixed-time formula computed independently for each of seven scenarios. Each experiment modified the controller by a single change, evaluated it on all scenarios, and kept the change only if every scenario improved. The loop stopped when five consecutive experiments produced no improvement. No synthetic data were used; all scenarios use standard traffic simulation vehicle physics. Full code and experiment log are in the [project repository](https://github.com/colinjoc/hdr_autoresearch/tree/master/applications/traffic_signals).
+We ran 38 experiments across two simulators: a custom lightweight simulator for fast iteration (about 1.5 seconds per experiment) and the standard [SUMO](https://www.eclipse.org/sumo/) simulator with the [sumo-rl](https://github.com/LucasAlegre/sumo-rl) reinforcement-learning wrapper for validation (about 30 seconds per experiment). The baseline was [Webster's](https://trid.trb.org/View/115048) 1958 optimal fixed-time formula computed independently for each of seven scenarios. Each experiment modified the controller by a single change, evaluated it on all scenarios, and kept the change only if every scenario improved. The loop stopped when five consecutive experiments produced no improvement. No synthetic data were used; all scenarios use standard traffic simulation vehicle physics. Full code and experiment log are in the [project repository](https://github.com/colinjoc/hdr_autoresearch/tree/main/applications/traffic_signals).
 
 ## Further Reading
 
@@ -49,4 +49,5 @@ We ran 38 experiments across two simulators: a custom lightweight simulator for 
 - Wei H et al. "A Survey on Traffic Signal Control Methods." (2019). [arXiv:1904.08117](https://arxiv.org/abs/1904.08117) -- a comprehensive survey of the deep learning traffic signal literature.
 
 ---
-📂 **[HDR methodology](https://github.com/colinjoc/hdr_autoresearch)**
+
+📂 **[HDR methodology](https://github.com/colinjoc/hdr_autoresearch)** — the framework and full project history

@@ -1,50 +1,52 @@
 ---
-title: "Dublin Passes EU Air Quality Law While Failing the Health Standard"
-date: 2026-04-10
-weight: 16
-blurb: "Every urban monitoring station in Dublin and Cork exceeds the health-based air quality limit for nitrogen dioxide. Ireland passes the legal standard because the European Union limit is four times less strict than the World Health Organization recommendation. Wind patterns and the COVID-19 lockdown reveal exactly where the pollution comes from."
+title: "Dublin Passes EU Air Law While Failing the Health Standard"
+date: 2026-04-11
 domain: "Environmental Science / Air Quality"
-tags: ["air-quality", "NO2", "Dublin", "Cork", "Ireland", "WHO-guidelines", "source-apportionment", "COVID-lockdown", "traffic-emissions"]
+blurb: "Every urban monitoring station in Dublin and Cork exceeds the World Health Organization's health-based nitrogen dioxide limit, yet Ireland has never broken the European Union's legal standard. Nine years of data and a pandemic lockdown reveal that road traffic is responsible for up to 80 percent of the pollution."
+weight: 16
+tags: ["air-quality", "NO2", "Dublin", "Ireland", "WHO-guidelines", "source-apportionment", "COVID-lockdown", "traffic-emissions"]
 ---
 
-*This is a short summary. For the full technical write-up, see the [detailed paper](https://github.com/colinjoc/hdr_autoresearch/blob/master/applications/dublin_no2/paper.md).*
+*This is a short summary. For the full technical write-up, see the [detailed paper](https://github.com/colinjoc/hdr_autoresearch/blob/main/applications/dublin_no2/paper.md).*
 
-## Every Dublin Station Fails the Health Test
+## The Question
 
-Ireland has never broken the European Union's annual limit for nitrogen dioxide, a pollutant produced primarily by diesel engines. The country is considered to have clean air. But in 2021, the World Health Organization cut its recommended limit from 40 to just 10 micrograms per cubic metre -- a fourfold tightening based on new evidence about health effects at low concentrations. Under this health-based guideline, the picture changes completely.
+In 2021 the World Health Organization (WHO) cut its recommended annual nitrogen dioxide limit from 40 to just 10 micrograms per cubic metre -- a fourfold tightening driven by new evidence that health damage occurs at much lower concentrations than previously thought. The European Union (EU) legal limit stayed at 40. Ireland has never broken the EU number and is widely considered a clean-air country.
 
-We analysed nine years of real monitoring data from 33 Irish stations in the European Environment Agency network. Every urban station in Dublin and Cork exceeds the health guideline in every year measured. Dublin's worst site, Winetavern Street near the Liffey quays, recorded more than four times the health limit. This is not unique to Dublin -- the European Environment Agency reports that 94 percent of the EU urban population breathes nitrogen dioxide above the health guideline. But it contradicts Ireland's self-image as a clean-air country.
+So what happens when you measure Irish cities against the stricter health standard? And if they fail, where is the pollution actually coming from -- cars, home heating, or something blowing in from overseas?
 
-![Every Dublin urban station exceeds the WHO health guideline while no station breaches the EU legal limit](plots/headline_finding.png)
+## What We Found
 
-## Road Traffic Is the Dominant Source
+Every urban monitoring station in Dublin and Cork exceeds the WHO health guideline in every year from 2015 to 2023, while no station breaks the EU legal limit after 2019. Road traffic is the dominant source everywhere.
 
-A station-differencing method decomposes the measured nitrogen dioxide into three components: regional background transported from outside Ireland, residential heating that peaks in winter, and road traffic estimated as the remainder after subtracting the other two. Traffic contributes 41 to 80 percent of annual nitrogen dioxide depending on proximity to roads. Even at residential stations away from major roads, traffic is the largest single contributor.
+- At Dublin's worst site, near the Liffey quays, annual nitrogen dioxide runs more than four times the health limit, with the daily health guideline exceeded on 67 to 91 percent of measured days.
+- Traffic accounts for 41 to 80 percent of annual nitrogen dioxide at urban stations, depending on proximity to major roads.
+- During the COVID-19 lockdown of spring 2020, nitrogen dioxide fell 33 to 62 percent across Dublin stations; a motorway interchange dropped 62 percent because it had essentially no nearby home-heating emissions to mask the signal.
+- Residential heating contributes 8 to 30 percent, with a 14-microgram jump on the coldest days compared to mild ones.
+- Wind analysis confirms the traffic story: pollution at the worst site is 70 percent higher when wind blows from a major traffic corridor to the north than from the mountains to the south.
 
-The COVID-19 lockdown of spring 2020 provided an unusually clean test. When traffic volumes dropped 60 to 80 percent, nitrogen dioxide fell by 33 to 62 percent across Dublin stations. A motorway interchange (Blanchardstown on the M50) showed the most dramatic response -- 62 percent -- because it has essentially no nearby residential heating to dilute the signal. An important caveat: because the model defines traffic as the residual component, part of its agreement with the lockdown is structural rather than a true independent validation. The comparison is most informative for the relative pattern across stations, which the model predicts correctly.
+## Why That's Surprising
 
-Wind-direction analysis provides independent confirmation. At Winetavern Street, nitrogen dioxide is 70 percent higher when the wind blows from the north (carrying traffic emissions from the Liffey quays corridor) than from the south (where the Dublin Mountains have no urban sources). Corrected weekday-weekend differentials -- accounting for the fact that weekend traffic is about 60 percent of weekday, not zero -- also agree with the station-differencing estimates.
+Ireland does not look like a country with a nitrogen dioxide problem. It has no exceedances of the EU legal standard (post-2019), no mega-city, and a population density well below most of Western Europe. The surprise is one of framing: the same air that passes the legal test fails the health test by a wide margin. The EU guideline is four times more lenient than the WHO recommendation, and that gap hides a chronic exposure that affects virtually every Dublin resident.
 
-![The COVID-19 lockdown reduced nitrogen dioxide at traffic stations far more than at background stations](plots/covid_validation.png)
+The COVID-19 lockdown made the invisible visible. When traffic dropped, pollution fell within days -- not gradually over months. This speed of response means the problem is local and present-tense, not a legacy of historical emissions. It also means policy action on road traffic would show measurable air-quality benefits almost immediately.
 
-## Traffic Reduction Alone Is Not Enough
+## What It Means
 
-Residential heating contributes 8 to 30 percent of annual nitrogen dioxide at background stations, with a strong temperature dependence: background stations measure 14 micrograms more on the coldest days (below 2 degrees Celsius) than on mild days. Even if Dublin eliminated all road traffic, several background stations would likely remain above the health guideline because of heating contributions. This means traffic reduction -- while necessary and high-leverage -- must be paired with heating fuel switching (from solid fuels like coal and peat to cleaner alternatives) to achieve the health standard.
+Traffic reduction is the highest-leverage intervention for nitrogen dioxide in Irish cities, but it is not sufficient on its own. Even if Dublin eliminated all road traffic tomorrow, several residential stations would still exceed the health guideline because of home-heating emissions, particularly from solid fuels like coal and peat. Achieving the WHO standard requires both cleaner transport and cleaner heating.
 
-For policymakers: the COVID lockdown demonstrated that Dublin's air quality improves rapidly and substantially when traffic is reduced. The question is whether Ireland will act on this evidence before the European Union tightens its legal limit toward the health-based value -- a revision expected in 2025-2026 that would put Dublin and Cork into non-compliance.
-
-![Source apportionment shows traffic dominates at all urban stations, but heating is significant at background sites](plots/source_attribution.png)
+The EU is expected to tighten its legal limit toward the WHO value in the coming years. If it does, Dublin and Cork would move from comfortable compliance to non-compliance overnight -- not because pollution increased, but because the standard finally caught up with the science.
 
 ## How We Did It
 
-We used 55,221 daily nitrogen dioxide records from 33 Irish stations in the European Environment Agency monitoring network (2015 to 2023) and 78,865 hourly weather observations from the Met Eireann Dublin Airport station. Source apportionment used a receptor-based station-differencing method: rural stations provide the regional background, urban background stations (away from major roads) reveal the heating signal through their seasonal cycle, and the residual at traffic stations is attributed to road traffic. This method treats nitrogen dioxide as approximately conserved, which is justified for monthly averages but is an approximation at daily timescales due to photochemical cycling between nitrogen dioxide, nitric oxide, and ozone. The apportionment was tested against the COVID-19 lockdown response, confirmed by corrected weekday-weekend differentials, and cross-checked with wind-direction analysis. All data are publicly available. No synthetic data were used. Full code and data references are in the [project repository](https://github.com/colinjoc/hdr_autoresearch/tree/master/applications/dublin_no2).
+We used nine years of real daily nitrogen dioxide measurements (55,221 records from 33 Irish stations) from the [European Environment Agency monitoring network](https://zenodo.org/records/14513586) and 78,865 hourly weather observations from [Met Eireann's Dublin Airport station](https://data.gov.ie/dataset/dublin-airport-hourly-data). A receptor-based station-differencing method splits measured pollution into regional background, residential heating, and road traffic components. The traffic attribution was validated against the COVID-19 lockdown response (cross-station correlation of 0.97 across 14 stations, though part of this agreement is structural), confirmed by corrected weekday-weekend differentials, and cross-checked with wind-direction analysis. No synthetic data were used. The [HDR methodology](https://github.com/colinjoc/hdr_autoresearch) tested five hypotheses, keeping those that improved validation metrics and reverting those that did not.
 
 ## Further Reading
 
-- World Health Organization. "WHO Global Air Quality Guidelines." (2021). -- the updated guideline that tightened the annual nitrogen dioxide limit from 40 to 10 micrograms per cubic metre.
-- Venter ZS et al. "COVID-19 Lockdowns Cause Global Air Pollution Declines." *Proceedings of the National Academy of Sciences* (2020). [doi:10.1073/pnas.2006853117](https://doi.org/10.1073/pnas.2006853117) -- the global study confirming lockdown-driven air quality improvements.
-- Carslaw DC, Ropkins K. "openair -- An R package for air quality data analysis." *Environmental Modelling and Software* (2012). -- standard tools for wind-direction-dependent source analysis.
-- EPA Ireland. "Air Quality in Ireland 2023." (2024). [epa.ie](https://www.epa.ie/) -- Ireland's official air quality assessment, which reports European Union compliance.
+- World Health Organization. [WHO Global Air Quality Guidelines](https://www.who.int/publications/i/item/9789240034228) (2021) -- the updated guideline that tightened the annual nitrogen dioxide limit fourfold.
+- Venter ZS et al. [COVID-19 Lockdowns Cause Global Air Pollution Declines](https://doi.org/10.1073/pnas.2006853117). *Proceedings of the National Academy of Sciences* (2020) -- global evidence that lockdowns drove rapid air quality improvements.
+- EPA Ireland. [Air Quality in Ireland 2023](https://www.epa.ie/publications/monitoring--assessment/air/air-quality-in-ireland-2023.php) (2024) -- Ireland's official annual assessment, reporting EU compliance.
 
 ---
-[HDR methodology](https://github.com/colinjoc/hdr_autoresearch)
+
+📂 **[HDR methodology](https://github.com/colinjoc/hdr_autoresearch)** — the framework and full project history
