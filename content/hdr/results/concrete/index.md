@@ -1,6 +1,6 @@
 ---
 title: "Low-Carbon Concrete: A Known Recipe, Honestly Reproduced"
-date: 2026-04-11
+date: 2026-04-12
 domain: "Materials Engineering"
 blurb: "Replacing two thirds of the cement in structural concrete with industrial byproducts cuts embodied carbon by 42 to 53 percent at equal strength. The recipe has been known for decades -- the contribution here is a transparent, reproducible methodology that explicitly rejects its own out-of-distribution predictions."
 weight: 15

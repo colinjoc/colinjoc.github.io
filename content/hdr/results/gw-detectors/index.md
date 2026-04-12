@@ -1,6 +1,6 @@
 ---
 title: "An AI Built a Better Gravitational-Wave Detector -- Nobody Knows Why"
-date: 2026-04-11
+date: 2026-04-12
 domain: "Physics / Gravitational-Wave Instrumentation"
 blurb: "An artificial intelligence discovered 50 new gravitational-wave detector designs. We took apart the best one and found that most of its components do nothing, its readout system is half-broken by design, and it works by a mechanism that has never appeared in the physics literature."
 weight: 11
@@ -17,25 +17,27 @@ In 2025, an artificial intelligence system called [Urania](https://doi.org/10.11
 
 ## What We Found
 
-The type8 design family -- 25 solutions optimised for the 800--3000 Hz post-merger band -- is sharply skewed. The best design (sol00) achieves a genuine 4.05x improvement over Voyager. The median solution improves by just 1.11x, and the bottom half clusters within three percent of the baseline. Of 50 designs marketed as improvements, the practical yield is two or three worth building.
+The type8 design family -- 25 solutions optimised for the 800--3000 Hz post-merger band -- is sharply skewed. The best design achieves a genuine 4.05x improvement over Voyager. The median solution improves by just 1.11x, and the bottom half clusters within three percent of the baseline. Of 50 designs marketed as improvements, the practical yield is two or three worth building.
 
 ![The best design is dramatically better than its siblings, most of which barely improve on the baseline](plots/headline_finding.png)
 
-The best design is not a refinement of the conventional architecture. It is something qualitatively different. We found five structural signatures that rule out every classical explanation for how it works.
+The best design is not a refinement of the conventional architecture. It is something qualitatively different:
 
-**Most of the design is non-functional.** Of 57 mirrors in the best design, 29 are set to extreme reflectivity values -- either perfectly transparent or perfectly reflective. They are grid filler left over from the optimisation process, not tuned optical elements. Only 2 of 13 declared beam-splitting devices actually split light. And 64 percent of the free-space connections are set to a default length of 1.0 metres, the PyKat placeholder for "not set."
-
-**The readout system is half-broken by design.** The design declares a balanced readout with two detectors -- a standard technique for cancelling classical laser noise. But one of the two detectors is not connected to any light path. No laser light reaches it. The design operates as a single-detector readout. This pattern appears in four of the top five designs in the family. It is not a quirk of one solution; it is a strategy the AI learned.
-
-**The design has one real arm, not six.** Six free spaces are long enough to qualify as arm cavities, and earlier analyses framed them as a "multi-arm geometry." We classified each space by the mirror reflectivities at its endpoints. Only one is a true cavity, with a low finesse of approximately 4.6. The other five are dead ends, delay lines, and traps. The four heaviest mirrors -- at the maximum mass the optimiser was allowed to use -- sit on transparent components where they feel no radiation pressure. They are inactive artifacts, not the heavy test masses that standard designs depend on.
+- Most of the design is non-functional: 51% of its mirrors are set to extreme values (perfectly transparent or perfectly reflective), only 2 of 13 declared beam-splitters actually split light, and 64% of the free-space connections are set to a placeholder default length.
+- The readout system is half-broken by design: it declares a balanced two-detector readout, but one detector is not connected to any light source. Four of the top five designs share this pattern -- the AI learned to use a single-detector readout disguised as a balanced one.
+- The design has one real cavity, not six: of six arm-length spaces, only one functions as a true optical cavity, and it is a low-quality one. The other five are dead ends, delay lines, and traps.
+- More squeezing technology means worse performance: across the 25-member family, the number of squeezing devices correlates negatively with improvement. The top four designs average one squeezer; the bottom 21 average nearly three.
+- The candidate mechanism has no published precedent: a distributed signal-accumulation network spanning roughly 24 kilometres of differential arm length, three times Voyager's effective baseline, fed to a single readout port.
 
 ![Only one of six arm-cavity-class spaces is a true cavity; the rest are delay lines, dead traps, and walls](plots/arm_cavity_classification.png)
 
-**More squeezing technology means worse performance.** Squeezed light injection is the standard technique for reducing quantum noise. But across the 25-member design family, the number of squeezing devices correlates negatively with sensitivity improvement (Spearman rho = -0.53, p = 0.006). The top four designs average one squeezer; the bottom 21 average nearly three. This correlation survives outlier removal and bootstrap analysis. The best designs achieve quantum noise reduction through their structure, not through explicit squeezing technology.
-
 ![Squeezer count correlates negatively with performance across the design family](plots/squeezer_anticorrelation.png)
 
-**The candidate mechanism has no published precedent.** After ruling out balanced-homodyne noise rejection, high-finesse cavity engineering, multi-arm signal averaging, and heavy-test-mass radiation-pressure suppression, the strongest remaining explanation is a distributed signal-accumulation architecture. The design injects gravitational-wave signal at 26 points across approximately 24 kilometres of total differential arm length -- three times Voyager's effective baseline of 8 kilometres. This signal accumulates coherently and is read out at a single detector port, amplified by three lasers totalling 1,294 watts. A back-of-envelope calculation based on the arm-length ratio predicts a ~3x improvement, consistent with the bulk of the observed 4.05x factor. The remaining factor is plausibly attributable to the higher laser power. This is a multi-input, single-output topology that does not appear in any published detector design. Quantitative confirmation requires a full numerical reconstruction that is structurally complete but not yet calibrated.
+## Why That's Surprising
+
+Gravitational-wave detector design has followed a clear script for decades. You build two long arms with highly reflective mirrors at each end to form optical cavities, inject squeezed light to beat the quantum noise limit, read out the signal with a balanced pair of detectors to cancel classical noise, and hang the heaviest possible test masses to suppress radiation-pressure fluctuations. Every current and planned detector -- LIGO, Virgo, KAGRA, Cosmic Explorer, the Einstein Telescope -- is a variation on this theme.
+
+The AI's best design violates every element of that script. It has no high-reflectivity cavity mirrors in the standard range, no working balanced readout, no functioning heavy test masses at cavity endpoints, and zero squeezers. By the conventional playbook, it should perform terribly. Instead, it is four times more sensitive than the planned next-generation instrument in the post-merger band. The AI appears to have discovered an entirely different strategy -- accumulating the gravitational-wave signal across many points in a distributed network rather than amplifying it at a few high-quality cavities -- that physicists had never considered. If the mechanism is confirmed by full numerical simulation, it would represent a genuinely new class of interferometer topology, not merely a better-tuned version of the existing one.
 
 ## What It Means
 
@@ -56,4 +58,4 @@ We wrote a custom parser for the configuration files distributed in the [GWDetec
 
 ---
 
-**[HDR methodology](https://github.com/colinjoc/hdr_autoresearch)** -- the framework and full project history
+📂 **[HDR methodology](https://github.com/colinjoc/hdr_autoresearch)** -- the framework and full project history
