@@ -1,50 +1,52 @@
 ---
-title: "Who Gets Abandoned? 23 Experiments on Predicting OSS Project Death from GitHub Events"
+title: "Predicting Open-Source Death: The Question Matters More Than the Model"
 date: 2026-04-14
-domain: "Software Engineering / Open-Source Sustainability"
-blurb: "We ran 23 machine-learning experiments predicting which active GitHub projects would go silent one year later. Feature engineering barely moved the needle (≤0.2 percentage points per try). The one lever that worked was tightening who counts as 'active' in the first place -- +7.6 percentage points of signal from the cohort filter alone."
+domain: "Software Engineering"
+blurb: "We tried 23 different ways to predict which active open-source projects would go silent within a year. Engineering better signals barely moved the needle. The single biggest improvement came from being more careful about which projects counted as 'active' in the first place."
 weight: 4
-tags: ["open-source", "software-engineering", "github-archive", "negative-result", "hdr", "xgboost"]
+tags: ["open-source", "software-engineering", "github", "negative-result", "hdr", "supply-chain"]
 ---
 
 *This is a short summary. For the full technical write-up, see the [detailed paper](https://github.com/colinjoc/hdr_autoresearch/blob/main/applications/oss_abandonment/paper.md).*
 
 ## The Question
 
-The xz-utils backdoor (CVE-2024-3094), Log4Shell, left-pad, event-stream — every recent open-source supply-chain crisis has the same shape: a critical piece of software maintained by one or two unpaid volunteers, who either burn out, hand the project to a stranger, or simply stop responding. The Harvard/Linux Foundation Census III found 10 of the most widely deployed libraries in enterprise software are each maintained by one developer. If your server runs Linux, if your browser loads a webpage, if your phone runs an app — you almost certainly depend, somewhere in the transitive closure, on an open-source project with a sustainability problem.
+Every few years, a piece of software that millions of people depend on quietly falls apart. The xz compression tool was almost hijacked through its burned-out solo maintainer. The Log4j logging library — used by nearly every large company's servers — was maintained by three unpaid volunteers when a devastating security flaw was found. The left-pad library, just eleven lines of code, briefly broke thousands of websites when its sole author pulled it from the internet.
 
-So a natural question: can we see abandonment coming? Given a year of GitHub event history for an active project, can a model predict whether that project will still have a pulse one year later?
-
-## What We Did
-
-We pulled 36 hourly snapshots from [GH Archive](https://data.gharchive.org) — the public timeline of every event on GitHub — spanning two 3-day windows one year apart (April 2024 for prior activity; April 2025 for the label). That gave us a 2.6-million-row panel across 662,593 repos that were active in the prior window.
-
-We defined abandonment strictly: a repo is abandoned if it had zero human-authored commits across all three sampled forward days. Bot commits (dependabot, renovate, github-actions, and similar) don't count as human activity — a core methodological point that kept getting lost in early modelling literature.
-
-Then we ran the full Hypothesis-Driven Research loop: 230-citation literature review, a 120-hypothesis pre-registered research queue, an 88-variable design catalogue, a 4-model tournament (XGBoost won), and 22 single-change experiments exploring cohort definitions, feature additions, relabelling schemes, model regularisation, and hyperparameter tuning.
+These crises share a pattern: critical software, maintained by one or two people, with no one watching for signs of trouble. So we asked a simple question: given a year of public activity data for an active open-source project, can we tell whether it will still have a pulse twelve months later?
 
 ## What We Found
 
-**Cohort definition dominates feature engineering. By a lot.**
+The biggest surprise: defining "active" carefully was worth more than every other improvement combined.
 
-Our baseline XGBoost classifier on 17 activity/engagement/popularity features achieved a ROC-AUC of **0.8116**. The best single-change experiment lifted that to **0.8879** — a 7.6-percentage-point gain. That single biggest win came not from a clever new feature but from raising the prior-activity threshold: instead of including any repo with at least one commit in the 3-day prior window (a messy cohort of 662k repos with 94.6% eventual-abandonment base rate), we required at least ten human-authored commits in the same window (14,415 repos, 82% base rate).
+- Tightening which projects counted as genuinely active — rather than including every repository with a single commit — improved predictions by 7.6 percentage points across 23 experiments.
+- All 22 attempts to engineer better predictive signals (commit patterns, contributor concentration, engagement ratios, popularity metrics) moved the needle by less than 0.2 percentage points each.
+- Stripping the model down to just six basic activity measures barely hurt predictions — the other eleven signals contributed almost nothing collectively.
+- When we narrowed the pool to repositories with substantial recent activity, the "abandonment" rate dropped from 95% to 82%, and the model's ability to separate the doomed from the surviving jumped dramatically.
+- The practical output isn't a prediction score — it's the filtered list of roughly 14,000 projects that meet a stringent activity bar and whose forward activity dropped by more than 10 times.
 
-Every feature-engineering variant — log-transformed star counts, commits-per-author ratios, engagement sub-ratios, deeper trees — changed ROC-AUC by at most 0.002 points. Feature ablation to a minimal 6-feature subset cost only 0.01 ROC-AUC. The 17-feature set is modestly additive; no single family is the lever.
+## Why That's Surprising
 
-As you tighten the cohort, the base rate falls toward the 5-15% abandonment rate the literature reports at 12-month horizons — which is the regime where a classifier has something to learn. The loose cohort was 95% "abandoned" by our strict definition, meaning the problem was closer to finding the 5% of obviously-real projects in a sea of one-off scripts and tutorials.
+A decade of research on open-source health has focused on building better features: contributor concentration (how many people would need to leave before the project stalls), engagement metrics, sentiment analysis, network position, even personality profiles of maintainers. The implicit assumption is that if you measure enough things about a project, you can see abandonment coming.
 
-## Why It Matters
+Our 23-experiment search found that assumption is backwards — at least for short-horizon prediction using public event data. The real problem wasn't measuring the right things; it was measuring them for the right projects. When 95% of your "active" repositories are tutorials, homework assignments, and abandoned New Year's resolutions with a single commit, no amount of clever engineering can extract a meaningful signal. Narrow the aperture to genuinely active projects, and even a simple model with six features does nearly as well as the fully loaded version.
 
-This is a negative result about feature engineering and a positive one about problem framing. Most of the OSS health-prediction literature proliferates features — truck factor, elephant factor, contributor entropy, issue response time, sentiment — without interrogating who the features are being computed *for*. If your training set is dominated by ephemeral learning exercises, no amount of clever feature engineering will find the signal you want.
+## What It Means
 
-For the practical question — which critical open-source projects should funders, downstream corporate users, or security foundations watch closely — the useful output is not our classifier; it's the **sub-cohort** of ~14k repos that meet a stringent real-project activity bar and whose 1-year-forward commits dropped by 10× or more. That's the signal. The ranking within it is almost a formality.
+If you're a company that depends on open-source software — and you almost certainly are — this finding reframes where to invest monitoring effort. Don't build increasingly elaborate dashboards tracking dozens of health metrics across every repository in your dependency tree. Instead, identify the projects that are genuinely active and critical to your stack, then watch a handful of simple signals: are humans still committing? Are there multiple contributors? Is the pace holding steady?
 
-## Limitations
+For open-source funding bodies, the implication is similar: the hard problem is not ranking projects by fragility — it's deciding which projects belong in the ranking at all. A well-defined cohort of critical, actively-maintained projects is more actionable than a fragility score computed over half a million repositories that includes coding tutorials and abandoned side projects.
 
-We worked from a thin temporal sample (3 prior days, 3 forward days), used only GH Archive event data (no GitHub API enrichment for contributor stats, issue-response times, or `archived` flag), and did not evaluate on the Census III critical-package subset. Each of those is a clear next step that the literature predicts would add 0.02-0.05 ROC-AUC of signal.
+## How We Did It
 
-We also did not test the causal question that motivated the project: does a first toxic issue comment, or a maintainer's first public sign of burnout, predict exit? That requires NLP on issue-comment bodies and is the natural Phase II follow-up.
+We pulled 36 hours of public GitHub event data from [GH Archive](https://data.gharchive.org) spanning two three-day windows one year apart, covering 662,593 repositories with at least one human commit. After filtering out bot activity, we ran 23 single-change experiments through the Hypothesis-Driven Research loop — starting from a 230-citation literature review and a pre-registered queue of 120 hypotheses. The key finding emerged in Phase 2: cohort-definition experiments dominated every feature-engineering and model-tuning variant tested.
 
-## Code & Data
+## Further Reading
 
-All code, raw data manifests, and a reproducible pipeline at [`applications/oss_abandonment/`](https://github.com/colinjoc/hdr_autoresearch/tree/main/applications/oss_abandonment). 36 hourly GH Archive files (~4.5 GB gzipped) can be re-downloaded from public URLs via `pull_data.py`. Baseline plus 22 experiments re-runnable from `hdr_loop.py`. 13 unit tests on the event-stream loader and bot filter.
+- [Full technical paper](https://github.com/colinjoc/hdr_autoresearch/blob/main/applications/oss_abandonment/paper.md) — 23-experiment details, model tournament, and feature ablation results
+- [GH Archive](https://data.gharchive.org) — the public GitHub event timeline used as the sole data source
+- Census III of Free and Open Source Software (Linux Foundation / Harvard, 2024) — the dependency-concentration study that motivates this work
+
+---
+
+📂 **[HDR methodology](https://github.com/colinjoc/hdr_autoresearch)** — the framework and full project history
