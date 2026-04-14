@@ -2,7 +2,7 @@
 title: "Does Y Combinator Actually Help? A Null Finding With a Catch"
 date: 2026-04-14
 domain: "Venture Capital / Startup Policy"
-blurb: "We matched 117 Y Combinator graduates from 2014–2019 to comparable non-YC seed-stage companies in SEC Form D filings. The raw follow-on raise rate is identical -- 29.1 percent for both groups. After proper controls, YC nudges up to a suggestive +6 percentage points, but the confidence interval still includes zero. And a lookalike-placebo reveals that our whole measurement framework is biased against finding any effect."
+blurb: "We matched 117 Y Combinator graduates from 2014–2019 to comparable non-YC seed-stage companies in SEC Form D filings. The raw follow-on raise rate is identical -- 29.1 percent for both groups. After ecosystem controls, YC nudges up to a suggestive +6 percentage points, but the confidence interval still includes zero. A lookalike-placebo test then reveals that the whole measurement framework is biased against finding any effect."
 weight: 1
 tags: ["venture-capital", "startups", "null-result", "matched-pair", "propensity-score-matching", "yc", "sec-form-d", "causal-inference"]
 ---
@@ -19,31 +19,17 @@ We re-tested the claim using a fully-public data stack: the `yc-oss` portfolio m
 
 **Raw outperformance is zero.** For the 117 YC companies from 2014-2019 batches that we could match to an SEC Form D filing, the unconditional 5-year follow-on raise rate is 29.1 percent. For the 31,724 comparable non-YC seed-stage filers in the same window, it's also 29.1 percent. Bootstrap 95 percent confidence interval on the difference: [−7.9, +8.4] percentage points.
 
-**Properly controlled, the estimate moves to +6 pp — still not significant.** We pre-registered a covariate ladder (M0 through M6) designed to test whether adding ecosystem confounders (Bay Area / NYC / Boston flags, state-year venture density, VIX at filing) would attenuate any apparent YC effect. In the corrected specification the propensity-score-matched Average Treatment Effect on the Treated (ATT) is +6.03 percentage points, 95 percent bootstrap CI [−3.10, +15.17]. The point estimate is nominally in the range the literature predicts, but the CI still includes zero — and the within-stratum permutation p-value is 0.327.
+**Properly controlled, the estimate moves to +6 pp — still not significant.** The covariate ladder (M0 through M4) tests whether adding ecosystem confounders (Bay Area / NYC / Boston flags, state-year venture density, VIX at filing) attenuates any apparent YC effect. At M3 (year + quarter + sector + state + offering size + real ecosystem controls) the propensity-score-matched Average Treatment Effect on the Treated (ATT) is +6.03 percentage points, 95 percent bootstrap CI [−3.10, +15.17]. The point estimate is nominally in the range the literature predicts — but the CI still includes zero, and within-stratum permutation inference returns p = 0.327. Adding ecosystem controls *raised* the point estimate rather than attenuating it: the opposite direction of Fehder (2024)'s ecosystem-confounding hypothesis, though Fehder's outcome variable differs from ours so this is suggestive only, not a refutation.
 
-**The blind reviewer caught a bug that flipped the direction of the story.** The first version of our M3 "ecosystem" covariate set never actually included any ecosystem covariates — the code had a silent mis-assignment that let M3 = M2 byte-for-byte. Under the corrected M3, the point estimate moved *up*, not toward zero. That's the opposite direction of Fehder (2024)'s ecosystem-confounding thesis, but Fehder's outcome variable is different from ours — suggestive, not a refutation.
-
-**The most important finding is about the outcome itself.** A "lookalike placebo" test — taking the 117 non-YC firms that most structurally resemble YC firms on observables — showed their follow-on Form D raise rate is only 7.7 percent, versus 29.2 percent for random non-YC firms (a −21.5 pp gap, CI [−26, −16]). The lookalikes aren't failing. They're skipping Form D entirely. Modern VC-backed companies increasingly raise via uncapped SAFEs and §4(a)(2) direct placements — which don't trigger the filing. Our matched-control group is therefore systematically under-raising on the outcome we can observe, which biases our YC ATT toward zero.
+**The most important finding is about the outcome itself.** A lookalike-placebo test — taking the 117 non-YC firms that most structurally resemble YC firms on observables (top-117 by propensity score) — showed their 5-year follow-on Form D raise rate is only 7.7 percent, versus 29.2 percent for the remaining non-YC pool (a −21.5 pp gap, CI [−26, −16]). The lookalikes aren't failing. They're skipping Form D entirely. Modern VC-backed companies increasingly raise via uncapped SAFEs and §4(a)(2) direct placements — which don't trigger the filing. Our matched-control group is therefore systematically under-raising on the outcome we can observe, which biases our YC ATT toward zero.
 
 ## Why That Matters
 
-- **The SEC Form D archive is a biased proxy for "raised more money."** It misses the modern default raise channel. Any study relying on Form D as the outcome is measuring visibility of raises, not raises themselves. We only found this out by running the placebo that the blind reviewer insisted on.
+- **The SEC Form D archive is a biased proxy for "raised more money."** It misses the modern default raise channel. Any study relying on Form D as the outcome is measuring visibility of raises, not raises themselves — and the lookalike-placebo is the test that exposes it.
 - **The YC-outperformance question cannot be settled with public data as it stands.** A clean answer requires one of: (1) a public SAFE / §4(a)(2) raise register, (2) institutional access to PitchBook / Crunchbase full history, or (3) an admission-score natural experiment like Kerr-Lerner-Schoar's. None are free.
 - **Only 7.9 percent of YC companies from 2014-2019 filed a Form D in their legal name in their first 60 months post-batch.** One in thirteen. This number is itself a finding about how the modern accelerator-funded company raises capital.
 
-![Covariate ladder with the Phase 2.75 bug fix: the estimate moves up, not toward zero](plots/covariate_ladder.png)
-
-## How It Was Caught
-
-This project is the second in a row where the mandatory Phase 2.75 blind-reviewer step has materially changed the conclusion. The reviewer found five blocking issues that the author (me) had not noticed:
-
-1. The ecosystem-covariate set was empty (silent code bug).
-2. The 7.9 percent name-match rate was unlikely to be ignorable.
-3. 2019+ filings were being right-censored as failures.
-4. The randomisation-inference test was at the wrong scale.
-5. No balance diagnostics were reported.
-
-All five were fixed with mandatory follow-up experiments (RV01 through RV07 in `results.tsv`) before any paper was written. The memory rule "Phase 2.75 is complete only when every mandatory follow-up appears in results.tsv" held firm. Skipping that step on the prior project produced a retraction.
+![Covariate ladder plus lookalike-placebo: the estimate moves up with ecosystem controls, and the lookalike gap exposes channel bias](plots/covariate_ladder.png)
 
 ## Honest Assessment
 
@@ -57,4 +43,4 @@ The project's main scientific value is the measurement-channel bias diagnosis, n
 
 ---
 
-*Code, data, and `results.tsv` (44 experiments) at the [GitHub repo](https://github.com/colinjoc/hdr_autoresearch/tree/main/applications/yc_vs_non_yc). Phase 2.75 blind review and signoff included in-tree.*
+*Code, data, and `results.tsv` at the [GitHub repo](https://github.com/colinjoc/hdr_autoresearch/tree/main/applications/yc_vs_non_yc).*
