@@ -2,12 +2,14 @@
 title: "The Fast Track That Judicial Review Killed: Strategic Housing Developments 2017-2022"
 date: 2026-04-16
 domain: "Irish Planning"
-blurb: "Between 2017 and 2021 Ireland ran a planning fast-track called Strategic Housing Development. Large housing developments bypassed local councils and went straight to An Bord Pleanála. The policy was designed to deliver the housing crisis solution at pace. Instead, 85 percent of the SHD decisions that made it to the High Court were either quashed by judges or conceded by the planning board before a hearing. By 2020, An Bord Pleanála's legal costs from judicial reviews had more than doubled to 8.2 million euros. The scheme was abolished at the end of 2021 and replaced. This is the anatomy of how Ireland's biggest housing-delivery reform of the late 2010s was undone in the High Court."
+blurb: "Between 2017 and 2021 Ireland ran a planning fast-track called Strategic Housing Development. Large housing developments bypassed local councils and went straight to An Bord Pleanála. The policy was designed to deliver the housing crisis solution at pace. Instead, between 87 and 91 percent of the SHD decisions that made it to the High Court were either quashed by judges or conceded by the planning board before a hearing, depending on which canonical source is counted. By 2020, An Bord Pleanála's legal costs from judicial reviews had more than doubled to 8.2 million euros. The scheme was abolished at the end of 2021 and replaced."
 weight: 13
 tags: ["housing", "ireland", "planning-permissions", "judicial-review", "SHD"]
 ---
 
 *Plain-language summary. Full technical write-up in the [analysis script](https://github.com/colinjoc/generalized_hdr_autoresearch/blob/main/applications/ie_shd_judicial_review/analysis.py).*
+
+*Note: this summary was retroactively revised on 2026-04-15 after a blind-reviewer cycle flagged a parser bug in the original analysis. The corrected 2018-2021 state-loss rate is 14/16 = 87.5 percent (previously reported as 17/20 = 85.0 percent). The direction of the finding is unchanged, but the case count and denominator were wrong in the pre-revision version. A 27-test regression suite and hand-verified ground-truth labels for every case now back the figures below.*
 
 ## The question
 
@@ -21,22 +23,25 @@ What actually happened?
 
 Between October 2017 and December 2021, more than 280 SHD applications were made to An Bord Pleanála. The board granted permission in roughly 80 percent of cases. By raw approval statistics the scheme worked exactly as the policy promised — permissions issued, at pace, on large developments.
 
-### But 85 percent of contested SHD decisions were quashed in the High Court
+### But 87 percent of contested SHD decisions were quashed or conceded in the High Court
 
-Applicants, residents' associations, and objector groups began challenging SHD decisions in the High Court almost immediately. The Office of the Planning Regulator's Appendix-2 to the 2022 review of ABP lists every judicial review decided since 2012; extracting the SHD-specific cases 2017-2022:
+Applicants, residents' associations, and objector groups began challenging SHD decisions in the High Court almost immediately. The Office of the Planning Regulator's Appendix-2 to the 2022 review of ABP lists every judicial review decided since 2012. Extracting the SHD-specific cases for the active-regime window 2018-2021:
 
-| Year | SHD JRs decided | Outcome mix |
-|---|---|---|
-| 2018 | 4 | 3 quashed, 1 other |
-| 2019 | 3 | 3 quashed |
-| 2020 | **11** | 10 quashed, 1 other |
-| 2021 | 2 | 2 quashed |
+| Year | SHD JRs decided | Quashed | Conceded by ABP | Refused / Dismissed |
+|---|---|---|---|---|
+| 2018 | 1 | 0 | 1 | 0 |
+| 2019 | 2 | 2 | 0 | 0 |
+| 2020 | 10 | 8 | 1 | 1 |
+| 2021 | 3 | 2 | 0 | 1 |
+| **Total 2018-2021** | **16** | **12** | **2** | **2** |
 
-**Twenty SHD judicial reviews reached decision by end-2021. Seventeen were quashed by the court, two were conceded by An Bord Pleanála before hearing, one dismissed.** State loss rate: 85 percent.
+**Fourteen of sixteen decided SHD judicial reviews in 2018-2021 went against ABP — twelve quashed outright by the High Court, two conceded by ABP before judgment. State loss rate: 14/16 = 87.5 percent.**
 
-Press reporting at the time gave a slightly higher figure (91 percent loss rate out of 35 decided) because their sample included additional procedural concessions not all of which are in the OPR canonical list. Either number is in the same range: the state was losing almost every decided SHD JR.
+A further 6 SHD JRs are recorded in the 2022 portion of the Appendix-2, but that year is partial-reporting only: the Appendix-2 was published by the OPR in October 2022 and does not cover the full calendar year. The partial-2022 rate is 3 state losses out of 6 (50 percent); this should NOT be aggregated with 2018-2021 without flagging.
 
-![SHD judicial reviews decided per year 2018-2021 with loss counts. The 2020 spike is the moment the scheme's legal strategy became unsustainable.](plots/shd_jr_by_year.png)
+Press reporting at the time (Irish Times, Business Post, 2021) gave a higher aggregate figure of approximately 35 SHD JRs with a 91 percent loss rate. That gap reconciles as follows: the press totals included SHD JRs **lodged** in the High Court (including those later settled out of court, withdrawn, or still pending). The OPR Appendix-2 is a register of **decided** cases only. Both sources agree the state was losing in the high-80s-to-low-90s percent range; the denominators differ because case-status definitions differ. We report the OPR-canonical 2018-2021 figure (14/16 = 87.5 percent) as our primary metric.
+
+![SHD judicial reviews decided per year 2018-2022 with state losses highlighted. The 2020 spike is the year the scheme's legal strategy became unsustainable. 2022 is hatched because the Appendix-2 was published mid-October 2022 and the row is partial-year.](plots/shd_jr_by_year.png)
 
 ### The most common quashing reason was "material contravention of development plan"
 
@@ -46,12 +51,12 @@ Secondary themes: inadequate Appropriate Assessment under the Habitats Directive
 
 ### The legal costs were material
 
-An Bord Pleanála's published legal costs associated with judicial review defended:
+An Bord Pleanála's published legal costs associated with judicial review defended, as reported in the press:
 
 - 2019: €3.5 million
 - 2020: €8.2 million (+134 percent year-on-year)
 
-The 2020 cost growth is a direct reflection of the JR caseload. In that single year, 47 new SHD challenges were filed — an increase of 47 percent on 2020's previous record of 32. By the time the Minister for Housing signalled the scheme's replacement in mid-2021, ABP was effectively in a cycle of permitting SHDs, seeing them challenged in the High Court, losing, and paying both sides' costs.
+These figures are taken from press reporting of ABP's financial disclosures; they were not independently audited from the ABP annual accounts for this analysis (flagged as a follow-up limitation). The direction — a sharp 2019-to-2020 jump in JR defence costs — is consistent with the 2019→2020 increase in decided SHD JRs (2 → 10) in the OPR Appendix-2.
 
 ### The scheme was replaced at the end of 2021
 
@@ -59,10 +64,10 @@ The Large-scale Residential Development (LRD) regime replaced SHD from mid-2022,
 
 ## What this does NOT establish
 
-- **Not full case universe.** The OPR Appendix-2 is canonical but not exhaustive; some settled JRs and judicial reviews lodged but later withdrawn may not be counted.
+- **Not full case universe.** The OPR Appendix-2 is the most canonical public list we have, but it is not exhaustive: some settled JRs, judicial reviews lodged but later withdrawn, and pending-at-publication cases are not counted. The press total of ~35 captures a broader "lodged-and-active" denominator that is closer to the true universe.
 - **Not objector identity analysis.** Who brought these judicial reviews? Residents' associations, environmental groups, competing developers, and professional objectors all feature, but a full breakdown is not possible from the summary-table data.
 - **Not the counterfactual.** We cannot say what would have happened without SHD. The LRD replacement regime is the closest comparison but has only been operating since mid-2022 and a clean DiD is not yet possible.
-- **Not the commencement rate.** The SHDs that were NOT judicially reviewed — about 240 of 280 applications — did mostly proceed to permission. What fraction of those actually broke ground and completed is a separate pipeline question, addressed in the companion "Irish housing pipeline" paper in this portfolio.
+- **Legal-costs figures are unaudited.** The €3.5M / €8.2M figures come from press reporting of ABP annual accounts. A full audit would require parsing the ABP annual report PDFs year-by-year; flagged as a reviewer-requested follow-up.
 
 ## What it means
 
@@ -70,8 +75,8 @@ For housing policy: the SHD experiment shows that a fast-track bypassing local c
 
 For objectors: the regime demonstrated that well-prepared JRs targeting documented material contraventions of development plans had extremely high success rates. This is not "NIMBY" behaviour in a loose sense; it was a highly specific legal strategy exploiting a real procedural gap in how SHDs were being decided.
 
-For housing output: the 280 SHDs across 2017-2021 did produce the bulk of Ireland's larger apartment-development pipeline in that window. Even with the high JR rate, most SHD permissions were not challenged in the High Court. The overall pipeline — as documented in the companion paper — shows two-year permission-to-completion conversion rates rose from 41 percent to 65 percent across roughly the same window.
+For housing output: the 280 SHDs across 2017-2021 did produce the bulk of Ireland's larger apartment-development pipeline in that window. Even with the high JR loss rate among contested cases, most SHD permissions were not challenged in the High Court. The overall pipeline — as documented in the companion paper — shows two-year permission-to-completion conversion rates rose from 41 percent to 65 percent across roughly the same window.
 
 ## How we did it
 
-Downloaded the Office of the Planning Regulator's Appendix-2 "Breakdown of Determined Judicial Reviews involving An Bord Pleanála" PDF (published October 2022, covering 2012-2022). Extracted the text, parsed case records, filtered to cases where SHD or "Strategic Housing Development" was identified in the legal-challenge narrative, and classified outcomes as quashed, conceded, dismissed, or other using keyword rules. Supplemented with published press reporting of aggregate totals and ABP legal-costs data. No modeling; structured case-record extraction.
+Downloaded the Office of the Planning Regulator's Appendix-2 "Breakdown of Determined Judicial Reviews involving An Bord Pleanála" PDF (published October 2022, covering 2012-2022). Extracted text with pdftotext; parsed case records with a regex-based extractor that splits on numbered-row boundaries and takes the decision year from the neutral citation `[YYYY] IEHC/IESC/IECA` rather than from the date column (the original parser was fooled by PDF rows wrapping across two text lines and mis-assigned several years from the adjacent Record-No column). The parser is backed by a 27-test regression suite with hand-verified ground-truth labels for every SHD case in scope. All 27 tests pass. No modeling; structured case-record extraction against manually verified ground truth.
