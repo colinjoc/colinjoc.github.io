@@ -3,7 +3,7 @@ title: "Iberian Wildfire: Recent Burning Beats Seasonal Averages"
 date: 2026-04-11
 domain: "Wildfire Risk / Mediterranean Fire Ecology"
 blurb: "Which weeks on the Iberian Peninsula produce catastrophic wildfires? Using 14 years of satellite data, we found that recent fire activity -- not historical seasonal patterns -- is the strongest signal, even after excluding fires that simply continue burning from the week before."
-weight: 8
+weight: 28
 tags: ["wildfire", "fire-risk", "Portugal", "Spain", "Iberian-Peninsula", "EFFIS", "satellite-observations", "temporal-cross-validation"]
 ---
 

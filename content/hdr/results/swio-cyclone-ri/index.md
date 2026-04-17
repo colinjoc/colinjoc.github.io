@@ -3,7 +3,7 @@ title: "Predicting Which Indian Ocean Cyclones Will Suddenly Explode — Without
 date: 2026-04-15
 domain: "Tropical Cyclones"
 blurb: "Tropical cyclones in the South-West Indian Ocean — the basin that produced Idai, Eloise, Batsirai, Freddy, Gezani, Fytia — sometimes rapidly intensify in 24 hours, collapsing forecast lead time from days to hours. We tested how well you can predict which storms will do this using nothing but the public best-track archive: no satellite imagery, no weather-model output, just storm position, intensity, and motion. Result: a model that ranks storms about 88 percent correctly. The reason it works is older than it looks — what a storm has already done is the strongest predictor of what it is about to do."
-weight: 3
+weight: 23
 tags: ["tropical-cyclones", "indian-ocean", "rapid-intensification", "forecasting", "madagascar"]
 ---
 

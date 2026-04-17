@@ -3,7 +3,7 @@ title: "How Many Irish Planning Permissions Actually Lapse Without Being Built?"
 date: 2026-04-17
 domain: "Irish Housing"
 blurb: "About 9.5% of Irish residential planning permissions with known unit counts granted 2017-2019 show no commencement notice in the Building Control Management System (cluster-bootstrap 95% CI: 4.4-15.6%). An earlier draft reported 27.4%, but a blind reviewer found this was predominantly data-join failure (application-number format mismatches between the national planning register and BCMS), not genuine permission lapse. Cork County alone contributed 37% of apparent non-matches due to structurally incompatible number formats. The true non-commencement rate reduces actionable housing supply by roughly 5-15%, not the one-quarter originally claimed."
-weight: 18
+weight: 5
 tags: ["housing", "ireland", "planning-permission", "lapse-rate", "policy-evaluation"]
 ---
 

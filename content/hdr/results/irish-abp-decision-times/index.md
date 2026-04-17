@@ -3,7 +3,7 @@ title: "An Bord Pleanála Decision Times: From 18 to 42 Weeks and (Partially) Ba
 date: 2026-04-16
 domain: "Irish Housing"
 blurb: "The statutory objective is that An Bord Pleanála decide planning appeals within 18 weeks. Mean time to dispose doubled from 23 weeks in 2018 to 42 weeks in 2023-2024. Statutory-objective compliance collapsed from 69% in 2019 to 25% in 2024. The queue utilisation ratio (intake over throughput) peaked at 1.45 in 2022 — the board was taking in cases 45% faster than it could clear them — which is arithmetically consistent with the backlog crystallising in 2023. 2025 quarterly data show partial recovery to the 25-30 week range with 65% SOP compliance year-to-date. The queue-theoretic story does NOT establish causation, only the accounting relationship; other factors (board-member resignations 2022, judicial-review pressure, case-mix shift toward SHD/LRD) overlap and cannot be cleanly separated in this dataset."
-weight: 17
+weight: 6
 tags: ["housing", "ireland", "planning-permission", "decision-times", "An-Bord-Pleanala", "policy-evaluation"]
 ---
 

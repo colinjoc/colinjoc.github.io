@@ -3,7 +3,7 @@ title: "Did Irish Fuel Companies Rip People Off in 2022? A Plain-English Answer"
 date: 2026-04-15
 domain: "Energy Economics"
 blurb: "When Russia invaded Ukraine and pump prices exploded, everyone assumed Irish retailers were cashing in. We tested it properly. The short answer is no -- not more than the rest of Europe did. Here is how we got there, and the live monitor we built for the next shock."
-weight: 1
+weight: 21
 tags: ["energy-economics", "pass-through", "synthetic-control", "null-finding", "real-time-detector"]
 ---
 

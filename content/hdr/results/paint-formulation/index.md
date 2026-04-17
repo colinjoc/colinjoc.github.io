@@ -3,7 +3,7 @@ title: "Different Paint Properties Need Different Models"
 date: 2026-04-12
 domain: "Coatings / Materials Science"
 blurb: "A published study used one model for all four paint quality targets. We found that picking the right model for each property and adding a single physics-informed feature per target beats the published baseline on three of four targets by 13 to 28 percent -- and that some textbook-approved features actually hurt."
-weight: 13
+weight: 33
 tags: ["materials", "coatings", "small-data", "reproduction", "physics-informed"]
 ---
 

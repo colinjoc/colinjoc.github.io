@@ -3,7 +3,7 @@ title: "Where Do Irish Housing Permissions Actually Go?"
 date: 2026-04-16
 domain: "Irish Housing"
 blurb: "Between 2019 and 2025 Irish planning authorities granted permission for roughly 267,000 housing units. In the same window, 167,000 houses were actually completed. We compare the two CSO series — permissions (BHQ15) and completions (NDA12) — to ask how much of the permission flow is being converted into finished homes. The two-year aggregate conversion ratio climbs from 41 percent in 2019 to 65 percent in 2022, but pre-2019 CSO data (BHQ16) show 2016-2017 conversions of 77-86 percent, so the 2019-22 rise is best read as a recovery from a COVID-era trough, not as a move above the pre-COVID baseline. Permissions themselves have been roughly flat at 32-43 thousand per year — still the number that would have to rise to hit the government's 50,500-home annual target."
-weight: 12
+weight: 8
 tags: ["housing", "ireland", "planning-permissions", "housing-crisis"]
 ---
 

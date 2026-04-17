@@ -3,7 +3,7 @@ title: "Can You Predict Whether a Polar-Vortex Collapse Will Reach the Surface? 
 date: 2026-04-15
 domain: "Atmospheric Science"
 blurb: "When the polar vortex collapses, sometimes it brings a 'Beast from the East' or a Texas freeze, and sometimes it stays high in the stratosphere and the surface barely notices. We tested whether public weather indices alone can tell which kind of collapse you're getting. The honest answer is: not reliably. We hit accuracy of about 65 percent — better than coin-flip but well short of operational forecast skill. The lesson is methodological: an apparent 72 percent accuracy from a single specification choice did not survive any of five independent robustness checks."
-weight: 2
+weight: 22
 tags: ["atmospheric-science", "polar-vortex", "stratosphere", "weather-forecasting", "null-finding"]
 ---
 

@@ -3,7 +3,7 @@ title: "Ireland's Energy Ratings: The Formula Beats the ML Model"
 date: 2026-04-11
 domain: "Building Energy / Retrofit Policy"
 blurb: "We trained a machine learning model on 1.33 million Irish building energy certificates and it could not beat the government formula it was approximating. But the exercise revealed that open chimneys may be the most cost-effective retrofit target in older homes -- a prediction that has never been tested in the field."
-weight: 8
+weight: 28
 tags: ["building-energy", "BER", "retrofit", "DEAP", "Ireland", "SEAI", "heat-loss", "housing-policy", "real-data"]
 ---
 

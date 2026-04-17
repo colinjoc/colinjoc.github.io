@@ -3,7 +3,7 @@ title: "Who Will Still Be Waiting? Predicting Which Irish Hospital Backlogs Are 
 date: 2026-04-16
 domain: "Irish Healthcare"
 blurb: "About 600,000 people are on an Irish public hospital outpatient waiting list, of whom somewhere between 5 and 10 percent have been waiting more than 18 months for a first specialist appointment. Which hospital's backlog is about to get worse? We built a model using public NTPF monthly data alone that predicts next-month growth with ROC-AUC 0.70 (bootstrapped 95 percent confidence 0.67 to 0.74). The surprise: children's lists are materially more predictable than adults', and the hospital's identity matters much less than its own recent trajectory."
-weight: 4
+weight: 24
 tags: ["healthcare", "ireland", "waiting-lists", "NTPF", "forecasting"]
 ---
 

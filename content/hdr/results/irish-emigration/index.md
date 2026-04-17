@@ -3,7 +3,7 @@ title: "Irish Emigration 2020-2025: Australia Pulled Level with the UK in 2025"
 date: 2026-04-16
 domain: "Irish Migration"
 blurb: "Irish emigration rose 37 percent between 2020 and 2024, peaking at 69,900 people in the year to April 2024 before easing to 65,600 in 2025. The 2024 peak is about 84 percent of the 1987-present high of 83,000 reached in the 2012 financial-crisis wave. Ireland nevertheless remained net-receiving throughout: 2025 net migration was +59,700. In 2025 Australia (13.5k) narrowly exceeded the UK (12.6k) for the first time on record, but the 0.9k gap is inside the CSO PEA18 ±2-3k precision band and is only a single year, so it is best read as 'statistical tie at the top' rather than a confirmed structural shift."
-weight: 10
+weight: 12
 tags: ["migration", "ireland", "emigration", "australia"]
 ---
 

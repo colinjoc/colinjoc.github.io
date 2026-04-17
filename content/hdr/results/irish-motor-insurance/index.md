@@ -3,7 +3,7 @@ title: "Where Did the Irish Motor Insurance Savings Go?"
 date: 2026-04-16
 domain: "Irish Insurance"
 blurb: "In April 2021 the government rolled out the Personal Injuries Guidelines, marketed as a mechanism to cut settlement costs by 30 to 50 percent and pass the savings to drivers. Did it work, and who actually got the money? Using the Central Bank's open claims database we decomposed the answer. The injury-claim cost really did fall — by 39 percent — but not by cutting per-claim settlements. It fell by making 39 percent fewer people claim. Consumer premiums fell 15 percent. The remaining savings stayed with insurers."
-weight: 5
+weight: 25
 tags: ["insurance", "ireland", "policy-evaluation", "personal-injuries-guidelines"]
 ---
 

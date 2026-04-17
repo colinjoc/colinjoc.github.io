@@ -3,7 +3,7 @@ title: "Fifty Experiments, One Survivor: 3D Printing's Small-Data Wall"
 date: 2026-04-12
 domain: "Additive Manufacturing"
 blurb: "Can machine learning improve 3D-printing strength predictions on just 50 samples? Not reliably -- only one experiment out of fifty helped, and that improvement vanished under multi-seed testing. But a simple linear model with physics features gets 92 percent of the way to the best tree-based model, and the trained surrogate found a print recipe predicted to be 88 percent stronger than the slicer default."
-weight: 12
+weight: 32
 tags: ["additive-manufacturing", "small-data", "physics-informed", "discovery"]
 ---
 

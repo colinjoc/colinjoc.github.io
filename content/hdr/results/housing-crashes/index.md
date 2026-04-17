@@ -3,7 +3,7 @@ title: "Can We Predict Which Housing Markets Crash First? Probably Not."
 date: 2026-04-14
 domain: "Real Estate / Economic Forecasting"
 blurb: "We tried to predict which US metros would experience a 10 percent home-price decline in the 2022-2023 cycle using publicly-available data -- Zillow price history, Realtor.com inventory, and mortgage rates. The headline result looked promising at four-to-five times better than random. Every honest check dissolved it. The apparent signal was mostly a single rural Mississippi town and a handful of other declining small markets -- and the model was strictly worse than just looking at last year's price change."
-weight: 2
+weight: 22
 tags: ["real-estate", "housing", "crash-prediction", "null-result", "early-warning", "econometrics"]
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: "Half the Carbon, Same Strength: A Known Concrete Recipe, Honestly Reproduced"
 date: 2026-04-10
-weight: 15
+weight: 35
 blurb: "Replacing two thirds of the cement in structural concrete with industrial byproducts cuts embodied carbon by 42 to 53 percent at equivalent strength. The recipe has been known for decades. We reproduced it with a transparent methodology to show where the model's predictions end and where extrapolation begins."
 domain: "Materials Engineering"
 tags: ["materials", "sustainability", "concrete", "reproduction", "multi-objective"]

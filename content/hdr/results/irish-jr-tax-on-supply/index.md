@@ -3,7 +3,7 @@ title: "The Judicial-Review Tax on Irish Housing Supply"
 date: 2026-04-17
 domain: "Irish Housing"
 blurb: "Twenty-two Strategic Housing Development judicial reviews decided 2018-2022 directly delayed approximately 7,000 housing units for a combined 105,504 unit-months (sensitivity range 85k-150k). If An Bord Pleanála had maintained its 18-week statutory objective throughout, a counterfactual simulation suggests 7,421-16,638 additional completions over 2018-2024 — the range reflecting a construction-capacity ceiling that limits how fast delayed units can convert. The indirect channel (JR pressure → defensive ABP decision-making → slower all-case processing) cannot be point-identified from aggregate data; we report it as an attribution range, not an estimate."
-weight: 19
+weight: 3
 tags: ["housing", "ireland", "judicial-review", "policy-evaluation", "counterfactual"]
 ---
 

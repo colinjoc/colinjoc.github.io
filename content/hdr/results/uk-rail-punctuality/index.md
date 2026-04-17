@@ -3,7 +3,7 @@ title: "Avanti's Post-Pandemic Collapse: How Much is the Operator and How Much i
 date: 2026-04-16
 domain: "UK Rail Transport"
 blurb: "British rail punctuality has a standing grievance target: Avanti West Coast. Post-COVID its on-time-arrivals share fell 9 percentage points below pre-pandemic — the worst recovery of any UK operator. The standard defence is that this is a West Coast Main Line infrastructure problem and not the operator's fault. We looked at London North Eastern Railway, which runs the parallel East Coast Main Line with broadly comparable long-distance operations. LNER recovered above its pre-pandemic level; Avanti fell nine points. Under a standard difference-in-differences design, about twelve percentage points of Avanti's gap is operator-specific rather than common to long-distance UK rail."
-weight: 6
+weight: 26
 tags: ["rail", "uk", "punctuality", "transport", "policy-evaluation"]
 ---
 

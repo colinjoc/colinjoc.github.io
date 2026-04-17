@@ -3,7 +3,7 @@ title: "NYC's Congestion Charge Worked -- the Feared Displacement Never Came"
 date: 2026-04-12
 domain: "Transport / Urban Policy"
 blurb: "We checked whether Manhattan's new congestion charge just pushed cars to outer boroughs. Three independent public datasets covering 15 months say no: about 11% fewer vehicles enter the toll zone than projected, subway use jumped, and bridge traffic to other boroughs barely budged."
-weight: 5
+weight: 25
 tags: ["transport", "congestion-pricing", "nyc", "policy-evaluation", "displacement", "open-data"]
 ---
 

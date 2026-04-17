@@ -3,7 +3,7 @@ title: "The Textbook Welding Rule Is Only Half Right"
 date: 2026-04-12
 domain: "Manufacturing / Welding Metallurgy"
 blurb: "Welding textbooks say one number -- heat input -- explains weld quality. We tested that claim directly and found it explains less than half the variation. A different physics-based measure, derivable from the same inputs, proved five times more useful."
-weight: 10
+weight: 30
 tags: ["manufacturing", "welding", "physics-informed", "hypothesis-testing", "negative-result"]
 ---
 

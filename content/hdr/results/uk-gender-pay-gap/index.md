@@ -3,7 +3,7 @@ title: "Nine Years of UK Mandatory Gender Pay Gap Disclosure: Has the Gap Actual
 date: 2026-04-16
 domain: "UK Labour Economics"
 blurb: "Since 2017 every UK employer with 250 or more staff has been legally required to publish six gender pay gap numbers every year. Nine reporting cycles and 93,000 filings later, has the gap actually moved? The population median has fallen from 9.3 to 8.1 percent (95% CI on the gap: -1.70 to -0.57 pp). Of the 5,259 employers that reported in both 2017 and 2025, the within-firm median dropped 2.1 pp and 61 percent narrowed their gap (Wilcoxon p < 1e-97). The COVID-adjusted rate of progress is 0.15 to 0.20 percentage points per year, implying a 40-to-55-year horizon to parity under the current regime."
-weight: 8
+weight: 28
 tags: ["gender-pay-gap", "uk", "labour-economics", "policy-evaluation", "mandatory-disclosure"]
 ---
 

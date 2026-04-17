@@ -3,7 +3,7 @@ title: "The Fast Track That Judicial Review Killed: Strategic Housing Developmen
 date: 2026-04-16
 domain: "Irish Planning"
 blurb: "Between 2017 and 2021 Ireland ran a planning fast-track called Strategic Housing Development. Large housing developments bypassed local councils and went straight to An Bord Pleanála. The policy was designed to deliver the housing crisis solution at pace. Instead, between 87 and 91 percent of the SHD decisions that made it to the High Court were either quashed by judges or conceded by the planning board before a hearing, depending on which canonical source is counted. By 2020, An Bord Pleanála's legal costs from judicial reviews had more than doubled to 8.2 million euros. The scheme was abolished at the end of 2021 and replaced."
-weight: 13
+weight: 9
 tags: ["housing", "ireland", "planning-permissions", "judicial-review", "SHD"]
 ---
 

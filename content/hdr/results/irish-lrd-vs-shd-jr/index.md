@@ -3,7 +3,7 @@ title: "Did Replacing Strategic Housing Development Reduce Judicial Reviews?"
 date: 2026-04-16
 domain: "Irish Housing"
 blurb: "In 2021 Ireland replaced the Strategic Housing Development (SHD) regime with Large-scale Residential Development (LRD), partly to reduce judicial-review (JR) exposure. Three years on, the honest answer is: we cannot tell yet. Only two LRD-era judicial reviews have been fully decided at end-2024 (both conceded by the State). The 2023-2024 rise in LRD JR intake (3→7) is indistinguishable from a system-wide JR surge (+58%, with Commercial +150% and Infrastructure +850%). Any regime-effect claim from this data is below the detection floor; a clean test requires approximately 2027."
-weight: 16
+weight: 7
 tags: ["housing", "ireland", "planning-permission", "judicial-review", "LRD", "SHD", "policy-evaluation"]
 ---
 

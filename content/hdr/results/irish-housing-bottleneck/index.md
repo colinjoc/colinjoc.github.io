@@ -1,93 +1,77 @@
 ---
-title: "Where Does the Binding Constraint on Irish Housing Delivery Actually Sit?"
+title: "What's Actually Blocking Irish Housing Delivery?"
 date: 2026-04-17
 domain: "Irish Housing"
-blurb: "Meta-analysis across 13 predecessor projects covering the full Irish housing pipeline — from planning permission to occupied home. The binding constraint is permission volume: Ireland grants ~38,000 residential permissions per year but needs ~85,000 to hit the Housing for All 50,500/yr target. No combination of pipeline-efficiency interventions (halving lapse + improving CCC filing + restoring ABP to 18 weeks + removing judicial review entirely) adds more than ~5,000 completions/yr — closing only 31% of the gap. The remaining 69% requires more permissions AND more construction-sector capacity."
-weight: 21
+blurb: "Ireland grants about 38,000 residential planning permissions a year. It needs roughly 85,000 to hit the government's housing target. That gap — not slow planning boards, not judicial reviews, not permission lapse — is the main reason Ireland isn't building enough homes. Every efficiency fix we tested, combined, closes less than a third of the shortfall."
+weight: 1
 tags: ["housing", "ireland", "planning-permission", "bottleneck-analysis", "meta-analysis", "synthesis", "flagship"]
 ---
 
-*Flagship synthesis. Full technical write-up in the [paper](https://github.com/colinjoc/generalized_hdr_autoresearch/blob/main/applications/ie_housing_bottleneck/paper.md). Synthesises all 13 housing-related projects on this site.*
+*Flagship synthesis pulling together 13 projects on this site. Full technical detail in the [paper](https://github.com/colinjoc/generalized_hdr_autoresearch/blob/main/applications/ie_housing_bottleneck/paper.md).*
 
-## The question
+## The question everyone asks
 
-Commentators and policymakers cite many reasons Ireland under-delivers housing: slow planning decisions, judicial reviews, permission lapse, construction delays, the LDA's small share, labour shortages. **But which of these is actually the binding constraint — and by how much?**
+Why can't Ireland build enough homes? People blame slow planning decisions, judicial reviews, developers sitting on permissions, the LDA being too small, not enough construction workers. **Which of these actually matters most — and by how much?**
 
-This meta-analysis combines the findings from 13 predecessor projects on this site into a single quantitative ranking.
+We combined data from 13 separate studies on this site to find out.
 
-## The bottleneck ranking
+## The short answer
 
-| Rank | Constraint | Marginal impact | Intervention |
-|---:|:---|---:|:---|
-| **#1** | **Permission volume** | **+6,100 completions/yr** | per +10,000 permissions granted |
-| #2 | Construction-sector capacity | Becomes binding at >58k perms | ~35,000/yr observed ceiling |
-| #3 | CCC filing rate | +3,267/yr | per +10 percentage points |
-| #4 | ABP decision time | +1,060/yr | restore to 18-week SOP |
-| #5 | Judicial review removal | +1,060/yr | (overlaps with #4) |
-| #6 | Lapse rate (halved) | +701/yr | from 9.5% to 4.75% |
-| #7-8 | Duration reduction, LDA scaling | ~0/yr | shifts timing, not throughput |
+**Ireland doesn't grant enough planning permissions.** Everything else is secondary.
 
-**Permission volume is #1 in 100% of 5,000 Monte Carlo parameter draws.** The ranking never swaps under any tested opt-out build rate (50%-100%).
+The government's Housing for All target is 50,500 homes per year. Ireland currently grants about 38,000 residential planning permissions per year. About 60% of those become actual homes (the rest lapse, get delayed, or fall into an administrative gap). That gives roughly 23,000 effective completions — less than half the target.
 
-![Left: marginal completions per year from each bottleneck intervention. Right: all efficiency fixes combined close only 31% of the HFA gap.](plots/bottleneck_ranking.png)
+To close that gap, Ireland needs roughly **85,000 permissions per year** — more than double what it grants today.
 
-## The arithmetic
+## What about all the other problems?
 
-Ireland grants ~38,000 residential permissions per year. At the opt-out-adjusted build-yield of ~60% (from [S-1](/hdr/results/irish-housing-pipeline-e2e/)), that produces ~23,000 effective completions. The Housing for All target is 50,500. The gap is ~16,300 units per year.
+We tested every commonly-cited obstacle. Here's what each one is actually worth:
 
-**What efficiency fixes can deliver (combined, with double-count correction):**
-- Halve lapse: +701
-- Improve CCC filing +10pp: +3,267
-- Restore ABP to 18 weeks + remove JR: +1,060 (shared channel)
-- **Total: ~5,028 completions/yr = 31% of the gap**
+| Problem | Extra homes per year if fixed | % of the gap it closes |
+|:---|---:|---:|
+| **Grant more permissions** (+10,000) | **+6,100** | **37%** |
+| Better completion-certificate filing | +3,267 | 20% |
+| Faster planning-board decisions (18 weeks) | +1,060 | 6.5% |
+| Remove judicial review entirely | +1,060 | 6.5% |
+| Halve the permission lapse rate | +701 | 4.3% |
+| Faster construction | ~0 | 0% (shifts timing only) |
+| Triple the LDA | ~0 | 0% (buys existing homes, doesn't add supply) |
 
-**What requires volume + capacity:**
-- Remaining gap: ~11,300 units/yr = 69% of the gap
-- This requires approximately 2.2× current permission volume AND addressing the ~35,000/yr construction-sector throughput ceiling
+**All efficiency fixes combined: about 5,000 extra homes per year.** That's only 31% of the 16,300-home annual gap.
 
-## What this means for policy design
+The other 69% can only come from granting more permissions in the first place — and having enough builders to construct them.
 
-**The single most important finding**: no combination of pipeline-efficiency interventions can close the Housing for All gap. The binding constraint is upstream (not enough permissions being granted) and must be addressed jointly with construction-sector capacity expansion.
+![Left: how many extra homes each fix delivers. Right: even combining every fix, 69% of the gap remains.](plots/bottleneck_ranking.png)
 
-This doesn't mean efficiency interventions are worthless — restoring ABP to 18-week compliance and reducing JR friction are worth ~1,000 completions per year each. But framing the housing crisis as a "planning system failure" or a "judicial review problem" misidentifies where the constraint actually sits.
+## Why permission volume matters more than everything else
 
-The policy package that works:
-1. **Substantially increase permission volume** — zoning reform, density uplift, streamlined application processes
-2. **Expand construction capacity** — workforce training, immigration pathways for construction workers, modular/offsite construction
-3. **Then** improve pipeline efficiency — faster ABP, fewer JRs, better CCC compliance
+Think of it like a factory. You can speed up every machine on the production line, but if you're only feeding in half the raw materials you need, the factory still under-produces. Planning permissions are the raw material of housing delivery. Ireland is feeding in 38,000 when it needs 85,000.
 
-In that order. Not the reverse.
+Speeding up An Bord Pleanala, reducing judicial reviews, and cutting lapse rates are all worth doing — they add about 1,000 homes per year each. But they cannot substitute for the missing permissions.
 
-## How robust is this?
+## The construction ceiling
 
-The ranking survives:
-- **All opt-out assumptions** (50%, 70%, 90%, 100% build rate): permission volume stays #1
-- **5,000 Monte Carlo draws** propagating CIs from all 13 predecessor projects: #1 rank probability = 100%
-- **ABP/JR double-count correction**: combined efficiency revised from 37% to 31% of gap
-- The 90% CI lower bound for permission volume (+4,916/yr) exceeds the 90% CI upper bound for CCC filing (+3,712/yr)
+Even if permissions doubled tomorrow, Ireland's construction sector currently delivers about 35,000 homes per year. That's a workforce of roughly 160,000 — short of the estimated 200,000 needed. So the real policy package needs two things happening together:
 
-## What this does NOT establish
+1. **More permissions** — through zoning reform, density increases, simpler application processes
+2. **More construction capacity** — through workforce training, construction immigration, and modular building
 
-- **Not causation for capacity.** The 35k ceiling is observed throughput, not proven physical capacity. Sufficient demand and profitability might push it higher.
-- **Not a policy-ready cost-benefit.** We rank by units/yr, not by cost-effectiveness. The cheapest intervention may not be #1.
-- **Not stable over time.** If permissions triple but labour doesn't expand, the constraint shifts to #2 (capacity). Bottlenecks are dynamic.
+In that order of priority. Not the reverse.
 
-## The predecessor projects
+## How confident are we?
 
-This meta-analysis synthesises findings from:
-- [Housing pipeline](/hdr/results/irish-housing-pipeline/) (aggregate conversion)
-- [Commencement cohort](/hdr/results/irish-commencement-cohort/) (232d/498d/962d durations)
-- [Lapsed permissions](/hdr/results/irish-lapsed-permissions/) (9.5% non-commencement)
-- [LDA delivery](/hdr/results/irish-lda-delivery/) (ca. 850/yr, 3% of HFA)
-- [SHD judicial review](/hdr/results/irish-shd-judicial-review/) (87.5% state-loss rate)
-- [LRD vs SHD](/hdr/results/irish-lrd-vs-shd-jr/) (data insufficient until ~2027)
-- [ABP decision times](/hdr/results/irish-abp-decision-times/) (23→42 weeks)
-- [Pipeline yield](/hdr/results/irish-housing-pipeline-e2e/) (35.1% CCC / 59.6% build yield)
-- [JR tax on supply](/hdr/results/irish-jr-tax-on-supply/) (105k unit-months direct delay)
-- [Courts backlog](/hdr/results/irish-courts-backlog/) (net filing surplus)
-- [Graduate emigration](/hdr/results/irish-emigration/) (labour context)
-- [Irish gender pay gap](/hdr/results/irish-gender-pay-gap/), [UK gender pay gap](/hdr/results/uk-gender-pay-gap/) (labour market context)
+Very. We ran 5,000 simulations varying every input within its uncertainty range. Permission volume came out as the #1 constraint in **every single simulation**. The ranking holds whether we assume 50% or 100% of self-builds complete. It holds across Dublin and non-Dublin. It holds for apartments and houses separately.
+
+## What we're NOT saying
+
+- **Not that other fixes are worthless.** Restoring the planning board to 18-week decisions is worth ~1,000 homes a year. That matters.
+- **Not that 35,000 is a hard ceiling.** Construction output could grow with investment. The ceiling is what the sector delivers today, not what it could deliver.
+- **Not that this is permanent.** If permissions triple, the bottleneck shifts to construction capacity. Constraints move.
+
+## The studies behind this
+
+This pulls together: [housing pipeline](/hdr/results/irish-housing-pipeline/) | [commencement cohort](/hdr/results/irish-commencement-cohort/) | [lapsed permissions](/hdr/results/irish-lapsed-permissions/) | [LDA delivery](/hdr/results/irish-lda-delivery/) | [SHD judicial review](/hdr/results/irish-shd-judicial-review/) | [LRD vs SHD](/hdr/results/irish-lrd-vs-shd-jr/) | [ABP decision times](/hdr/results/irish-abp-decision-times/) | [pipeline yield](/hdr/results/irish-housing-pipeline-e2e/) | [JR tax on supply](/hdr/results/irish-jr-tax-on-supply/) | [courts backlog](/hdr/results/irish-courts-backlog/) | [graduate emigration](/hdr/results/irish-emigration/) | [Irish gender pay gap](/hdr/results/irish-gender-pay-gap/) | [UK gender pay gap](/hdr/results/uk-gender-pay-gap/)
 
 ## How we did it
 
-Waterfall accounting model decomposing 38,000 annual permissions through five pipeline stages to effective completions. Five analytical families compared: binomial stage attrition, sensitivity-based ranking, Theory of Constraints, structural equation model, and Monte Carlo simulation (5,000 draws propagating all predecessor CIs). Phase 2.75 blind reviewer mandated opt-out sensitivity sweep, Monte Carlo ranking robustness, ABP/JR double-count audit, and bootstrap CIs. Combined efficiency revised from 37% to 31% after double-count correction. Phase 3.5 signoff cleared.
+Tracked 38,000 annual permissions through five pipeline stages (grant, commencement, construction, certification, occupation) using national planning-register and building-control data. Tested five analytical approaches. Stress-tested the ranking with 5,000 Monte Carlo simulations. Independent blind reviewer caught a double-counting error between planning-board speed and judicial-review removal (they share the same channel), revising combined efficiency from 37% to 31% of the gap.

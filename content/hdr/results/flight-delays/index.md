@@ -3,7 +3,7 @@ title: "A Single Delayed Morning Flight Can Cascade Through Ten More"
 date: 2026-04-11
 domain: "Transport / Aviation Operations"
 blurb: "We tracked 3.4 million US domestic flights by tail number and found that aircraft rotation -- the same plane flying multiple legs per day -- accounts for 41% of all delay minutes. Half of delays die immediately, but the rest ripple forward, compounding from near-zero at 6 AM to an average of 17 minutes late by 7 PM."
-weight: 7
+weight: 27
 tags: ["transport", "aviation", "flight-delays", "delay-propagation", "network-analysis", "airline-scheduling", "United-States"]
 ---
 

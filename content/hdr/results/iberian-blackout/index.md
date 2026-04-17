@@ -3,7 +3,7 @@ title: "The Blackout Nobody Saw Coming Was the Opposite Kind"
 date: 2026-04-11
 domain: "Energy / Power System Stability"
 blurb: "On April 28, 2025, Spain and Portugal went dark when too much voltage -- not too little power -- collapsed the grid in 24 seconds. We built a stress detector from public data, then discovered it could not actually predict the blackout it was designed to explain."
-weight: 9
+weight: 29
 tags: ["energy", "power-systems", "blackout", "cascading-failure", "voltage-stability", "solar-PV", "renewable-energy", "Spain", "Portugal", "overvoltage", "reactive-power"]
 ---
 

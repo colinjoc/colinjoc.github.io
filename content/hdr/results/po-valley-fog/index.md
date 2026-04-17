@@ -3,7 +3,7 @@ title: "Polluted Fog Lasts Two Hours Longer in Italy's Po Valley"
 date: 2026-04-12
 domain: "Atmospheric Science"
 blurb: "We matched 3,021 fog events at ten Italian airports with air pollution records from 275 monitoring stations. Fog on polluted days persists about two hours longer than fog on clean days, and the gap nearly doubles when temperatures drop below freezing."
-weight: 11
+weight: 31
 tags: ["atmospheric-science", "fog", "aerosol", "po-valley", "air-quality", "italy", "open-data"]
 ---
 

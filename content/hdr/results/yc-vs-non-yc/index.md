@@ -3,7 +3,7 @@ title: "Does Y Combinator Actually Help? A Null Finding With a Catch"
 date: 2026-04-14
 domain: "Venture Capital / Startup Policy"
 blurb: "We matched 117 Y Combinator graduates from 2014–2019 to comparable non-YC seed-stage companies in SEC Form D filings. The raw follow-on raise rate is identical -- 29.1 percent for both groups. After ecosystem controls, YC nudges up to a suggestive +6 percentage points, but the confidence interval still includes zero. A lookalike-placebo test then reveals that the whole measurement framework is biased against finding any effect."
-weight: 1
+weight: 21
 tags: ["venture-capital", "startups", "null-result", "matched-pair", "propensity-score-matching", "yc", "sec-form-d", "causal-inference"]
 ---
 

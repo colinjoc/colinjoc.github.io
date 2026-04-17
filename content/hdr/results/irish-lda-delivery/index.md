@@ -3,7 +3,7 @@ title: "How Much Housing Does the Land Development Agency Actually Deliver?"
 date: 2026-04-15
 domain: "Irish Housing"
 blurb: "The Land Development Agency delivered ca. 850 homes in 2023 — its first audited year — entirely through Project Tosaigh forward-purchase of privately-built homes. Cumulative delivery through end-2024 was ~2,054 (Irish Times, Sep 2025). The LDA's own 2023 annual report sets a 2028 target of 8,000 homes — which implies ~3% of the 50,500-per-year Housing for All framework. By the LDA's own numbers, the Agency is a structurally minor contributor to Irish housing delivery."
-weight: 14
+weight: 10
 tags: ["housing", "ireland", "LDA", "policy-evaluation"]
 ---
 

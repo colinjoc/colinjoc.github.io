@@ -3,7 +3,7 @@ title: "Flights Arriving Late Actually Turn Around Faster"
 date: 2026-04-12
 domain: "Transport / Aviation Operations"
 blurb: "We tracked 2.5 million aircraft turnarounds and found that the airline's own schedule -- not ground crew speed -- explains most of the variability. Even more surprising: planes arriving late spend less time on the ground, because crews rush to recover the delay. The effect only breaks down when flights are extremely late."
-weight: 9
+weight: 29
 tags: ["transport", "aviation", "turnaround-time", "ground-operations", "airline-scheduling", "tail-number-tracking", "United-States"]
 ---
 

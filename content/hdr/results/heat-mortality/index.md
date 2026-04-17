@@ -3,7 +3,7 @@ title: "Night-Time Humidity Does Not Predict Which Heat Waves Kill"
 date: 2026-04-11
 domain: "Public Health / Climate Hazards"
 blurb: "We tested the claim that night-time wet-bulb temperature predicts heat-wave deaths across 30 cities over 13 years. The signal was not detected at this scale -- not in any of 22 humidity encodings, not under temporal cross-validation, and not in a matched case-crossover design. Daytime temperature extremes and their recent history remain the strongest predictors."
-weight: 1
+weight: 21
 tags: ["public-health", "climate", "heat-mortality", "wet-bulb", "hypothesis-testing", "negative-result", "early-warning-systems"]
 ---
 

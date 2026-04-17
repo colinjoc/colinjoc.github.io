@@ -3,7 +3,7 @@ title: "Ireland's Radon Map Misses 57% of Dangerous Areas"
 date: 2026-04-11
 domain: "Environmental Science / Public Health"
 blurb: "Radon kills about 250 Irish people a year, but only 3 percent of homes have been tested. We trained a model on five real geological datasets to predict which 10-kilometre grid squares are most dangerous. It identifies the right geological signals but misses 57 percent of actual High Radon Areas and underpredicts the worst zones by 25 percentage points."
-weight: 4
+weight: 24
 tags: ["radon", "Ireland", "geology", "public-health", "spatial-prediction", "environmental-risk"]
 ---
 

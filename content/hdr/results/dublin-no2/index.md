@@ -3,7 +3,7 @@ title: "Dublin Passes EU Air Law While Failing the Health Standard"
 date: 2026-04-11
 domain: "Environmental Science / Air Quality"
 blurb: "Every urban monitoring station in Dublin and Cork exceeds the World Health Organization's health-based nitrogen dioxide limit, yet Ireland has never broken the European Union's legal standard. Nine years of data and a pandemic lockdown reveal that road traffic is responsible for up to 80 percent of the pollution."
-weight: 16
+weight: 36
 tags: ["air-quality", "NO2", "Dublin", "Ireland", "WHO-guidelines", "source-apportionment", "COVID-lockdown", "traffic-emissions"]
 ---
 

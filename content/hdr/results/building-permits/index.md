@@ -3,7 +3,7 @@ title: "34 Experiments, Zero Wins: Permit Delays Need Data, Not Models"
 date: 2026-04-11
 domain: "Urban Operations / Housing Policy"
 blurb: "We ran 34 machine-learning experiments on 50,000 building permits from five US cities. None improved the baseline. Then Seattle's per-stage timestamps cut the prediction error fourfold -- not because the model got smarter, but because the data got better."
-weight: 3
+weight: 23
 tags: ["urban-operations", "housing-policy", "negative-result", "process-mining", "open-data", "building-permits"]
 ---
 

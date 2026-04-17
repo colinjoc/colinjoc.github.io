@@ -3,7 +3,7 @@ title: "For Every 100 Irish Planning Permissions, How Many Become Homes?"
 date: 2026-04-17
 domain: "Irish Housing"
 blurb: "Stitching together four predecessor projects into one end-to-end pipeline: of every 100 residential permissions granted in Ireland (2014-2019 cohort), about 60 result in a built home (build-yield), but only 35 file a Certificate of Completion and Compliance (CCC-yield). The gap is almost entirely explained by the BCAR 2014 opt-out provision exempting one-off self-builds from CCC filing. To hit the Housing for All 50,500/yr target, Ireland needs roughly 85,000 permissions per year at the build-yield — more than double the current ~38,000. Permission volume, not conversion efficiency, is the binding constraint."
-weight: 20
+weight: 2
 tags: ["housing", "ireland", "planning-permission", "pipeline-yield", "policy-evaluation", "synthesis"]
 ---
 

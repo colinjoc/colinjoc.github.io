@@ -3,7 +3,7 @@ title: "A 20-Line Rule Matches the Best AI for Traffic Lights"
 date: 2026-04-12
 domain: "Transportation Engineering"
 blurb: "Researchers have spent a decade training complex neural networks to time traffic lights, reporting large reductions in wait times. We found that a short deterministic rule with no learning achieves the same improvement range -- and nearly all proposed refinements made things worse."
-weight: 14
+weight: 34
 tags: ["transportation", "control", "reinforcement-learning", "discovery", "traffic-signals"]
 ---
 

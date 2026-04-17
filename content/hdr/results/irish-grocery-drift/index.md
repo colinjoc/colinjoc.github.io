@@ -3,7 +3,7 @@ title: "Where Did Your Irish Grocery Bill Actually Go Up?"
 date: 2026-04-16
 domain: "Irish Cost of Living"
 blurb: "Irish food prices rose a median 19 percent between January 2022 and January 2026, but the headline number hides enormous dispersion. Sugar went up 51 percent. Beef up 48. Chocolate 46. Milk 39. Butter 38. Fresh meat 36. Bottled water 36. Eggs 33. Meanwhile jams rose 5 percent and fresh seafood just 2. After deflating by average wage growth of roughly 18 percent, all ten worst-hit categories are still 15 to 33 percentage points worse in real terms than wages have delivered. The shock is also historically unusual: seven of those ten categories had been getting cheaper in the four years before 2022."
-weight: 7
+weight: 27
 tags: ["cost-of-living", "ireland", "groceries", "inflation", "CPI"]
 ---
 

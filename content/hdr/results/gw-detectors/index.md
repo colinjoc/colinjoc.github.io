@@ -3,7 +3,7 @@ title: "An AI Built a Better Gravitational-Wave Detector -- Nobody Knows Why"
 date: 2026-04-12
 domain: "Physics / Gravitational-Wave Instrumentation"
 blurb: "An artificial intelligence discovered 50 new gravitational-wave detector designs. We took apart the best one and found that most of its components do nothing, its readout system is half-broken by design, and it works by a mechanism that has never appeared in the physics literature."
-weight: 11
+weight: 31
 tags: ["gravitational-waves", "interferometry", "AI-for-science", "structural-analysis", "topology"]
 ---
 

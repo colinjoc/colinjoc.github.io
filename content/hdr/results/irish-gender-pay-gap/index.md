@@ -3,7 +3,7 @@ title: "Irish Mandatory Gender Pay Gap Reporting: Three Years In, Narrowing Insi
 date: 2026-04-16
 domain: "Irish Labour Economics"
 blurb: "Ireland introduced mandatory gender pay gap reporting in 2022 for employers with 250 or more staff, phasing down to 50 staff by 2026. Three reporting cycles in, the median Irish hourly pay gap has fallen from 7.0 percent to 6.2 percent — about a quarter of a percentage point per year. Once a cluster-bootstrap is run over firms, that rate has a 95 percent confidence interval of minus 0.60 to plus 0.14 percentage points per year: the population-level narrowing is *not yet statistically distinguishable from zero*. The more robust finding is within-firm: 623 firms reporting in both 2022 and 2025 narrowed by a median of 0.87 points, and 56.5 percent narrowed. A decomposition shows essentially all of the population-level drop is within-firm reform, not composition from the phased-down threshold. The original draft of this summary claimed Ireland was narrowing faster than the UK; window-matched reviewer experiments overturned that claim, and this page has been corrected."
-weight: 9
+weight: 13
 tags: ["gender-pay-gap", "ireland", "labour-economics", "mandatory-disclosure"]
 ---
 

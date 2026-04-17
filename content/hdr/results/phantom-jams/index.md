@@ -3,7 +3,7 @@ title: "Four Smart Cars Dissolve a Phantom Traffic Jam"
 date: 2026-04-11
 domain: "Transportation / Traffic Flow Control"
 blurb: "Phantom traffic jams form with no crash or obstacle -- just human overreaction rippling backward through a chain of drivers. We found that replacing just four out of 22 vehicles with smart cruise control eliminates the wave almost entirely. Three is not enough."
-weight: 2
+weight: 22
 tags: ["transportation", "traffic-flow", "phantom-jams", "autonomous-vehicles", "ring-road", "wave-suppression", "hypothesis-driven-research"]
 ---
 

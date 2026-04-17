@@ -3,7 +3,7 @@ title: "How Long Does an Irish Housing Permission Actually Take to Become a Comp
 date: 2026-04-16
 domain: "Irish Housing"
 blurb: "Irish housing statistics publish permissions granted and completions certified as two separate aggregate series. The gap between them is usually estimated as a cross-correlation lag — a notional number, not a real cohort measurement. Using row-level Building Control Management System data (183,633 residential permissions, 2014-2025), we trace each permission through commencement to completion certification. Median time from permission to commencement: 232 days. Median commencement to completion certificate: 498 days. Total median permission-to-completion: 962 days (about 32 months). Between 0.67% and 39% of permissions never translate to a filed completion certificate, depending on how strictly 'dark permission' is defined."
-weight: 15
+weight: 4
 tags: ["housing", "ireland", "planning-permission", "cohort-analysis", "survival-analysis"]
 ---
 
