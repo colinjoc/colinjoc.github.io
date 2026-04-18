@@ -1,65 +1,59 @@
 ---
-title: "Can We Predict Which Housing Markets Crash First? Probably Not."
-date: 2026-04-14
-domain: "Real Estate / Economic Forecasting"
-blurb: "We tried to predict which US metros would experience a 10 percent home-price decline in the 2022-2023 cycle using publicly-available data -- Zillow price history, Realtor.com inventory, and mortgage rates. The headline result looked promising at four-to-five times better than random. Every honest check dissolved it. The apparent signal was mostly a single rural Mississippi town and a handful of other declining small markets -- and the model was strictly worse than just looking at last year's price change."
-weight: 22
-tags: ["real-estate", "housing", "crash-prediction", "null-result", "early-warning", "econometrics"]
+title: "Can you predict which US housing markets crash first?"
+date: 2026-04-19
+domain: "Real Estate Economics"
+blurb: "Every cycle, commentators claim they can see the next housing crash coming. Can they, actually? We checked."
+weight: 20
+tags: ["housing", "real-estate", "prediction", "null-result", "early-warning", "econometrics"]
 ---
 
-*This is a short summary. For the full technical write-up, see the [detailed paper](https://github.com/colinjoc/hdr_autoresearch/blob/main/applications/housing_crashes/paper.md).*
+*A plain-language summary. The [full technical paper](https://github.com/colinjoc/hdr_autoresearch/blob/main/applications/housing_crashes/paper.md) has the diagnostics and experiment logs. See [About HDR](/hdr/) for how this work was produced and reviewed.*
 
-## The Question
+**Bottom line.** With only the housing data the public can download, nobody — not us, not the commentators — can reliably pick which American city will crash next. What looks like a signal turns out to be continued decline in two small rural towns that have been shrinking for decades.
 
-When the US housing market wobbles, certain metros crash harder and earlier than others. In 2022-2023 the Federal Reserve raised rates at the fastest pace in four decades, and popular commentary flagged Austin, Phoenix, and Boise as likely casualties. Can a model trained on ordinary public data — home price history, listing inventory, mortgage rates — tell you *in advance* which markets are about to fall?
+## The question
 
-This question matters for first-time buyers trying to time a purchase, for homeowners deciding whether to relocate, for local banks sizing their loan-loss reserves, and for municipal budgets that depend on property-tax revenue. If crash prediction works, it should work on public data — not only on expensive private datasets.
+Every housing cycle brings the same story. Someone points at a chart, names a few cities, and predicts the next crash. When the Federal Reserve pushed mortgage rates up at the fastest pace in forty years in 2022 and 2023, the Austin-Phoenix-Boise prediction was everywhere.
 
-## What We Found
+We asked a tighter version of the question. Using only what anyone can download — home-price indices, listings, days on market, the national mortgage rate — can you actually predict, ahead of time, which American metros will see home prices fall by more than 10 percent over the following year? The answer matters for first-time buyers trying to time a purchase, for homeowners deciding whether to relocate, for local banks sizing loan-loss reserves, and for municipal budgets that depend on property tax.
 
-**The short answer is no — at least not at the metro level, over a 12-month horizon, with data that is free to download.**
+## What we found
 
-- The headline model looked encouraging: it identified crash-prone metros at roughly 4.7× the base rate out-of-sample, which would be a useful result if it were real.
-- Every honest check on that number dissolved it.
-- When we properly accounted for the fact that the same crashing metro contributes up to 16 consecutive rows to the test set, the confidence interval on the lift included "barely above random."
-- When we compared the model to the simplest possible baseline — just using last year's price change as the risk score — the baseline **beat** the model.
-- When we permuted the crash labels at the metro level (preserving autocorrelation structure), the observed result was indistinguishable from noise: the permutation p-value was 0.49.
-- Removing a single market (Clarksdale, Mississippi) dropped the model's performance by 39 percent.
+You cannot. Not from public data, not at the signal-to-noise ratio this cycle produced.
 
-**Who actually crashed.** The metros that crossed the 10-percent-decline threshold in 2022-2023 are not the Austin-Phoenix-Boise headline story. They are mostly small rural micropolitans — Clarksdale MS, Johnstown PA, Beeville TX, Kennett MO, Natchez MS-LA, McComb MS, Zapata TX — markets experiencing decades-long secular decline rather than a cyclical housing correction. Boise, Idaho is the one widely-cited Sun Belt market in the group. Austin and Phoenix did not cross the 10 percent threshold on the data source we used.
+- A carefully built statistical model looked about five times more accurate than random guessing. That is the kind of number people point to when they claim crash prediction is working.
+- Every honest check on that signal made it evaporate. Once we accounted for the fact that the same crashing metro contributes many consecutive months to the test set, the confidence interval on the apparent advantage stretched all the way down to "barely above random".
+- A fair comparison test — scramble which cities crashed and rerun the whole analysis — found the prediction was statistically indistinguishable from luck.
+- The simplest possible forecast, "places that have already been falling will keep falling", was more accurate than our ten-feature model.
+- The whole apparent signal rested on two distressed rural towns, with Clarksdale, Mississippi doing most of the work. Remove Clarksdale alone and nearly 40 percent of the accuracy went with it.
 
 ![The apparent signal dissolves under honest inference](plots/headline_dissolution.png)
 
-## Why That's Surprising
+## Why that matters
 
-Housing-crash prediction tools are routinely sold as commercial products. Real-estate data firms publish rankings of "most overvalued" markets. News outlets run stories titled "the 10 metros most likely to crash in 2025". If any of this worked as advertised on public data, our model should have produced a clear signal — and it didn't. The diagnostic checks that dissolved the signal are not exotic: a block bootstrap that respects metro clustering, a permutation test that preserves autocorrelation, a comparison to a single-feature baseline. Applying all three should be standard practice, and rarely is.
+The cities that actually fell more than 10 percent in 2022 and 2023 are not Austin or Phoenix. They are mostly rural towns in long-term population decline — Clarksdale and Natchez in Mississippi, Johnstown in Pennsylvania, Beeville in Texas, Kennett in Missouri. Boise was the one widely-cited Sun Belt market in the group. Austin and Phoenix did not cross the 10 percent threshold at all in the data source we used.
 
-The other surprise is the population of actual crashers. Popular commentary focuses on post-pandemic Sun Belt boomtowns with visible inventory build-up, but the metros that actually hit a 10-percent-in-12-months decline in our data are mostly shrinking rural areas that were in chronic decline long before 2022. They don't "crash" — they keep bleeding. A cyclical-crash model trained on them won't generalise to the next actual cyclical crash.
+This means the "crash prediction" the model was doing was really "predict continued decline in places already in long-term decline". That is not a forecast. It is a trend extrapolation on a handful of shrinking Delta and Rust Belt towns. Calling it a cyclical-crash model that could generalise to the next boom-bust cycle is not what the data supports.
 
 ![Where the signal actually comes from](plots/crashing_metros.png)
 
-## What It Means
+The broader story lines up with the sceptical tradition in crisis-prediction research. Early-warning models that look good in-sample rarely generalise out-of-sample. Ours did not either.
 
-**For buyers and homeowners.** A published "metro crash probability" derived from public data is probably worth less than you think. Specifically, any such score that doesn't cite a metro-clustered confidence interval and a block-permutation p-value should be treated as informed opinion, not analysis.
+## What it means in practice
 
-**For researchers and data vendors.** Publishing a list of "the most vulnerable metros" without three specific diagnostics — metro-cluster bootstrap, block permutation, and a single-feature dominance check — is insufficient. If the paper has only a single-number out-of-sample PR-AUC or ROC, the result is probably driven by a handful of markets whose removal would change the headline.
+**For homeowners and buyers worried about whether their city is next.** The honest answer is that public-data early-warning models do not yet work well enough to give you a reliable one. A published "metro crash probability" built on the same public data we used is probably worth less than you think. Anyone selling that certainty is selling momentum repackaged as forecasting.
 
-**For the broader literature.** The null result aligns with the sceptical side of the early-warning research tradition (Schularick & Taylor on bank crises, Gourinchas & Obstfeld on currency crises, Beutel & colleagues on machine-learning crisis prediction). These authors repeatedly find that early-warning models that look good in-sample rarely generalise. Our finding extends that tradition to US metro-level housing using the specific 2022-2023 rate-shock episode.
+**For journalists and forecasters.** Any claim that a metro-level crash model works should come with three specific checks — a resampling procedure that respects how metros cluster together, a time-aware shuffle test, and a demonstration that the model beats a simple one-feature momentum score. Without all three, the apparent signal is almost certainly an artefact of two or three distressed markets in the training data.
 
-## How We Did It
+**For policymakers and regulators.** Public data tells you about the aftermath. The inputs that might give real early warning — mortgage-level credit data, lender regulatory filings — sit behind restricted access. Expanding access is the lever worth pulling if reliable early warning is the goal.
 
-We pulled Zillow's monthly [Home Value Index](https://www.zillow.com/research/data/) for approximately 900 US metros back to 2000, joined it to [Realtor.com's monthly inventory metrics](https://www.realtor.com/research/data/) (active listings, days on market, price reductions) from 2016 onward, and added the [FRED 30-year mortgage rate](https://fred.stlouisfed.org/series/MORTGAGE30US) as a national macro series. We defined a "crash" as a 12-month forward decline of 10 percent or more, trained a standard regularised logistic model through mid-2022, and evaluated on the 18 months that followed.
+## How we did it
 
-All source data is publicly downloadable. All code and results are in the repository linked at the top.
+We built a monthly panel for roughly 900 US metros by joining [Zillow's home value index](https://www.zillow.com/research/data/), [Realtor.com's inventory metrics](https://www.realtor.com/research/data/) and the [Federal Reserve's 30-year mortgage rate series](https://fred.stlouisfed.org/series/MORTGAGE30US). The model trained on data through mid-2022 and was tested on the 18 months of rate-shock that followed. We then put the apparent signal through four independent stress tests — a metro-clustered bootstrap, a block-permutation null, a comparison against a single-feature baseline, and a leave-one-metro-out check. All four pointed the same way.
 
-## Further Reading
+## Further reading
 
-- Schularick, M. & Taylor, A. M. (2012). [Credit Booms Gone Bust: Monetary Policy, Leverage Cycles, and Financial Crises, 1870–2008.](https://www.aeaweb.org/articles?id=10.1257/aer.102.2.1029) *American Economic Review* 102(2).
-- Gourinchas, P.-O. & Obstfeld, M. (2012). [Stories of the Twentieth Century for the Twenty-First.](https://www.aeaweb.org/articles?id=10.1257/mac.4.1.226) *American Economic Journal: Macroeconomics* 4(1).
-- Beutel, J., List, S. & von Schweinitz, G. (2019). [Does machine learning help us predict banking crises?](https://doi.org/10.1016/j.jfs.2019.100693) *Journal of Financial Stability*.
-- Himmelberg, C., Mayer, C. & Sinai, T. (2005). [Assessing High House Prices: Bubbles, Fundamentals, and Misperceptions.](https://www.aeaweb.org/articles?id=10.1257/089533005775196769) *Journal of Economic Perspectives* 19(4).
-- [The full technical paper](https://github.com/colinjoc/hdr_autoresearch/blob/main/applications/housing_crashes/paper.md).
-
----
-
-📂 **[HDR methodology](https://github.com/colinjoc/hdr_autoresearch)** — the framework and full project history
+- Schularick, M. & Taylor, A. M. (2012). [Credit Booms Gone Bust: Monetary Policy, Leverage Cycles, and Financial Crises, 1870-2008](https://www.aeaweb.org/articles?id=10.1257/aer.102.2.1029), *American Economic Review* — the landmark study showing how hard cyclical-crisis prediction is even with a century of data.
+- Gourinchas, P.-O. & Obstfeld, M. (2012). [Stories of the Twentieth Century for the Twenty-First](https://www.aeaweb.org/articles?id=10.1257/mac.4.1.226), *American Economic Journal: Macroeconomics* — why early-warning models that look clean in-sample rarely generalise.
+- Beutel, J., List, S. & von Schweinitz, G. (2019). [Does machine learning help us predict banking crises?](https://doi.org/10.1016/j.jfs.2019.100693), *Journal of Financial Stability* — the sceptical case applied to bank crises.
+- [Full technical paper](https://github.com/colinjoc/hdr_autoresearch/blob/main/applications/housing_crashes/paper.md) — all experiments and diagnostics.

@@ -1,80 +1,52 @@
 ---
-title: "Irish Emigration 2020-2025: Australia Pulled Level with the UK in 2025"
+title: "Australia quietly pulled level with the UK for Irish emigrants"
 date: 2026-04-16
 domain: "Irish Migration"
-blurb: "Irish emigration rose 37 percent between 2020 and 2024, peaking at 69,900 people in the year to April 2024 before easing to 65,600 in 2025. The 2024 peak is about 84 percent of the 1987-present high of 83,000 reached in the 2012 financial-crisis wave. Ireland nevertheless remained net-receiving throughout: 2025 net migration was +59,700. In 2025 Australia (13.5k) narrowly exceeded the UK (12.6k) for the first time on record, but the 0.9k gap is inside the CSO PEA18 ±2-3k precision band and is only a single year, so it is best read as 'statistical tie at the top' rather than a confirmed structural shift."
+blurb: "For two centuries, leaving Ireland has meant leaving for Britain. In 2025, that stopped being true — or at least, stopped being obviously true."
 weight: 12
 tags: ["migration", "ireland", "emigration", "australia"]
 ---
 
-*Plain-language summary. Full technical write-up in the [analysis script](https://github.com/colinjoc/generalized_hdr_autoresearch/blob/main/applications/ie_graduate_emigration/analysis.py). Retroactively revised 2026-04-15 following blind reviewer feedback.*
+*A plain-language summary. The [full technical paper](https://github.com/colinjoc/generalized_hdr_autoresearch/blob/main/applications/ie_graduate_emigration/analysis.py) has the diagnostics and experiment logs. See [About HDR](/hdr/) for how this work was produced and reviewed.*
+
+**Bottom line.** Irish emigration rose 37 percent between 2020 and 2024, topping out at 69,900 people before easing back to 65,600 in 2025. That is roughly five out of every six people who left in the 2012 crisis peak. But Ireland is still gaining more people than it loses — net migration was plus 59,700 in 2025. And for the first time on record, Australia received more Irish emigrants than the United Kingdom, though by a margin too thin to call structural.
 
 ## The question
 
-Every few years the Irish emigration story comes back into the public conversation. The last major wave was the post-2008 financial crisis, when emigration peaked at 83,000 people in the year to April 2012. That wave slowly receded, and by 2016-2019 emigration had settled back into the 50-55,000 range. In the 2020s something has changed. The question is by how much, where people are going, and — crucially — whether Ireland is actually losing population.
+Every few years the Irish emigration story comes back into the public conversation. The last big wave was the post-2008 financial crisis, which peaked at 83,000 people leaving in the year to April 2012. By the late 2010s, that had settled into the 50-to-55-thousand range. Something changed in the 2020s — housing got dramatically more expensive, wages stagnated in real terms, post-COVID lifestyle preferences shifted. We wanted to know by how much emigration has risen, where people are actually going, and — crucially — whether Ireland is losing population or still gaining it.
 
-### Scope note
-
-The data source (CSO PxStat table PEA18) is all-ages and has no graduate breakdown. A graduate-specific analysis would require the Higher Education Authority's Graduate Outcomes Survey (HEA GOS) and is out of scope here. Everything below refers to total Irish emigration flows.
+A scope note: the data source covers all ages. A graduate-specific analysis would need a separate higher-education survey and is not answered here.
 
 ## What we found
 
-### Ireland is still net-receiving
-
-Headline first: across every year 2020-2025, Ireland's immigration exceeded its emigration. The 2025 figures are immigration 125,300, emigration 65,600, **net migration +59,700**. 2024 net was +79,300. So while emigration has risen, the net picture is unambiguously positive — population continues to grow through migration. The emigration story is about gross outflows, not net decline.
-
-### Emigration is up 37 percent from 2020
-
-CSO Population and Migration Estimates, April each year:
-
-| Year | Emigrants (thousands) |
-|---|---|
-| 2012 (post-war peak) | 83.0 |
-| 2020 | 50.9 |
-| 2021 | 52.3 |
-| 2022 | 56.1 |
-| 2023 | 64.0 |
-| 2024 | **69.9** |
-| 2025 | 65.6 |
-
-The 2024 figure is the highest since 2015 (when 70,000 emigrated) and is about 84 percent of the post-war peak (83,000 in 2012). 2025 eased back by 6 percent to 65,600 — still nearly 30 percent above 2020 but below the 2024 high. A one-year dip in a provisional estimate is not by itself evidence that the wave has peaked; PEA18 figures are routinely revised in subsequent releases.
-
 ![Irish emigration 1987-2025 with destination breakdown 2010-2025. The 2012 historical peak is annotated; the current wave is approaching but not yet matching it.](plots/emigration_trajectories.png)
 
-### Australia pulled level with the UK in 2025 — within statistical noise
+- Emigration rose 37 percent between 2020 and 2024, from 50,900 to 69,900, before easing back to 65,600 in 2025. The current wave is about 84 percent of the 2012 peak — closer to "crisis-adjacent" than to the financial crisis itself.
+- Ireland remains net-receiving. In 2025, 125,300 people moved in and 65,600 moved out — a net gain of 59,700. The emigration story is about gross outflows, not population decline.
+- Australia took in 13,500 Irish emigrants in 2025. The United Kingdom took in 12,600. That is the first time on record that Australia has been the number-one destination.
+- The margin — 900 people — is inside the precision band of the underlying statistics, which carry roughly plus-or-minus 2,000 to 3,000 for small destinations. So "Australia ahead of the UK" is technically true but statistically a three-way tie at the top with the EU14 grouping (Germany, France, Netherlands and others) at 13,100.
+- The trajectory is the real story. In 2023 the UK led Australia by about ten thousand people. By 2024 that was down to five thousand. In 2025 Australia crossed over. One more year of data will tell us whether this is a structural shift or a noisy single-year lead.
+- Australia itself has grown from 2,500 Irish emigrants in 2021 to 13,500 in 2025 — more than fivefold in four years. Visa-route reforms on the Australian side, including an expanded skilled-worker programme and an age-extended working holiday agreement, are the widely-cited drivers.
 
-The 2025 destination breakdown:
+## Why that matters
 
-| Destination | 2025 emigrants (thousands) |
-|---|---|
-| **Australia** | **13.5** |
-| EU14 excl. IE+UK (Germany, France, Netherlands, etc.) | 13.1 |
-| UK | 12.6 |
-| Other countries (23 aggregated) | 11.1 |
-| USA | 6.1 |
-| Canada | 5.1 |
-| EU15-27 (Poland, etc.) | 4.0 |
+The "Ireland is emptying out" framing does not survive contact with the numbers. Ireland is growing through migration, not shrinking from it. The net picture has been unambiguously positive every year since 2020.
 
-Australia at 13.5k is nominally top, 0.9k ahead of the UK (12.6k). **This is inside the CSO PEA18 precision band** (standard CSO guidance gives standard errors of roughly ±2-3k for small-cell destination estimates), so strictly speaking Australia, EU14, and the UK are all in a statistical three-way tie at the top of the 2025 ranking.
+What has genuinely changed is the destination mix. For two centuries, leaving Ireland has meant, overwhelmingly, leaving for Britain. As recently as 2023, the UK took in more than double Australia's intake. In 2025, for the first time in the series that begins in 1987, that default broke. Whether it holds is an open question. The 2026 estimate will either confirm a structural shift away from the UK or show 2025 as a single-year blip.
 
-The year-by-year trajectory also matters. In 2023 the UK led Australia by 9.9k (14.6 vs 4.7); in 2024 by 4.6k (15.2 vs 10.6); in 2025 Australia is ahead by 0.9k. So the honest reading is "Australia overtook the UK for the first time on record in 2025, by a margin smaller than the series' precision", not "structural shift since 2023". A second consecutive year of Australia-above-UK in 2026 PEA18 would strengthen the structural claim; a reversion below the UK would be consistent with 2025 being a noisy single-year lead.
+## What it means in practice
 
-Australia's rise is nonetheless real at the trend level — it has gone from 2.5k in 2021 to 13.5k in 2025. Drivers widely cited include the Australian post-COVID 482 skilled-visa expansion, the Irish-Australian Working Holiday programme's 2024 age extension, and the 2023 Australian visa-threshold salary reset. Germany and France have also grown inside the EU14 aggregate.
+**For prospective emigrants.** Australia, the UK and mainland Europe are effectively tied as the three most-chosen destinations, each receiving between 12,000 and 14,000 Irish arrivals in 2025. Australia's visa pathways have opened meaningfully since 2023 — the working holiday programme now runs to age 35, and the skilled-worker route has widened.
 
-## What we cannot say from this data
+**For policymakers.** The absolute scale is serious but below 2012 crisis magnitude, and Ireland remains net-receiving. The destination mix is clearly diversifying away from the UK default, but the "Australia is now number one" framing should be treated as provisional until the 2026 numbers are in.
 
-- **Not graduate-specific.** PEA18 covers all ages. A graduate-specific analysis requires the HEA Graduate Outcomes Survey, which is tabulated separately.
-- **"Other countries (23)" is a large opaque bucket.** 11.1k emigrants went to 23 unseparated countries in 2025 — a volume comparable to the UK or EU14. Any single country inside Other-23 could in principle rival the top three, and we cannot see it. The "Australia is top" ranking is conditional on Other-23 containing no single destination above 13.5k, which is plausible but unverified.
-- **Not return-migration-net.** These are gross emigration flows only. In April 2025 Ireland's total immigration was 125,300 and net migration was approximately +59,700. Ireland is still a net-receiving country.
-- **April-stock frame.** PEA18 is an April-to-April estimate frame; it is not directly comparable to flow data from other countries (e.g. US ACS) measured at different points in the year.
-- **Not causal.** Housing costs, wage stagnation, post-COVID lifestyle preferences, and destination-country visa reforms have all been cited in the policy discussion; they are not separately identified in PEA18.
-
-## What it means
-
-For a prospective emigrant: Australia, the UK, and EU14 (Germany / France / Netherlands) are effectively tied as the three most-chosen destinations in 2025, each receiving 12-13k Irish emigrants. Australia's pathway has become progressively more accessible since 2023.
-
-For a policymaker: the absolute flow is serious but below 2012 crisis magnitude (84 percent of the 2012 peak), and Ireland remains net-receiving. The destination mix is clearly diversifying away from the historical UK default, but the "Australia is now number one" framing should be treated as provisional until 2026 PEA18 either confirms or reverses the 2025 crossover.
+**For journalists.** "Exodus" language is not supported by the net-migration data. The honest frame is that gross emigration has risen sharply while immigration has risen faster, and that the historical pattern of Ireland-to-Britain is, perhaps, ending.
 
 ## How we did it
 
-CSO PxStat table PEA18 gives annual April migration estimates by sex, flow (immigration / emigration / net) and destination or origin country (EU14, EU15-27, UK, US, Canada, Australia, Other-23) from 1987 through 2025. We parsed the JSON-stat API response, computed total emigration and net migration time series, compared Australia vs UK year-by-year for 2023-2025, and ranked 2025 destinations. The ±2-3k precision band comes from standard CSO guidance on small-cell estimates in PEA18 and related tables; PEA18 itself does not publish per-cell confidence intervals.
+We used the Central Statistics Office's [Population and Migration Estimates table PEA18](https://data.cso.ie/table/PEA18), which records annual April-to-April migration by sex, flow direction and destination country from 1987 through 2025. We parsed the JSON-stat API response, computed total emigration and net migration series, compared Australia against the UK year by year for 2023-2025, and ranked 2025 destinations. The precision band on small-cell destination estimates comes from standard CSO guidance.
+
+## Further reading
+
+- [CSO Population and Migration Estimates (table PEA18)](https://data.cso.ie/table/PEA18) — the source dataset.
+- [Full technical paper and code](https://github.com/colinjoc/generalized_hdr_autoresearch/blob/main/applications/ie_graduate_emigration/analysis.py).

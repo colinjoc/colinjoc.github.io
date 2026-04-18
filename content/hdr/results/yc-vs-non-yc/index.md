@@ -1,46 +1,58 @@
 ---
-title: "Does Y Combinator Actually Help? A Null Finding With a Catch"
-date: 2026-04-14
-domain: "Venture Capital / Startup Policy"
-blurb: "We matched 117 Y Combinator graduates from 2014–2019 to comparable non-YC seed-stage companies in SEC Form D filings. The raw follow-on raise rate is identical -- 29.1 percent for both groups. After ecosystem controls, YC nudges up to a suggestive +6 percentage points, but the confidence interval still includes zero. A lookalike-placebo test then reveals that the whole measurement framework is biased against finding any effect."
-weight: 21
-tags: ["venture-capital", "startups", "null-result", "matched-pair", "propensity-score-matching", "yc", "sec-form-d", "causal-inference"]
+title: "Do Y Combinator startups really outperform? We can't tell"
+date: 2026-04-19
+domain: "Entrepreneurial Finance"
+blurb: "The belief that Y Combinator graduates beat everyone else is treated as common sense. The cleanest public test cannot confirm it — and why it can't is the real story."
+weight: 25
+tags: ["startups", "venture-capital", "y-combinator", "causal-inference", "sec-filings", "null-result"]
 ---
 
-*This is a short summary. For the full technical write-up, see the [detailed paper](https://github.com/colinjoc/hdr_autoresearch/blob/main/applications/yc_vs_non_yc/paper.md).*
+*A plain-language summary. The [full technical paper](https://github.com/colinjoc/hdr_autoresearch/blob/main/applications/yc_vs_non_yc/paper.md) has the diagnostics and experiment logs. See [About HDR](/hdr/) for how this work was produced and reviewed.*
 
-## The Question
+**Bottom line.** Using only fully public data, we cannot confirm that Y Combinator graduates outperform comparable non-YC seed-stage companies on follow-on fundraising. The raw five-year follow-on rate is identical, 29.1 percent for both. A properly matched comparison nudges YC ahead by about 6 percentage points, but the confidence interval still crosses zero. More importantly, the public record has a systematic hole exactly where researchers need to look, and the hole biases any such test downward.
 
-Y Combinator is the most-cited American startup accelerator. The industry-press narrative is that its graduates substantially outperform comparable non-YC companies on follow-on financing, survival, and exit. The academic record is divided: some studies report +5 to +15 percentage-point effects (Cohen-Fehder-Hochberg-Murray 2019, *Research Policy*; Hallen-Cohen-Bingham 2020, *Strategic Management Journal*); others find null effects on follow-on financing (Kerr-Lerner-Schoar 2014, *Review of Financial Studies*) or show that raw effects disappear once founding-ecosystem density is controlled (Fehder 2024, *Administrative Science Quarterly*).
+## The question
 
-We re-tested the claim using a fully-public data stack: the `yc-oss` portfolio mirror for the treated group, and the SEC's Division of Economic and Risk Analysis (DERA) quarterly Form D archive for the control group and outcome labels.
+Y Combinator has graduated thousands of companies since 2005. An entire genre of industry commentary takes for granted that being "a YC company" is itself a meaningful advantage. The academic record is more mixed — some studies find a 5 to 15 percentage-point boost on follow-on funding and survival, others find essentially nothing once you control for the ecosystems YC founders come from.
 
-## What We Found
+We wanted to rerun this comparison using only fully public data — the Y Combinator portfolio list and the United States Securities and Exchange Commission's structured record of private fundraising filings — and a matched-pair design that compares YC companies to non-YC companies that look otherwise identical on industry, geography, timing, round size, and local investor density.
 
-**Raw outperformance is zero.** For the 117 YC companies from 2014-2019 batches that we could match to an SEC Form D filing, the unconditional 5-year follow-on raise rate is 29.1 percent. For the 31,724 comparable non-YC seed-stage filers in the same window, it's also 29.1 percent. Bootstrap 95 percent confidence interval on the difference: [−7.9, +8.4] percentage points.
+## What we found
 
-**Properly controlled, the estimate moves to +6 pp — still not significant.** The covariate ladder (M0 through M4) tests whether adding ecosystem confounders (Bay Area / NYC / Boston flags, state-year venture density, VIX at filing) attenuates any apparent YC effect. At M3 (year + quarter + sector + state + offering size + real ecosystem controls) the propensity-score-matched Average Treatment Effect on the Treated (ATT) is +6.03 percentage points, 95 percent bootstrap CI [−3.10, +15.17]. The point estimate is nominally in the range the literature predicts — but the CI still includes zero, and within-stratum permutation inference returns p = 0.327. Adding ecosystem controls *raised* the point estimate rather than attenuating it: the opposite direction of Fehder (2024)'s ecosystem-confounding hypothesis, though Fehder's outcome variable differs from ours so this is suggestive only, not a refutation.
+Three things, in tension with each other.
 
-**The most important finding is about the outcome itself.** A lookalike-placebo test — taking the 117 non-YC firms that most structurally resemble YC firms on observables (top-117 by propensity score) — showed their 5-year follow-on Form D raise rate is only 7.7 percent, versus 29.2 percent for the remaining non-YC pool (a −21.5 pp gap, CI [−26, −16]). The lookalikes aren't failing. They're skipping Form D entirely. Modern VC-backed companies increasingly raise via uncapped SAFEs and §4(a)(2) direct placements — which don't trigger the filing. Our matched-control group is therefore systematically under-raising on the outcome we can observe, which biases our YC ATT toward zero.
-
-## Why That Matters
-
-- **The SEC Form D archive is a biased proxy for "raised more money."** It misses the modern default raise channel. Any study relying on Form D as the outcome is measuring visibility of raises, not raises themselves — and the lookalike-placebo is the test that exposes it.
-- **The YC-outperformance question cannot be settled with public data as it stands.** A clean answer requires one of: (1) a public SAFE / §4(a)(2) raise register, (2) institutional access to PitchBook / Crunchbase full history, or (3) an admission-score natural experiment like Kerr-Lerner-Schoar's. None are free.
-- **Only 7.9 percent of YC companies from 2014-2019 filed a Form D in their legal name in their first 60 months post-batch.** One in thirteen. This number is itself a finding about how the modern accelerator-funded company raises capital.
+- The raw comparison — 117 YC companies from the 2014 to 2019 batches versus the entire non-YC pool of about 31,700 comparable seed-stage filers — shows exactly zero advantage. Both groups raise a follow-on round at a five-year rate of 29.1 percent.
+- The properly matched comparison, done right, moves YC ahead by about 6 percentage points. But the confidence interval on that estimate crosses zero. We cannot rule out that the true effect is nothing, and we cannot rule out that it is in the range the existing literature reports.
+- There is a hidden data problem that biases the answer downward. When we pick the 117 non-YC companies that most resemble YC companies on everything we can observe, their filing rate is not 29 percent. It is 8 percent. Their "disappearance" is not failure. They are raising through modern instruments — uncapped SAFEs, direct private placements — that do not trigger the public filing we are using as the outcome measure.
+- Only one in thirteen YC companies from 2014 to 2019 filed a Regulation D offering in their own name within five years of graduating. The rest raised through instruments that left no public paper trail.
 
 ![Covariate ladder plus lookalike-placebo: the estimate moves up with ecosystem controls, and the lookalike gap exposes channel bias](plots/covariate_ladder.png)
 
-## Honest Assessment
+## Why that matters
 
-This is not a clean null finding (the point estimate is nominally positive and the CI only barely crosses zero), nor a clean positive finding (it doesn't clear conventional significance, and the sample size of 117 is too small to detect a +5-10 pp effect at 80 percent power anyway). The most we can say honestly is:
+The dominant narrative is that this question is already settled — that of course YC companies do better, and anyone who doubts it has not looked at the numbers. Our result is that the numbers, done honestly, cannot settle it.
 
-- **YC graduates are not dramatically outperforming comparable non-YC firms on the publicly-observable raise-channel.**
-- **The measurement itself is biased toward zero by how modern startups raise.**
-- **A true +6 pp effect cannot be ruled out, and would be consistent with both our data and the prior literature's higher estimates.**
+The surprise is not really about Y Combinator. It is about what modern fundraising looks like. A decade of the "SAFE" contract and direct private placements means the public record of early-stage startup finance has quietly become full of holes — and the holes are not random. They are concentrated precisely in the high-quality, well-networked companies that researchers most want to study. Any paper that uses public filings as its outcome and forgets this is effectively measuring who is old-fashioned about paperwork, not who is doing well.
 
-The project's main scientific value is the measurement-channel bias diagnosis, not the treatment-effect estimate itself.
+A true +6 percentage-point YC effect cannot be ruled out and would be consistent with both our data and the prior literature's higher estimates. Correcting for the channel bias plausibly pushes the real effect upward, not downward. The honest claim is that the data does not allow a clean answer either way — and the project's main scientific value is diagnosing why.
 
----
+## What it means in practice
 
-*Code, data, and `results.tsv` at the [GitHub repo](https://github.com/colinjoc/hdr_autoresearch/tree/main/applications/yc_vs_non_yc).*
+**For founders deciding whether to apply to YC.** Our result is not evidence against applying. If anything it is evidence that the true effect is obscured by a measurement problem that biases estimates toward zero. The advantage is probably real; the public data cannot pin down its size.
+
+**For journalists and investors citing "the YC outperformance" as a settled fact.** The cleanest public test of the claim does not confidently support it. The gap between narrative and evidence is wider than commonly assumed, and the confident tone of the claim does not match the quality of the public evidence.
+
+**For policymakers and regulators thinking about transparency in private markets.** This is a concrete example of what private-funding opacity costs. Even a basic question about accelerator effectiveness — one with real policy relevance for innovation support and regional economic development — cannot be answered from the public record. A public register of SAFE and direct-placement raises would dramatically raise the ceiling on what researchers can learn about early-stage finance.
+
+**For academic researchers using SEC Form D as an outcome measure.** The lookalike-placebo test we describe — taking the public-pool companies that most structurally resemble the treated firms and checking their outcome rate — is the diagnostic that exposes the problem. Any study using Regulation D filings as a success measure in the modern fundraising era should run it.
+
+## How we did it
+
+We joined the open [Y Combinator portfolio list](https://github.com/yc-oss/api) with the [SEC's public Form D quarterly archive](https://www.sec.gov/dera/data/form-d) to assemble a panel of seed-stage raises from 2014 through 2019, matched Y Combinator companies to otherwise-similar non-YC filings by name, and compared five-year follow-on raise rates using propensity-score matching with a ladder of progressively richer ecosystem controls (local venture density, metro flags, and the VIX at time of filing). A lookalike-placebo design then checked whether the matched control group was behaviourally comparable to the treated group on the outcome itself — and revealed the filing-channel bias described above.
+
+## Further reading
+
+- Hallen, Cohen, and Bingham (2020), "Do Accelerators Work?", *Strategic Management Journal* — one of the positive-effect studies in the literature.
+- Cohen, Fehder, Hochberg, and Murray (2019), "The Design of Startup Accelerators", *Research Policy* — another positive-effect study.
+- Kerr, Lerner, and Schoar (2014), "The Consequences of Entrepreneurial Finance", *Review of Financial Studies* — the admission-score natural-experiment design, and a more equivocal estimate.
+- [Full technical paper](https://github.com/colinjoc/hdr_autoresearch/blob/main/applications/yc_vs_non_yc/paper.md) — the covariate ladder, the lookalike-placebo design, and every sensitivity check.

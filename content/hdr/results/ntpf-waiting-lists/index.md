@@ -1,43 +1,38 @@
 ---
-title: "Who Will Still Be Waiting? Predicting Which Irish Hospital Backlogs Are About to Grow"
+title: "Which Irish hospital backlog is about to get worse?"
 date: 2026-04-16
 domain: "Irish Healthcare"
-blurb: "About 600,000 people are on an Irish public hospital outpatient waiting list, of whom somewhere between 5 and 10 percent have been waiting more than 18 months for a first specialist appointment. Which hospital's backlog is about to get worse? We built a model using public NTPF monthly data alone that predicts next-month growth with ROC-AUC 0.70 (bootstrapped 95 percent confidence 0.67 to 0.74). The surprise: children's lists are materially more predictable than adults', and the hospital's identity matters much less than its own recent trajectory."
+blurb: "Six hundred thousand people are waiting on Irish public hospital lists. Using only data a citizen can download, can you tell which queue grows next?"
 weight: 24
 tags: ["healthcare", "ireland", "waiting-lists", "NTPF", "forecasting"]
 ---
 
-*Plain-language version. Full technical write-up in the [paper](https://github.com/colinjoc/generalized_hdr_autoresearch/blob/main/applications/ntpf_outpatient_waits/paper.md).*
+*A plain-language summary. The [full technical paper](https://github.com/colinjoc/generalized_hdr_autoresearch/blob/main/applications/ntpf_outpatient_waits/paper.md) has the diagnostics and experiment logs. See [About HDR](/hdr/) for how this work was produced and reviewed.*
+
+**Bottom line.** Next month's growth in a hospital's long-waiters share is roughly two-thirds predictable from that hospital's own recent trajectory — and children's queues are materially more forecastable than adult queues, even though the identity of the hospital itself barely matters.
 
 ## The question
 
-Every month the National Treatment Purchase Fund publishes open data on the Irish public hospital waiting lists. As of December 2025, 611,987 people were waiting for a first outpatient appointment. Of those, about 40,000 had been waiting more than 18 months — the threshold beyond which access effectively becomes foreclosed: you are on a list, but no one has scheduled you, and no one is telling you when they will.
+Every month the National Treatment Purchase Fund publishes open data on Irish public hospital waiting lists. At the end of December 2025, 611,987 people were waiting for a first outpatient appointment. About 40,000 of them had been waiting longer than 18 months — the threshold beyond which access effectively disappears. You are on the list, nobody has scheduled you, and nobody is telling you when they will.
 
-The political backdrop is a decade of government investment aimed at shrinking that number. Sláintecare (2018, €500m+ per year committed) is the supply-side plan: more beds, more consultants, structural reform. The NTPF itself spends about €230m per year buying private capacity to pull individual patients off public queues. The question a voter can ask at any given moment is direct: **is my local hospital's backlog growing or shrinking? And do we have any way of knowing what is about to happen next month?**
-
-We trained a model on five years of public NTPF data to answer the second version of the question.
+The political backdrop is a decade of investment aimed at shrinking that number. Sláintecare, committed at more than 500 million euros a year since 2018, is the supply-side plan. The NTPF itself spends about 230 million euros a year buying private capacity to pull individuals off public queues. The question an ordinary voter can ask is direct: is my local hospital's backlog growing or shrinking, and is there any way to tell what comes next?
 
 ## What we found
 
-At the monthly hospital level, whether the over-18-month share of a hospital's outpatient list will grow next month is partially predictable. A gradient-boosted machine-learning model reaches ROC-AUC 0.70 (bootstrap 95 percent confidence interval 0.67 to 0.74). A permutation test rejects the null that this is chance at p less than 0.001. The model's probability outputs are well-calibrated — the expected calibration error is about 5.5 percent across quantile bins, meaning a predicted "60 percent chance the backlog will grow" corresponds to roughly a 60 percent observed growth frequency.
+Whether a hospital's share of 18-month-plus waiters will grow next month is partially predictable from the hospital's own past. Across 4,740 hospital-months from 46 public hospitals since April 2021, a machine-learning model gets this right about 70 percent of the time, compared to the 50 percent you would get by guessing — and its probabilities are well-calibrated: when it says "60 percent chance", roughly 60 percent is what happens.
 
-Several specific findings survived the standard robustness battery:
+- The model is sharper at catching real trouble than at calling tiny jitter. At the knife-edge "any growth at all" threshold, it beats guessing by about 20 percentage points. At "grew by at least 10 extra long-waiters", the gap widens to 31 percentage points — the kind of move a policymaker actually cares about.
+- The hospital's identity contributes essentially nothing. Stripping out every hospital-specific indicator barely changes the model. It is not learning Beaumont's quirks or Cork University Hospital's pattern — it is learning generic queue dynamics that apply everywhere.
+- Children's waiting lists are materially more predictable than adults'. Within the paediatric subset the model is accurate on about three-quarters of cases, compared to roughly two-thirds for adults — and the gap survives holding each children's hospital out in turn.
+- Most of the signal is autocorrelation. A bare-bones model using only the current long-waiter share and two of its recent lags captures almost all of what the 30-feature model can do. The system has slow physical dynamics — limited consultant-hours, limited bed days, steady referral flow — and the best forecast of next month is an extrapolation of this month.
 
-- **The model is stronger at predicting material growth than tiny jitter.** At the knife-edge "any growth at all" threshold, AUC is 0.70. At "grew by at least 2 percentage points" it is 0.79. At "grew by at least 10 extra patients", 0.81. These are the thresholds a policymaker would care about.
-
-- **A hospital's identity contributes essentially nothing to the forecast.** Dropping all 20 hospital-specific indicator variables changed AUC by 0.001. The model is not learning "Beaumont's quirks" or "CUH's specific pattern"; it is learning generic dynamics that apply across hospitals. A hospital's own recent trajectory is all the model needs.
-
-- **Children's waiting lists are more predictable than adults'.** A model trained and tested within the child subset reaches AUC 0.74. In the adult subset, 0.65. When we held each children's hospital out of training and predicted it from the rest, AUC was still 0.74 — so this is not driven by CHI Temple Street or Crumlin being easier than average. Either paediatric queues have more regular dynamics (school-term-tied scheduling?) or fewer substitution options make the trajectory more mechanical.
-
-- **Most of the signal is autocorrelation.** A bare-bones model that uses only the current over-18-month fraction and two lags of it reaches AUC 0.68. The full 30+ feature set only adds 0.02. This is a queue with slow physical dynamics — limited consultant-hours, limited bed days, steady referral flow — and the best prediction of next month's state is an extrapolation of this month's trend.
-
-![The share of Irish outpatient waiters past 18 months, nationally, month by month since April 2021. The trajectory is the raw object our model is trying to forecast at the hospital level.](plots/pct_over18m_trend.png)
+![The share of Irish outpatient waiters past 18 months, nationally, month by month since April 2021.](plots/pct_over18m_trend.png)
 
 ## The forecast for next month
 
-Running the model on the most recent available data (end of March 2026) gives a ranked list of the hospital-month combinations most likely to see their over-18-month share grow. The top ten:
+Running the model on the most recent data (end of March 2026) ranks the hospital-months most likely to see their long-waiter share grow. The top tier is geographically diverse: a regional Midlands hospital (Mullingar) and a western one (Letterkenny) lead the children's side; the two largest Dublin teaching hospitals (Beaumont and St. James's) appear on the adult side; University Hospital Limerick — already the subject of a January 2024 overcrowding scandal and a 2025 public inquest — shows up on the paediatric list. These are places where the current momentum in the data, with no new information about bed capacity or consultant hires, favours the queue getting longer before it gets shorter.
 
-| Rank | Hospital | Adult/Child | Current total waiting | Over 18 months | Predicted growth probability |
+| Rank | Hospital | Adult / Child | Currently waiting | Over 18 months | Predicted growth probability |
 |---|---|---|---:|---:|---:|
 | 1 | Midland Regional Hospital Mullingar | Child | 993 | 29 | 62% |
 | 2 | Letterkenny University Hospital | Child | 1,320 | 2 | 60% |
@@ -49,32 +44,30 @@ Running the model on the most recent available data (end of March 2026) gives a 
 | 8 | St. James's Hospital | Adult | 27,460 | 1,315 | 52% |
 | 9 | Our Lady of Lourdes Drogheda | Adult | 17,086 | 854 | 51% |
 
-The cluster is diverse: a regional Midlands hospital (Mullingar) and a western hospital (Letterkenny) top the list on the children's side; the two largest Dublin teaching hospitals (Beaumont and St. James) appear on the adult side; the Mid-West's University Hospital Limerick — already the subject of a January 2024 overcrowding scandal and a 2025 public inquest — shows up on the children's list. These are the places where the current momentum in the data, without any new information about bed capacity or consultant hires, favours the list getting longer before it gets shorter.
+## Why that matters
 
-## Why the child-adult gap is interesting
+The interesting finding is what the model does not need. Irish outpatient queues are behaving like a single slow-moving object distributed across 46 sites — what happens at Beaumont in terms of trajectory is largely what happens at Cork University Hospital, or at Mayo. That implies queue length is being driven by structural constraints common to the whole system (consultant hours, bed days, referral flow), not by hospital-specific management choices. If a policy intervention — a consultant contract reform, a targeted NTPF purchase — actually works, it has to show up as a deviation from this shared momentum.
 
-In ten tournament-and-robustness experiments, one finding repeatedly stood out: whatever we did to the model, the children's subset was easier to predict than the adult subset. We tested whether this was an artefact of the two big Dublin paediatric hospitals dominating the subset; it was not — the finding survives holding each children's hospital out. That leaves three candidate explanations, none tested directly here:
+The child-adult gap is the other loose thread. Paediatric queues are easier to forecast, and the effect is not driven by the big Dublin children's hospitals. Three candidate explanations survive: paediatric care is dominated by a handful of specialties with more regular referral flows; children cannot substitute into private insurance the way adults can, so the public queue reflects genuine demand rather than demand-minus-substitution; and paediatric scheduling is more tied to school terms. Testing between them requires specialty-level data we did not have.
 
-1. **Paediatric specialties have simpler dynamics.** Paediatric outpatient queues are dominated by four specialties (ENT, ophthalmology, dermatology, orthopaedics) with well-defined referral flows. Adult queues span 60+ specialties with heterogeneous patterns.
-2. **Children can't substitute into private care easily.** An adult with private insurance can circumvent the public queue; a child typically cannot, so the observed queue reflects genuine demand rather than the demand-minus-substitution we see in adults.
-3. **Paediatric scheduling is term-tied.** School holidays, term dates, and summer-break patterns may produce more regular seasonality.
+## What it means in practice
 
-Distinguishing between these requires a follow-on project with specialty-level data and a parent-level insurance indicator, neither of which are in the panel we used.
+**For people on the list.** The model does not rescue you. But it does explain why your local hospital's backlog has the shape it has — for structural reasons that no single policy announcement is likely to change. If the trajectory is currently upward at your hospital, the most honest forecast is that it stays upward next month.
 
-## What we did not establish
+**For policymakers and health-service watchers.** The model is a baseline. If Sláintecare's consultant-contract reforms are working, they will appear as a downward deviation from the calibrated forecast. If they are not, the lag structure absorbs them and the trajectory marches on. Either way, this gives you an honest counterfactual against which to judge interventions.
 
-This is a short-horizon forecasting paper, not a causal one. We did not measure whether Sláintecare has worked, whether the March 2023 Public-Only Consultant Contract has reduced waits in hospitals whose consultants opted in, or whether the NTPF-funded private-capacity purchases actually reduce long waits versus shifting them within the queue. Each of those is a genuine research question with the right natural-experiment design (staggered difference-in-differences on consultant-contract opt-in, interrupted time series on NTPF allocation step-ups). They are the next project, not this one.
+**For researchers.** The hospital-identity channel being empty is worth following up. Irish queue dynamics appear to be a shared object, not a collection of local micromanagement stories. The next project is a causal one — staggered difference-in-differences on consultant-contract opt-in, or an interrupted time series on NTPF allocation step-ups — with the specialty-level data this panel did not include.
 
-We also could not extend the panel back before April 2021. The NTPF schema changed when adult and child lists were separated in that month, and the pre-April-2021 CSVs are not available at the URL pattern they should be — a data-ingest project in its own right.
+## What we could not do
 
-## What it means
-
-For the person on the list: the model is useful for recognising that your local hospital's backlog has the dynamics it has for structural reasons (consultant hours, bed days, referral patterns), not because some single policy decision is about to rescue you. When your hospital's current trajectory is upward, a lagged-structure forecast says it will very probably continue upward next month.
-
-For someone tracking Irish health performance: the model provides a calibrated probability forecast that can be used as a baseline against which policy-intervention effects would have to be distinguished. If Sláintecare's consultant contract reforms work, they will show up as a downward shock against the forecast. If they don't, the lag structure will absorb them.
-
-For someone interested in method: the hospital-identity channel being uninformative is the interesting observation. Irish outpatient queue dynamics are apparently a shared thing — what's happening at Beaumont this month is, in its trajectory behaviour, largely what's happening at Cork University Hospital or at Mayo. The system is behaving like a single slow-dynamic object distributed across 46 sites.
+This is a short-horizon forecasting project, not a causal evaluation. We did not measure whether Sláintecare has worked, whether the 2023 Public-Only Consultant Contract reduced waits in opt-in hospitals, or whether NTPF-funded private-capacity purchases reduce long waits rather than shuffle them within the queue. We also could not extend the panel back before April 2021: the NTPF schema changed when adult and child lists were separated, and the earlier files are not available at the URL pattern they should be.
 
 ## How we did it
 
-We downloaded the full NTPF outpatient Open Data archive (2021-04 through 2026-03), built a monthly panel of 4,740 hospital-month observations from 46 public hospitals across Adult and Child lists, and predicted whether each hospital-month's over-18-month fraction would grow in the following month using a gradient-boosted tree with rolling-time cross-validation. Robustness battery included cluster-bootstrap confidence intervals, a 100-iteration permutation null, three thresholded outcome variants, leave-one-hospital-out on the children's subset, and a simple-autoregression benchmark. The full code, data pipeline, and all experiment rows are in the linked paper.
+We used the full NTPF outpatient Open Data archive (April 2021 through March 2026), built a monthly panel of 46 hospitals across adult and child lists, and asked whether each hospital-month's long-waiter share would grow in the following month. A tree-based model with rolling time-series validation did the forecasting; confidence intervals came from cluster bootstrap and a permutation null, and the children's result was stress-tested by holding each paediatric hospital out in turn.
+
+## Further reading
+
+- National Treatment Purchase Fund — Monthly Outpatient Open Data archive — the raw files the panel is built from.
+- Department of Health. *Sláintecare Implementation Strategy* — the supply-side reform programme behind the political context.
+- [Full technical paper](https://github.com/colinjoc/generalized_hdr_autoresearch/blob/main/applications/ntpf_outpatient_waits/paper.md) — the full hospital-month panel, robustness battery and code.

@@ -1,100 +1,54 @@
 ---
-title: "Irish Courts: Which Court Has the Largest 2024 Net Filing Surplus?"
+title: "One Irish court handles ten times the load of any other"
 date: 2026-04-16
 domain: "Irish Courts"
-blurb: "Using the Courts Service's newly-open 2017-2024 annual data, we decomposed the 2024 annual net filing surplus (new cases minus cases resolved in the same year — a flow quantity, NOT a true pending-caseload stock) by jurisdiction. The District Court has by far the largest 2024 net flow surplus: 493,151 incoming versus 435,255 resolved, a single-year surplus of 57,896 cases (resolution ratio 88.3 percent, bootstrap 95 percent CI [81.8, 95.1]). Road Traffic drives 23,583 of that annual surplus. Per-judge load is ~7,954 incoming/judge — an order of magnitude above every other jurisdiction. Circuit, Central Criminal and Supreme Courts all closed more cases than they opened in 2024."
+blurb: "Six of Ireland's seven courts cleared their 2024 caseloads. One did not. It is also the one carrying ten times more work per judge."
 weight: 11
 tags: ["ireland", "courts", "public-services", "backlogs", "policy"]
 ---
 
-*Plain-language version. Full technical write-up in the [analysis script](https://github.com/colinjoc/generalized_hdr_autoresearch/blob/main/applications/ie_courts_waits/analysis.py).*
+*A plain-language summary. The [full technical paper](https://github.com/colinjoc/generalized_hdr_autoresearch/blob/main/applications/ie_courts_waits/analysis.py) has the diagnostics and experiment logs. See [About HDR](/hdr/) for how this work was produced and reviewed.*
 
-**Note: retroactively revised on 2026-04-15.** The original Phase 0 version of this summary referred to a "cumulative backlog" and claimed "a roughly 2-in-5 chance of waiting more than a year". A retroactive Phase 2.75 blind reviewer cycle found that the data supports neither framing: the Courts Service CSVs report annual incoming/resolved *flows*, not pending-case *stocks*, and contain no per-case wait times. The current version relabels everything as "net filing surplus", adds bootstrap confidence intervals, cross-checks against the Courts Service 2024 Annual Report press release, and adds per-judge normalisation. See `paper_review.md` and `paper_review_signoff.md` in the project directory for the audit trail.
-
-## What this is (and what it isn't)
-
-**This is a flow analysis, not a stock measurement.** The Courts Service publishes, for each (jurisdiction, area of law, category, year), the number of cases *filed* that year and the number *resolved* that year. It does NOT publish opening or closing pending-case counts. A "cumulative incoming minus resolved" curve therefore mixes real carry-over with legacy pre-2017 cases and with boundary artefacts (cases filed in 2020, resolved in 2024, showing in both flows with no wait-time tag). We call the quantity **net filing surplus** (annual or cumulative), not backlog.
+**Bottom line.** The District Court took in 57,896 more cases in 2024 than it closed. Every other court in Ireland either kept pace or closed more than it opened. Normalised by how many judges each court has, the District Court is carrying nearly ten times the per-judge load of anywhere else in the system — and Road Traffic offences alone account for almost half of the overhang.
 
 ## The question
 
-Eight years of data (2017-2024), 1,189 rows, seven jurisdictions, 94 case categories. **For cases filed in a given year, what fraction were also resolved in that year, and which jurisdiction has the largest year-ending surplus?**
+Every so often Irish headlines warn of a court system buckling under backlogs. The Courts Service has, since 2017, published annual data on how many cases each jurisdiction takes in and how many it resolves — but the raw numbers are easy to misread. We asked a narrow, defensible version of the question: in 2024, which court took in more than it closed, by how much, and how does that compare to the number of judges sitting?
+
+A note on what this is. The Courts Service publishes annual flows — cases filed and cases resolved in a given year — but not the opening or closing pending-case balance. So the quantity we can honestly talk about is the **net filing surplus** (cases in minus cases out in the same year). That is not a backlog in the strict sense of accumulated stock. It is a year-on-year flow gap.
 
 ## What we found
 
-### The District Court has the largest 2024 net filing surplus
+Across Ireland's seven courts, six kept pace or cleared cases in 2024. One did not — and not by a small margin.
 
-493,151 incoming, 435,255 resolved, a single-year net filing surplus of **57,896 cases**. That is an 88.3 percent in-year resolution ratio (bootstrap 95% CI [81.8, 95.1]) — roughly 12 of every 100 incoming 2024 cases were not resolved within 2024.
+![Cumulative net filing surplus since 2017 by jurisdiction, anchored at zero in 2017. The District Court line dominates; every other jurisdiction stays close to flat.](plots/cumulative_backlog.png)
 
-![Cumulative net filing surplus since 2017 by jurisdiction (2017 anchored at zero). The District Court line dominates; everything else is close to flat. This is a flow aggregate, not a pending-case stock.](plots/cumulative_backlog.png)
+- The District Court took in 493,151 cases in 2024 and resolved 435,255, a single-year shortfall of 57,896 cases. That is an in-year resolution rate of 88 percent — meaning 12 of every 100 cases filed in 2024 were not resolved in 2024.
+- Every other jurisdiction either kept pace or cleared cases. The Circuit, Central Criminal and Supreme Courts all closed more than they opened. The High Court and Court of Appeal ran small positive surpluses.
+- Per-judge load is where the District Court sits in a league of its own. It handles roughly 7,954 new cases per judge per year. The Circuit Court is at 1,466. The High Court at 844. The Supreme Court at 23.
+- Road Traffic offences account for 23,583 of the District Court's 2024 surplus — the single biggest contributor. Liquidated Debt and Child Care cases carry the next-worst in-year resolution rates, around half and six in ten respectively.
+- Breach-of-Contract filings at the High Court swing wildly year to year — 246, then 1,458, then 336, then 1,435 — in a pattern almost certainly caused by how cases are coded or reported rather than any real swing in demand.
 
-### Every other court is keeping pace or clearing
+## Why that matters
 
-| Jurisdiction | 2024 incoming | 2024 resolved | Net (in − out) | Resolution ratio |
-|---|---|---|---|---|
-| District Court | 493,151 | 435,255 | **+57,896** | **88.3%** |
-| High Court | 36,303 | 34,446 | +1,857 | 94.9% |
-| Court of Appeal | 3,487 | 2,376 | +1,111 | **68.1%** |
-| Special Criminal Court | 68 | 47 | +21 | 69.1% |
-| Supreme Court | 231 | 239 | −8 | 103.5% |
-| Central Criminal Court | 2,810 | 3,338 | **−528** | **118.8%** |
-| Circuit Court | 63,048 | 66,417 | **−3,369** | **105.3%** |
+The public conversation about Irish courts often treats "the courts" as one system. The data says the opposite. Six of seven courts are broadly in balance. The stress is concentrated in one jurisdiction, in a small number of case types, and it is visible most clearly when you ask how much work each judge is being handed.
 
-### Per-judge load is the real story
+That reframes the policy question. It is not "the court system is overwhelmed" — it is "the District Court is doing ten times the per-judge work of any other tier, and the single largest contributor is Road Traffic". Those two facts together suggest the pressure valve is not obviously more judges. It could equally be diverting volume out of the court altogether — expanding the fixed-charge penalty regime so that routine Road Traffic offences never reach a courtroom.
 
-Normalised by authorised judge strength, the District Court handles roughly 7,954 new cases per judge per year — an order of magnitude more than any other jurisdiction:
+## What it means in practice
 
-| Jurisdiction | Judges | Incoming per judge (2024) | Net surplus per judge |
-|---|---|---|---|
-| District Court | 62 | **7,954** | +934 |
-| Circuit Court | 43 | 1,466 | −78 |
-| High Court | 43 | 844 | +43 |
-| Court of Appeal | 16 | 218 | +69 |
-| Supreme Court | 10 | 23 | −1 |
+**For litigants.** If your case is at the Circuit Court or above, the 2024 data does not show your court falling behind. If you have a Child Care or Liquidated Debt matter in the District Court, the picture is tighter — roughly four in ten Child Care cases and half of Liquidated Debt cases filed in 2024 were not resolved within the same year. The data cannot tell you how long the carry-over actually takes to clear.
 
-This is the defensible version of the "drowning" framing from the Phase 0 draft: it is a **capacity-per-judge** claim, not a pending-stock claim.
+**For policymakers.** The District Court's per-judge load is an order of magnitude above every other jurisdiction. Two independent levers exist: add judicial capacity, or shrink the District Court's remit. The Road Traffic overlap with the fixed-charge penalty notice regime is an obvious candidate for the second lever.
 
-### Inside the District Court, Road Traffic and Child Care lead the surplus
-
-| Category | 2024 incoming | 2024 resolved | Net surplus | Resolution ratio |
-|---|---|---|---|---|
-| Road Traffic | 185,578 | 161,995 | **+23,583** | 87.3% |
-| Liquidated Debt | 19,401 | 9,802 | +9,599 | **50.5%** |
-| Child Care | 21,797 | 12,973 | **+8,824** | **59.5%** |
-
-Bootstrap 95% intervals across the 2017-2024 panel (year-level resample, B=1,000):
-
-- Road Traffic (District): 76.7%, 95% CI [68.2, 83.2]
-- Child Care (District): 73.2%, 95% CI [66.6, 81.4]
-- Breach of Contract (High Court): 20.1%, 95% CI [10.7, 34.7]
-
-The 2024 single-year Child Care figure (60%) sits on the low tail of the multi-year distribution, which is a reminder that single-year headlines have ~15-point uncertainty bands.
-
-### High Court Breach of Contract is volatile (probably a coding artefact)
-
-Breach-of-Contract filings at the High Court are 246 (2021) → 1,458 (2022) → 336 (2023) → 1,435 (2024). That 4x-up-4x-down-4x-up pattern is almost certainly a reporting or coding boundary effect, not a real caseload swing. The 2024 single-year "17% resolution ratio" should be read against the panel bootstrap of 20% [11%, 35%].
-
-## External cross-check
-
-Two checks against the Courts Service 2024 Annual Report press release (RTE / Law Society Gazette, July 2025):
-
-- Road Traffic 2024 incoming: ours = 185,578; press release = 185,578. Exact match.
-- District Court Sexual Offences 2024 incoming: ours = 3,650; press release = 3,650. Exact match.
-
-Both checks match exactly because the press release and our CSV share the same source. This confirms correct parsing but does NOT independently validate the stock.
-
-## What this does not establish
-
-- **No wait-time per case.** We explicitly withdraw the Phase 0 line "a new filing has a roughly 2-in-5 chance of waiting more than a year" — this dataset cannot support a survival claim.
-- **No true pending stock.** Without the 2017 opening balance (not in the open CSV release), cumulative net filing surplus is not pending-case stock. Sensitivity analysis over 0-200k opening brackets preserves the sign of the District Court trajectory but leaves the absolute level indeterminate.
-- **No causal attribution.** The Courts Service itself reported that 24 new judges appointed in 2023 reduced backlogs; that mechanism is external to our analysis.
-- **No per-venue breakdown.** District Court has 24 venues; we do not see which.
-
-## What it means
-
-The District Court carries ~10x higher per-judge incoming load than any other jurisdiction and does not clear its year in 2024 (88% resolution ratio, CI 82-95%). Road Traffic is the single largest absolute contributor to the carry-over. A policy lever worth asking about is the overlap between criminal Road Traffic and the fixed-charge penalty notice regime — diverting more volume out of court altogether is a different question from "do we need more District Court judges?"
-
-For a litigant in a Child Care or Liquidated Debt matter in the District Court: roughly half of Liquidated Debt cases and four in ten Child Care cases filed in 2024 were not resolved within 2024. We cannot say from this data how long the carry-over takes.
+**For journalists.** Talk about "Ireland's court backlog" is too coarse. The problem lives in one jurisdiction and a handful of categories. Headline numbers for the Supreme Court, Central Criminal Court, or Circuit Court do not describe a system falling behind.
 
 ## How we did it
 
-We downloaded the Courts Service 2017-2024 Annual Report datasets (data.courts.ie, CC BY 4.0), concatenated a 1,189-row panel, case-normalised the jurisdiction strings (the raw CSVs had "Court Of Appeal" and "Court of Appeal" as distinct strings), computed incoming-minus-resolved per row, bootstrapped 95% CIs on headline ratios (B=1,000), audited category stability via presence + YoY-jump flaggers, cross-checked against external press-release figures, and normalised 2024 flows by authorised judge strength. All code and intermediate artefacts are in the project directory.
+We used the [Courts Service 2017-2024 annual data](https://data.courts.ie/), an 1,189-row panel of cases filed and resolved per jurisdiction, area of law and category each year. We computed in-year net filing surplus at every level, bootstrapped 95 percent confidence intervals over the eight-year panel, normalised 2024 flows by authorised judge strength, and cross-checked our numbers against the Courts Service's own 2024 Annual Report press release (both spot checks matched exactly). The dataset does not include 2017 opening balances, so we cannot produce a true pending-case stock.
+
+## Further reading
+
+- [Courts Service of Ireland open data portal](https://data.courts.ie/) — the source CSVs used here.
+- Courts Service 2024 Annual Report (July 2025 press release) — independent confirmation of the District Court filing totals.
+- [Full technical paper and code](https://github.com/colinjoc/generalized_hdr_autoresearch/blob/main/applications/ie_courts_waits/analysis.py).

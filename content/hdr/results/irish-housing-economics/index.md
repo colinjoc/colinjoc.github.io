@@ -1,78 +1,59 @@
 ---
-title: "Part 1: The Economics of Building in Ireland"
+title: "Why Ireland doesn't build: the economics of an empty site"
 date: 2026-04-18
 domain: "Irish Housing"
-blurb: "Part 1 of 4 — Why don't developers build? Ireland has 7,911 hectares of zoned residential land — enough for 417,000 homes — but development is uneconomic on 83% of it. Only Dublin apartment schemes are viable (+5.1% margin). Construction costs are NOT uniquely high by European standards (Ireland's construction price level is exactly the EU average). The cost story is about labour (steady 4%/yr growth, no reversion) not materials or regulation. Policy-set costs (VAT, Part V, development contributions) are only 15% of total; eliminating all of them makes only 4 of 26 counties viable."
+blurb: "Ireland has enough zoned land for 417,000 homes. Developers file permission for almost none of it. The reason isn't planning — it's arithmetic."
 weight: 1
 tags: ["housing", "ireland", "viability", "construction-costs", "economics", "zoned-land"]
 ---
 
-*Part 1 of 4 in the Irish Housing series. Next: [Part 2: The Pipeline](/hdr/results/irish-housing-pipeline-complete/) | [Part 3: Planning & JR](/hdr/results/irish-planning-and-judicial-review/) | [Part 4: What Would Fix It?](/hdr/results/irish-housing-bottleneck-and-levers/)*
+*A plain-language summary. The [full technical paper set](https://github.com/colinjoc/generalized_hdr_autoresearch/tree/main/applications) — six linked studies — has the diagnostics and experiment logs. See [About HDR](/hdr/) for how this work was produced and reviewed.*
 
-*Consolidates findings from six studies: [zoned land conversion](https://github.com/colinjoc/generalized_hdr_autoresearch/blob/main/applications/ie_zoned_land_conversion/paper.md), [viability frontier](https://github.com/colinjoc/generalized_hdr_autoresearch/blob/main/applications/ie_viability_frontier/paper.md), [infrastructure capacity](https://github.com/colinjoc/generalized_hdr_autoresearch/blob/main/applications/ie_infra_capacity/paper.md), [cost decomposition](https://github.com/colinjoc/generalized_hdr_autoresearch/blob/main/applications/ie_construction_cost_decomp/paper.md), [policy vs market costs](https://github.com/colinjoc/generalized_hdr_autoresearch/blob/main/applications/ie_policy_vs_market_costs/paper.md), and [international comparison](https://github.com/colinjoc/generalized_hdr_autoresearch/blob/main/applications/ie_intl_construction_costs/paper.md).*
+*Part 1 of 4 in the Irish Housing series. Next: [Part 2: The pipeline](/hdr/results/irish-housing-pipeline-complete/) | [Part 3: Planning and judicial review](/hdr/results/irish-planning-and-judicial-review/) | [Part 4: What would fix it](/hdr/results/irish-housing-bottleneck-and-levers/)*
 
-## Enough land, not enough applications
+**Bottom line.** Ireland has 7,911 hectares of zoned residential land — enough for roughly 417,000 homes at standard densities. On 83 percent of that land, the numbers do not work: sale prices are below the cost of building. Only Dublin apartment schemes are clearly viable. Construction costs in Ireland are not unusually high by European standards, and policy-set costs like VAT and social-housing requirements are only 15 percent of the total. Zeroing every single policy cost would still leave development unviable in all but four of Ireland's 26 counties.
 
-Ireland has **7,911 hectares** of zoned residential land — enough for 417,000 homes at standard densities. But only ~21,000 residential planning applications get filed each year. The application intensity is just 4.8 per hectare per year (excluding Fingal, which holds a disproportionate share of zoned stock under a broader RZLT definition).
+## The question
 
-Zoned land area DOES predict application rates (r=0.64 excluding Fingal), but the dominant predictor is **population, not land supply**. The RZLT tax (3% annual levy on undeveloped zoned land) had no detectable effect on filing rates.
+Ireland's housing shortage is the defining economic story of the last decade. The standard list of villains — slow planning, too much red tape, a cartel of builders, uniquely expensive construction — has been in the public debate for years. We wanted to pull apart each of those claims and ask, with open data, what the economics of building an Irish home actually looks like. Why aren't developers building on land that has already been zoned for housing?
 
-## Most of Ireland is unviable for development
+## What we found
 
-The viability equation — sale price minus total development cost — is negative in most of the country:
+![Viability margin by county — sale price minus total development cost, as a percentage of sale price.](plots/viability_map.png)
 
-| Area | Viability margin |
-|:---|---:|
-| Dublin apartments (high density) | **+5.1%** |
-| Dublin houses | -3.1% |
-| Commuter belt (Meath, Kildare) | -9 to -11% |
-| Secondary cities (Cork, Galway) | -20 to -24% |
-| Rural counties | -60% or worse |
+- There is enough zoned residential land in Ireland for about 417,000 homes. But only around 21,000 residential planning applications get filed each year. The filing rate is just under five applications per hectare per year.
+- Across most of Ireland, development is uneconomic. Dublin apartments run a plus-5 percent margin — viable. Dublin houses are at minus 3 percent. The commuter belt is at minus 9 to 11. Secondary cities are at minus 20 to 24. Rural counties sit at minus 60 percent or worse.
+- That means roughly 6,580 hectares — 83 percent of zoned land — sits in places where the numbers do not work. This is the single most important fact about Irish housing supply, and it gets almost no airtime in the public debate.
+- Construction cost is the dominant driver of viability — about ten times more sensitive than land cost. But Ireland's construction costs are not uniquely high. Ireland's construction price level is exactly the European Union average. Cumulative cost growth from 2015 to 2025 was 41 percent in Ireland, compared to 71 percent in Germany and the Netherlands.
+- Labour and materials grew at nearly identical rates over that decade — roughly 4 percent per year each. The common story that "materials are the problem" is an artefact of pandemic-and-war volatility that has since reverted. Labour costs rose steadily and have not come back down.
+- Cement is the one material whose price never reverts — it ratchets upward through every crisis at roughly 7 percent a year.
+- Energy-efficiency regulations did not drive excess cost inflation. Materials directly affected by the new building-energy standards (insulation, electrical, heating-and-ventilation) actually rose less than unaffected control materials.
+- Policy-set costs — VAT, the social-housing requirement, development contributions, the building control regime — total about 15 percent of the cost of an Irish home. Even eliminating all of them makes development viable in only 4 of 26 counties. With realistic VAT pass-through to buyers (about half), zeroing VAT makes zero additional counties viable.
+- Infrastructure is a secondary constraint. About a quarter of Ireland's 1,063 wastewater treatment plants are at or over capacity, blocking 950 to 1,700 hectares — 12 to 22 percent — of zoned land. But 83 percent of zoned land is already economically unviable, so fixing the sewage does not help if the numbers still do not work.
 
-About **6,580 hectares (83%) of zoned land** sit in areas where development doesn't pay. This is why applications are low — developers don't file where the numbers don't work.
+## Why that matters
 
-![Viability margin by county.](plots/viability_map.png)
+The conventional frame — "Irish housing is blocked by high regulatory costs, slow planning, and uniquely expensive materials" — does not survive contact with the data. Irish construction costs are middle-of-the-pack in Europe. Policy costs are a modest share. Planning and infrastructure are real constraints but secondary ones. The primary constraint is that, outside Dublin, the sum of land plus labour plus materials plus financing plus developer margin exceeds what buyers can pay. That is an economics problem, not a planning problem.
 
-## Construction cost is the dominant factor — but it's not uniquely Irish
+That diagnosis matters because the standard political instruments — VAT cuts, planning-system reform, development-contribution reductions — operate on the 15-percent slice of cost that is policy-set. Zeroing all of them does not move most counties into the viable column. What moves the viability map is the 85 percent that is market cost: construction productivity, labour supply, and the price of cement.
 
-A tornado sensitivity analysis shows construction cost is **10x more sensitive** than land cost for viability. But Ireland's construction costs are NOT unusually high:
+## What it means in practice
 
-- Eurostat construction price level index: Ireland = **99.7** (exactly the EU-27 average of 100)
-- Cumulative cost growth 2015-2025: Ireland +41% vs Germany +71%, Netherlands +71%
-- Ireland ranks #6-#8 of 10 EU comparators depending on the measure
+**For developers.** The data confirms what your viability models already tell you. Outside Dublin apartments, the numbers do not support private-sector delivery at current prices. The cost-side levers that do move viability — modular construction at roughly 20 percent off hard costs, and workforce expansion that shortens build durations — are the ones worth pushing.
 
-The "Irish costs are uniquely high" narrative is not supported by the data.
+**For policymakers.** The VAT-cut instinct is understandable but empirically weak. Policy costs are a small share of the total and do not move the viability map. The higher-leverage interventions are on the construction-productivity side: modular technology, workforce expansion, and accepting that cement prices will not revert. The "Irish costs are uniquely high" narrative is not supported and should stop anchoring debate.
 
-![International construction cost trajectories — Ireland tracks below the EU average.](plots/intl_comparison.png)
+**For housing advocates.** The land is already zoned. The planning system is not primarily what is holding back supply. The binding constraint is that buyers in most of the country cannot pay what it costs to build. Any serious plan to lift supply outside Dublin has to engage with that number, not with planning or regulation.
 
-## What drives construction costs?
+## How we did it
 
-Labour and materials grew at **nearly identical rates (~4%/yr)** over 2015-2025. The common narrative that "materials are the problem" is an artifact of crisis volatility — materials spiked during COVID/Ukraine but reverted; labour rose steadily without reverting.
+This synthesis consolidates six linked studies. We used the [Residential Zoned Land Tax register](https://www.gov.ie/en/publication/8c51e-residential-zoned-land-tax/) for zoned hectares, [Eurostat's construction price level index](https://ec.europa.eu/eurostat/web/construction) for international comparison, [CSO wholesale price series](https://data.cso.ie/) for the materials-and-labour breakdown, and [EPA capacity data](https://www.epa.ie/publications/monitoring--assessment/waste-water/) for infrastructure. We ran county-by-county viability calculations, a tornado sensitivity analysis on cost components, a difference-in-differences test for the effect of energy-efficiency regulations on material prices, and a pass-through simulation for VAT and other policy costs.
 
-The biggest surprise: NZEB energy-efficiency regulations did **NOT** drive excess material inflation. A difference-in-differences analysis shows NZEB-affected materials (insulation, electrical, HVAC) actually rose LESS than control materials (DiD = -4.0pp).
+## Further reading
 
-Cement is the one material that never reverts (6.83%/yr, ratcheting upward through both crises).
-
-![Weighted contribution of each cost component.](plots/weighted_contribution.png)
-
-## Policy costs are only 15% — and zeroing them barely helps
-
-| Component | Share of total cost | Type |
-|:---|---:|:---|
-| Materials + labour | 43% | Market |
-| Land + finance + margin + fees | 42% | Market |
-| **VAT + Part V + dev contribs + BCAR** | **15%** | **Policy** |
-
-Even eliminating ALL policy costs makes only **4 of 26 counties viable**. With 50% VAT pass-through to buyers (which is what actually happens), zeroing VAT makes **zero** additional counties viable. The median viability gap (€144k/unit) far exceeds total policy costs (€70-100k).
-
-![Construction cost sensitivity — hard costs dominate.](plots/sensitivity_tornado.png)
-
-## Infrastructure is a secondary constraint
-
-About 25% of Ireland's 1,063 wastewater treatment plants are at or over capacity. This blocks roughly 950-1,700 hectares of zoned land (12-22%). But 83% of zoned land is already economically unviable — fixing the sewage doesn't help if the numbers don't work.
-
-![Wastewater treatment capacity status by county.](plots/national_capacity_status.png)
-
-## The bottom line
-
-Ireland's housing problem is an **economics problem**, not a planning problem, not a regulation problem, and not a cost-uniqueness problem. Construction costs are at the EU average. The constraint is that the combination of land + labour + materials + finance + margin exceeds sale prices outside Dublin. The highest-leverage interventions are modular construction (-20% hard costs = +5,473 completions/yr through the feedback loop) and workforce expansion (lifts the capacity ceiling). See the [bottleneck and levers analysis](/hdr/results/irish-housing-bottleneck-and-levers/) for the full interaction model.
+- [Zoned land conversion study](https://github.com/colinjoc/generalized_hdr_autoresearch/blob/main/applications/ie_zoned_land_conversion/paper.md).
+- [Viability frontier study](https://github.com/colinjoc/generalized_hdr_autoresearch/blob/main/applications/ie_viability_frontier/paper.md).
+- [International construction cost comparison](https://github.com/colinjoc/generalized_hdr_autoresearch/blob/main/applications/ie_intl_construction_costs/paper.md).
+- [Construction cost decomposition](https://github.com/colinjoc/generalized_hdr_autoresearch/blob/main/applications/ie_construction_cost_decomp/paper.md).
+- [Policy versus market costs](https://github.com/colinjoc/generalized_hdr_autoresearch/blob/main/applications/ie_policy_vs_market_costs/paper.md).
+- [Infrastructure capacity study](https://github.com/colinjoc/generalized_hdr_autoresearch/blob/main/applications/ie_infra_capacity/paper.md).

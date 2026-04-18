@@ -1,53 +1,53 @@
 ---
-title: "The Pentagon's UAP Cases: What the Numbers Actually Say"
+title: "What the Pentagon's UAP numbers actually say"
 date: 2026-04-18
 domain: "Data Science"
-blurb: "The Pentagon's AARO office has received 1,652 UAP reports. Of the 292 resolved or recommended for closure, every single one turned out to be something mundane — balloons, birds, drones, satellites, aircraft. The 21 cases that merit further intelligence analysis represent 2.8% of intake — exactly in line with the historical 3-6% 'unidentified residual' from prior programs. A Bayesian analysis gives an unresolved case only 4.3% posterior probability of being genuinely anomalous. The data is fully consistent with a world in which the entire residual is explained by sensor limitations, not exotic phenomena."
+blurb: "The Pentagon is taking thousands of UFO reports. Of the ones it has actually closed, how many turned out to be something exotic?"
 weight: 22
 tags: ["UAP", "UFO", "AARO", "Pentagon", "Bayesian", "base-rate"]
 ---
 
-*Plain-language summary. Full technical write-up in the [paper](https://github.com/colinjoc/generalized_hdr_autoresearch/blob/main/applications/aaro_case_resolution/paper.md). Companion to the [NUFORC sighting patterns](/hdr/results/ufo-sighting-patterns/) analysis.*
+*A plain-language summary. The [full technical paper](https://github.com/colinjoc/generalized_hdr_autoresearch/blob/main/applications/aaro_case_resolution/paper.md) has the diagnostics and experiment logs. See [About HDR](/hdr/) for how this work was produced and reviewed. Companion to the [NUFORC sighting patterns](/hdr/results/ufo-sighting-patterns/) analysis.*
 
-## What AARO has
+**Bottom line.** Every single one of the 292 unidentified aerial phenomenon cases the US government has resolved has turned out to be balloons, birds, drones, satellites, or aircraft. The 21 cases flagged as worth further intelligence analysis work out to 2.8 percent of intake — exactly the same "unidentified residual" every prior government UFO program has converged on going back to the 1950s.
 
-The All-domain Anomaly Resolution Office (AARO) has received **1,652 cumulative UAP reports** as of June 2024. Of these:
-- **292 resolved or recommended for closure** (17.7%) — every one prosaic
-- **21 merit further IC/S&T analysis** (2.8% of total — the "interesting" ones)
-- **~1,360 remain in the open backlog**
+## The question
 
-## Every resolved case is mundane — but that's partly selection bias
+The All-domain Anomaly Resolution Office, or AARO, is the Pentagon's official clearinghouse for unidentified aerial phenomenon — what everyone else calls UFO — reports. As of June 2024 it had taken in 1,652 reports. A handful are dramatic: Navy pilots, classified radar returns, sensor anomalies. Most are mundane.
 
-100% of resolved cases turned out to be balloons, birds, UAS (drones), satellites, or aircraft. But this is the easy fraction — cases with clear sensor data that allows identification. The 82.3% that remain open are mostly data-insufficient (poor sensor coverage, brief observation, no corroboration), not "confirmed anomalous."
+Headlines focus on the backlog. We wanted to know what the actual numbers say. What fraction get resolved? What do they resolve to? How does the unidentified residual compare to every prior US and European UFO program? And when someone says "but most cases are unexplained", what does that actually mean?
 
-The distinction matters: **unresolved ≠ anomalous.** Most open cases are open because the data is bad, not because the object is exotic.
+## What we found
 
-## The backlog is growing, but not as fast as headlines suggest
+Of 1,652 reports received, 292 have been resolved or recommended for closure. Every one of them turned out to be a prosaic object. Twenty-one further cases have been flagged as worth deeper intelligence analysis. The rest — about 1,360 — remain open, mostly because the underlying sensor data is too thin to identify anything.
 
-AARO receives about 37 current-period cases per month and resolves about 22. That's a 1.7x intake/resolution gap — the backlog grows, but slowly. The headline "757 new cases" includes 272 catch-up reports from prior periods (36%), which inflates the apparent intake rate.
+- Every resolved case is a balloon, a bird, a drone, a satellite, or an aircraft. None is anomalous.
+- The 21 "worth further analysis" cases are 2.8 percent of total intake. Project Blue Book, the US Air Force's 1952-1969 program, ended up at 5.6 percent unidentified. France's ongoing GEIPAN program sits at 3.5 percent. The same floor keeps appearing.
+- Unresolved does not mean anomalous. The 82 percent of cases still open are open because the data is thin — brief observations, no corroboration, poor sensor coverage — not because the object was exotic.
+- AARO takes in about 37 new cases per month and closes about 22. The backlog grows, but slowly. Reports of "757 new cases" include 272 catch-up reports from earlier periods, which inflates the apparent intake rate by about a third.
+- A Bayesian update starting from a generous five percent prior that any given unresolved case is genuinely anomalous pulls the posterior down to roughly four percent. The AARO data actually makes the anomalous hypothesis slightly less likely, not more, because prosaic objects disappear into the unresolved pile for reasons that have nothing to do with what they were.
 
-## The "unidentified residual" matches historical base rates
+## Why that matters
 
-Every major UAP investigation program converges on a similar residual:
-- **Project Blue Book** (1952-1969): 5.6% unidentified after investigation
-- **Hendry study** (1979): 11.4% (less rigorous methodology)
-- **GEIPAN (France)**: 3.5% unidentified
-- **AARO 21 IC-merit cases**: 2.8% of intake
+The public narrative around AARO oscillates between "the Pentagon is hiding something" and "the Pentagon has confirmed nothing exotic". The data sits quietly between them. The residual of unexplained cases is real, but it is small, it is exactly the size every prior program found, and it is fully consistent with a world where the entire residual comes from sensor limits rather than novel phenomena.
 
-AARO's residual is **exactly where you'd expect** if the phenomenon is prosaic objects observed under poor conditions.
+Whether the 21 cases under deeper analysis contain anything genuinely novel depends on classified sensor data that is not in the public reports. The limiting factor is not methodology. It is instrumentation. Until purpose-built calibrated sensors capture multi-modal data at the moment of observation — which is what AARO's planned GREMLIN system is meant to do — most cases will remain data-insufficient, and the residual will stay stuck around three to six percent.
 
-## Bayesian: 4.3% posterior probability of "anomalous"
+## What it means in practice
 
-Starting from a 5% prior (generous — assumes roughly 1 in 20 unresolved cases might be genuinely novel), and updating with the likelihood ratio from AARO's resolution data:
-- P(unresolved | prosaic) = 0.587 (most prosaic objects go unresolved due to bad data)
-- P(unresolved | anomalous) = 0.5-1.0 (range — anomalous objects might also produce good data)
+**For journalists covering AARO.** "Unexplained" in the reports almost always means "the sensor data was too thin to identify it", not "it was something exotic". The ratio of prosaic resolutions to exotic findings in the resolved pile is currently 292 to zero.
 
-The posterior probability that any given unresolved case is genuinely anomalous: **4.3%** (at P(unresolved|anomalous)=0.5). This is BELOW the prior — the AARO data actually makes "anomalous" LESS likely, not more, because the high rate of prosaic cases going unresolved dilutes the signal.
+**For policymakers.** The next useful investment is not more reports. It is better sensors at locations where reports cluster — purpose-built instrumentation that captures calibrated, multi-modal data at the moment of observation. Without that, the residual will stay where every prior program found it.
 
-## What the data cannot answer
-
-Whether the 21 IC-merit cases contain something genuinely novel depends on classified sensor data that the public reports don't contain. The limiting factor is not methodology but instrumentation — until purpose-built calibrated sensors (AARO's planned GREMLIN system) capture multi-modal data at the moment of observation, most cases will remain data-insufficient.
+**For readers who track this stuff.** The historical base rate across Project Blue Book, GEIPAN, and AARO is stable at three to six percent unidentified. AARO is not producing a different answer. It is replicating one.
 
 ## How we did it
 
-Systematically extracted every quantitative figure from AARO FY2024 and ODNI 2022 reports. Built a resolution-rate model, backlog-growth projection, base-rate comparison against historical programs, and two-dimensional Bayesian posterior surface over prior and likelihood assumptions. Phase 2.75 reviewer caught: Bayesian likelihood error (P(unresolved|anomalous)=1.0 was too strong), backlog ratio inflation (catch-up reports in denominator), and selection-bias diagnostic missing. All corrected. Phase 3.5 signoff cleared.
+We extracted every quantitative figure from AARO's Fiscal Year 2024 report and the 2022 Office of the Director of National Intelligence report, built a resolution-rate model and a backlog projection, and compared the unidentified residual to historical US and European UFO program data. We then ran a two-dimensional Bayesian posterior surface across reasonable priors and likelihood assumptions to see how strong the evidence has to be to shift the conclusion.
+
+## Further reading
+
+- AARO Fiscal Year 2024 Annual Report — the Department of Defense's own tally of cases received, resolved, and flagged.
+- Office of the Director of National Intelligence, 2022 UAP Report — the assessment of the 2004-2021 backlog of US military sightings.
+- Project Blue Book (1952-1969) — the original US Air Force investigation, which ended with a 5.6 percent unidentified residual.
+- [Full technical paper](https://github.com/colinjoc/generalized_hdr_autoresearch/blob/main/applications/aaro_case_resolution/paper.md).
