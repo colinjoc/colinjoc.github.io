@@ -1,13 +1,15 @@
 ---
-title: "The Irish Housing Pipeline: From Permission to Front Door"
+title: "Part 2: The Irish Housing Pipeline — From Permission to Front Door"
 date: 2026-04-18
 domain: "Irish Housing"
-blurb: "Tracing every step from planning permission to occupied home using row-level building-control data. Of every 100 residential permissions granted, about 60 result in a built home — but only 35 file a completion certificate (the rest are self-builds exempt from filing). Median permission-to-completion: 32 months. About 9.5% of permissions lapse without commencing. The LDA delivers roughly 850 homes per year — 3% of the Housing for All target — entirely through acquisition of privately-built homes."
+blurb: "Part 2 of 4 — What happens once a permission is granted? Of every 100 residential permissions, about 60 result in a built home — but only 35 file a completion certificate (the rest are self-builds exempt from filing). Median permission-to-completion: 32 months. About 9.5% of permissions lapse without commencing. The LDA delivers roughly 850 homes per year — 3% of the Housing for All target — entirely through acquisition of privately-built homes."
 weight: 2
 tags: ["housing", "ireland", "pipeline", "planning-permission", "commencement", "completion"]
 ---
 
-*This page consolidates findings from five studies: [commencement cohort](https://github.com/colinjoc/generalized_hdr_autoresearch/blob/main/applications/ie_commencement_notices/paper.md), [lapsed permissions](https://github.com/colinjoc/generalized_hdr_autoresearch/blob/main/applications/ie_lapsed_permissions/paper.md), [pipeline yield](https://github.com/colinjoc/generalized_hdr_autoresearch/blob/main/applications/ie_housing_pipeline_e2e/paper.md), [aggregate pipeline](https://github.com/colinjoc/generalized_hdr_autoresearch/blob/main/applications/ie_housing_pipeline/paper.md), and [LDA delivery](https://github.com/colinjoc/generalized_hdr_autoresearch/blob/main/applications/ie_lda_delivery/paper.md).*
+*Part 2 of 4 in the Irish Housing series. Previous: [Part 1: Economics](/hdr/results/irish-housing-economics/) | Next: [Part 3: Planning & JR](/hdr/results/irish-planning-and-judicial-review/) | [Part 4: What Would Fix It?](/hdr/results/irish-housing-bottleneck-and-levers/)*
+
+*Consolidates findings from five studies: [commencement cohort](https://github.com/colinjoc/generalized_hdr_autoresearch/blob/main/applications/ie_commencement_notices/paper.md), [lapsed permissions](https://github.com/colinjoc/generalized_hdr_autoresearch/blob/main/applications/ie_lapsed_permissions/paper.md), [pipeline yield](https://github.com/colinjoc/generalized_hdr_autoresearch/blob/main/applications/ie_housing_pipeline_e2e/paper.md), [aggregate pipeline](https://github.com/colinjoc/generalized_hdr_autoresearch/blob/main/applications/ie_housing_pipeline/paper.md), and [LDA delivery](https://github.com/colinjoc/generalized_hdr_autoresearch/blob/main/applications/ie_lda_delivery/paper.md).*
 
 ## The pipeline at a glance
 

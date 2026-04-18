@@ -1,13 +1,15 @@
 ---
-title: "Planning Decisions and Judicial Review: How Much Do They Cost Irish Housing?"
+title: "Part 3: Planning Decisions and Judicial Review"
 date: 2026-04-18
 domain: "Irish Housing"
-blurb: "An Bord Pleanála decision times doubled from 23 to 42 weeks (2018-2024) while statutory-objective compliance collapsed from 69% to 25%. Twenty-two SHD judicial reviews directly delayed ~7,000 housing units for 105,000 unit-months. But the total JR tax — including the indirect effect on ABP decision speed — adds only ~1,060 completions/yr to the bottleneck analysis. The 2021 SHD-to-LRD reform's effect cannot be measured yet (only 2 decided LRD JRs by end-2024). A clean test requires ~2027."
+blurb: "Part 3 of 4 — How much does the planning system cost housing supply? An Bord Pleanála decision times doubled from 23 to 42 weeks (2018-2024) while statutory-objective compliance collapsed from 69% to 25%. Twenty-two SHD judicial reviews directly delayed ~7,000 housing units for 105,000 unit-months. But the total JR tax adds only ~1,060 completions/yr to the bottleneck analysis. The 2021 SHD-to-LRD reform's effect cannot be measured yet. A clean test requires ~2027."
 weight: 3
 tags: ["housing", "ireland", "planning", "judicial-review", "ABP", "SHD", "LRD"]
 ---
 
-*This page consolidates findings from four studies: [ABP decision times](https://github.com/colinjoc/generalized_hdr_autoresearch/blob/main/applications/ie_abp_decision_times/paper.md), [SHD judicial review](https://github.com/colinjoc/generalized_hdr_autoresearch/blob/main/applications/ie_shd_judicial_review/paper.md), [LRD vs SHD](https://github.com/colinjoc/generalized_hdr_autoresearch/blob/main/applications/ie_lrd_vs_shd_jr/paper.md), and [JR tax on supply](https://github.com/colinjoc/generalized_hdr_autoresearch/blob/main/applications/ie_jr_tax_on_supply/paper.md).*
+*Part 3 of 4 in the Irish Housing series. Previous: [Part 1: Economics](/hdr/results/irish-housing-economics/) | [Part 2: Pipeline](/hdr/results/irish-housing-pipeline-complete/) | Next: [Part 4: What Would Fix It?](/hdr/results/irish-housing-bottleneck-and-levers/)*
+
+*Consolidates findings from four studies: [ABP decision times](https://github.com/colinjoc/generalized_hdr_autoresearch/blob/main/applications/ie_abp_decision_times/paper.md), [SHD judicial review](https://github.com/colinjoc/generalized_hdr_autoresearch/blob/main/applications/ie_shd_judicial_review/paper.md), [LRD vs SHD](https://github.com/colinjoc/generalized_hdr_autoresearch/blob/main/applications/ie_lrd_vs_shd_jr/paper.md), and [JR tax on supply](https://github.com/colinjoc/generalized_hdr_autoresearch/blob/main/applications/ie_jr_tax_on_supply/paper.md).*
 
 ## ABP decision times doubled
 

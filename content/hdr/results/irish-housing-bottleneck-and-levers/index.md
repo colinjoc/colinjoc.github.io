@@ -1,13 +1,15 @@
 ---
-title: "What's Actually Blocking Irish Housing — and What Would Fix It?"
+title: "Part 4: What's Actually Blocking Irish Housing — and What Would Fix It?"
 date: 2026-04-18
 domain: "Irish Housing"
-blurb: "Ireland grants about 38,000 planning permissions a year but needs roughly 85,000 to meet its housing target. No combination of efficiency fixes — faster planning, fewer judicial reviews, lower lapse rates — closes more than 31% of the gap. The binding constraint is permission volume, driven by development being uneconomic in most of the country. Cost-reduction levers and workforce expansion are complements: neither works alone. The achievable range under realistic assumptions is 42,000-49,000 completions per year."
-weight: 1
+blurb: "Part 4 of 4 — The synthesis. Ireland grants about 38,000 planning permissions a year but needs roughly 85,000 to meet its housing target. No combination of efficiency fixes closes more than 31% of the gap. The binding constraint is permission volume, driven by development being uneconomic in most of the country. Cost-reduction levers and workforce expansion are complements: neither works alone. The achievable range under realistic assumptions is 42,000-49,000 completions per year."
+weight: 4
 tags: ["housing", "ireland", "bottleneck-analysis", "policy", "synthesis", "flagship"]
 ---
 
-*This page consolidates findings from the [bottleneck ranking](https://github.com/colinjoc/generalized_hdr_autoresearch/blob/main/applications/ie_housing_bottleneck/paper.md) and [lever interaction analysis](https://github.com/colinjoc/generalized_hdr_autoresearch/blob/main/applications/ie_lever_interactions/paper.md), drawing on 19 predecessor studies.*
+*Part 4 of 4 in the Irish Housing series. Previous: [Part 1: Economics](/hdr/results/irish-housing-economics/) | [Part 2: Pipeline](/hdr/results/irish-housing-pipeline-complete/) | [Part 3: Planning & JR](/hdr/results/irish-planning-and-judicial-review/)*
+
+*Consolidates findings from the [bottleneck ranking](https://github.com/colinjoc/generalized_hdr_autoresearch/blob/main/applications/ie_housing_bottleneck/paper.md) and [lever interaction analysis](https://github.com/colinjoc/generalized_hdr_autoresearch/blob/main/applications/ie_lever_interactions/paper.md), drawing on 20 predecessor studies.*
 
 ## Where does the constraint sit?
 

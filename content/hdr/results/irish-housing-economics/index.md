@@ -1,13 +1,15 @@
 ---
-title: "The Economics of Building in Ireland: Viability, Costs, and Infrastructure"
+title: "Part 1: The Economics of Building in Ireland"
 date: 2026-04-18
 domain: "Irish Housing"
-blurb: "Ireland has 7,911 hectares of zoned residential land — enough for 417,000 homes — but development is uneconomic on 83% of it. Only Dublin apartment schemes are viable (+5.1% margin). Construction costs are NOT uniquely high by European standards (Ireland's construction price level is exactly the EU average). The cost story is about labour (steady 4%/yr growth, no reversion) not materials or regulation. Policy-set costs (VAT, Part V, development contributions) are only 15% of total; eliminating all of them makes only 4 of 26 counties viable."
-weight: 4
+blurb: "Part 1 of 4 — Why don't developers build? Ireland has 7,911 hectares of zoned residential land — enough for 417,000 homes — but development is uneconomic on 83% of it. Only Dublin apartment schemes are viable (+5.1% margin). Construction costs are NOT uniquely high by European standards (Ireland's construction price level is exactly the EU average). The cost story is about labour (steady 4%/yr growth, no reversion) not materials or regulation. Policy-set costs (VAT, Part V, development contributions) are only 15% of total; eliminating all of them makes only 4 of 26 counties viable."
+weight: 1
 tags: ["housing", "ireland", "viability", "construction-costs", "economics", "zoned-land"]
 ---
 
-*This page consolidates findings from six studies: [zoned land conversion](https://github.com/colinjoc/generalized_hdr_autoresearch/blob/main/applications/ie_zoned_land_conversion/paper.md), [viability frontier](https://github.com/colinjoc/generalized_hdr_autoresearch/blob/main/applications/ie_viability_frontier/paper.md), [infrastructure capacity](https://github.com/colinjoc/generalized_hdr_autoresearch/blob/main/applications/ie_infra_capacity/paper.md), [cost decomposition](https://github.com/colinjoc/generalized_hdr_autoresearch/blob/main/applications/ie_construction_cost_decomp/paper.md), [policy vs market costs](https://github.com/colinjoc/generalized_hdr_autoresearch/blob/main/applications/ie_policy_vs_market_costs/paper.md), and [international comparison](https://github.com/colinjoc/generalized_hdr_autoresearch/blob/main/applications/ie_intl_construction_costs/paper.md).*
+*Part 1 of 4 in the Irish Housing series. Next: [Part 2: The Pipeline](/hdr/results/irish-housing-pipeline-complete/) | [Part 3: Planning & JR](/hdr/results/irish-planning-and-judicial-review/) | [Part 4: What Would Fix It?](/hdr/results/irish-housing-bottleneck-and-levers/)*
+
+*Consolidates findings from six studies: [zoned land conversion](https://github.com/colinjoc/generalized_hdr_autoresearch/blob/main/applications/ie_zoned_land_conversion/paper.md), [viability frontier](https://github.com/colinjoc/generalized_hdr_autoresearch/blob/main/applications/ie_viability_frontier/paper.md), [infrastructure capacity](https://github.com/colinjoc/generalized_hdr_autoresearch/blob/main/applications/ie_infra_capacity/paper.md), [cost decomposition](https://github.com/colinjoc/generalized_hdr_autoresearch/blob/main/applications/ie_construction_cost_decomp/paper.md), [policy vs market costs](https://github.com/colinjoc/generalized_hdr_autoresearch/blob/main/applications/ie_policy_vs_market_costs/paper.md), and [international comparison](https://github.com/colinjoc/generalized_hdr_autoresearch/blob/main/applications/ie_intl_construction_costs/paper.md).*
 
 ## Enough land, not enough applications
 
