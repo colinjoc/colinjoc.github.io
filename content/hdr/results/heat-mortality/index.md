@@ -1,55 +1,54 @@
 ---
-title: "Night-Time Humidity Does Not Predict Which Heat Waves Kill"
+title: "Humid Nights Do Not Predict Which Heat Waves Kill"
 date: 2026-04-11
 domain: "Public Health / Climate Hazards"
-blurb: "We tested the claim that night-time wet-bulb temperature predicts heat-wave deaths across 30 cities over 13 years. The signal was not detected at this scale -- not in any of 22 humidity encodings, not under temporal cross-validation, and not in a matched case-crossover design. Daytime temperature extremes and their recent history remain the strongest predictors."
+blurb: "A prominent climate-health hypothesis says warm, muggy nights are what turn heat waves deadly. On 13 years of city mortality data, the signal is not there."
 weight: 21
 tags: ["public-health", "climate", "heat-mortality", "wet-bulb", "hypothesis-testing", "negative-result", "early-warning-systems"]
 ---
 
-*This is a short summary. For the full technical write-up, see the [detailed paper](https://github.com/colinjoc/hdr_autoresearch/blob/main/applications/heat_mortality/paper.md).*
+*A plain-language summary. The [full technical paper](https://github.com/colinjoc/hdr_autoresearch/blob/main/applications/heat_mortality/paper.md) has the 22 humidity encodings and the robustness checks. See [About HDR](/hdr/) for how this work was produced and reviewed.*
+
+**Bottom line.** Several countries are rebuilding their heat-wave warning systems around the idea that warm, humid nights are what make a heat wave lethal. On 13 years of mortality data across 30 American and European cities, that signal does not appear. Tracking the daytime extreme and how long it has lasted is still the best guide to which weeks will be deadly.
 
 ## The Question
 
-When a heat wave turns deadly, what makes the difference? A prominent line of climate-health research argues the answer is night-time humidity. The idea is intuitive: during the day your body overheats, but overnight cooling lets you recover. If the night stays too hot and too humid for sweat to work, your body never gets that recovery window, and that is when people die. Lab experiments have confirmed that the human body hits a hard physiological wall well below the temperatures once thought safe -- around 30.5 degrees Celsius wet-bulb rather than the theoretical 35 degrees Celsius limit. Several countries were in the process of redesigning their heat-wave warning systems around this night-time humidity signal when we started this project.
+When a heat wave turns deadly, what makes the difference? A prominent strand of climate-health research says the answer is the night. During the day your body overheats, but overnight cooling normally gives you a recovery window. If nights stay hot and humid enough that sweat can't work, the recovery window closes and people die. Laboratory experiments confirm that the human body hits a hard physiological wall at around 30.5 degrees Celsius of wet-bulb temperature — a measure that combines heat and humidity.
 
-We wanted to know: does that laboratory finding actually show up in real mortality data at the city level? If a city planner is deciding whether to retool their alert system around overnight humidity readings, is there evidence that doing so would save more lives than sticking with the current approach of tracking daytime temperature extremes?
+Several countries were in the middle of redesigning their heat-wave warning systems around this night-time signal when we started this project. We wanted to know whether it actually shows up in real city-level death data — because if it doesn't, retooling a warning system around it could make the warnings worse, not better.
 
-## What We Found
+## What we found
 
-Across 30 cities in the United States and Europe, over 13 years of weekly mortality data, the night-time humidity signal was not detected at this aggregation scale. It did not emerge under any of the alternative ways we checked.
+Across 30 cities in the United States and Europe, across 13 years of weekly deaths, the night-time humidity signal is not there at this scale. No version of it we tried.
 
-- We pre-specified 22 different ways of measuring overnight humidity and tested each one individually. Twenty-one added nothing. The one that mattered turned out to be tracking the memory of previous heat waves, not the overnight conditions themselves.
-- Stacking all 22 overnight humidity measures together actually made predictions worse, not better.
-- The strongest predictors of deadly heat-wave weeks were straightforward: how many consecutive days exceeded the local extreme-heat threshold, what happened last week, and what time of year it is.
-- A stripped-down warning system using just two simple inputs performed nearly as well as our full 70-input model, and neither of those inputs involves night-time humidity.
-- An alert system built on the overnight humidity rule proposed in the literature would miss more deadly weeks and trigger more false alarms than one built on plain daytime temperature. At the tested alert budget, the night-time humidity rule missed 63% of lethal weeks versus 52% for the daytime temperature rule.
-- A matched case-crossover analysis -- comparing lethal heat-wave weeks to non-lethal control weeks in the same city and season -- found that after accounting for daytime temperature, overnight humidity was actually *lower* in the weeks that killed. The opposite direction from the hypothesis.
+- We pre-committed to 22 different ways of measuring overnight humidity before running anything. Twenty-one added nothing to the predictions. The one that did help turned out to be tracking how long the current heat wave has already been going, not the overnight conditions themselves.
+- Stacking all 22 night-humidity measures into a single model made predictions worse, not better.
+- The strongest predictors of deadly weeks were boringly simple: how many consecutive days crossed the local extreme-heat threshold, what happened last week, and what time of year it is.
+- A stripped-down warning system using just two of those simple inputs performed nearly as well as the full 70-input model. Neither of the two involves night-time humidity.
+- An alert system built around the proposed night-humidity rule would miss more deadly weeks and raise more false alarms than a system built around plain daytime temperature. At the tested alert budget, the night-humidity rule missed 63 percent of lethal weeks compared to 52 percent for the daytime rule.
+- A matched comparison — pairing each lethal heat-wave week with a non-lethal week from the same city and season — found that once daytime temperature was accounted for, humidity on the lethal weeks was actually *lower*. The opposite direction from the hypothesis.
 
-## Why That's Surprising
+## Why that matters
 
-The expectation in the field was the opposite. Multiple peer-reviewed studies in top journals had found that warm nights carry mortality risk independent of daytime temperatures, and projections of future climate-driven mortality increasingly relied on compound day-night heat exposure as the driver. The Lancet Countdown reported a 167% increase in heat-related mortality among the over-65 population compared to the 1990s, and national agencies were actively building night-time humidity into their next-generation alert criteria.
+The expectation in the field was the opposite. Peer-reviewed studies in top journals had found that warm nights carry independent mortality risk. Projections of climate-driven mortality were leaning on compound day-and-night heat. National agencies were already building overnight humidity into their next generation of alert criteria.
 
-The disconnect likely comes from scale. The lab experiments that measured the body's breaking point under humid overnight conditions are real physiology, measured on individual people under controlled exposure. But a city-level early warning system operates at a completely different resolution: weekly death counts across an entire metropolitan population, where reporting lags, demographic shifts, and the momentum of prior heat exposure dominate the signal. At that population-week scale, knowing last week's death count tells you more about this week than knowing how humid last night was. Prior daily-resolution studies that did find an independent night-time signal may be capturing within-week diurnal patterns that weekly aggregation washes out entirely.
+The most likely explanation for the disconnect is scale. The laboratory experiments that measured the body's breaking point are real physiology, measured on individual people under controlled exposure. A city-level early warning system works at a completely different resolution: weekly death counts across a whole metropolitan population, where demographics, reporting lags, and the momentum of the last few hot days dominate the signal. At that resolution, last week's death count tells you more about this week than last night's humidity does. Studies using finer daily data on smaller populations may be catching a real within-day pattern that weekly aggregation simply smears out.
 
-## What It Means
+## What it means in practice
 
-For a city planner or emergency manager deciding how to configure heat-wave alerts: our findings do not support prioritizing night-time wet-bulb temperature (a humidity-adjusted temperature that captures how effectively the body can cool through sweating) over daytime temperature indicators at the population-week scale. The current approach of tracking daytime temperature extremes and their duration is not broken. A warning system that swapped to the night-time humidity rule would perform worse on both missed deadly weeks and false alarms at the tested alert budget.
+**For city planners and emergency managers.** Our findings do not support prioritising overnight humidity over daytime temperature in your alert system. The current approach — tracking daytime heat extremes and how long they have lasted — is not broken. A warning system that swapped it out for the night-humidity rule would miss more deaths and cry wolf more often.
 
-The practical takeaway is that the most useful improvements to heat warning systems are unglamorous: incorporate what happened in recent days and weeks (the "memory" of prior heat stress on a population), use a streak-based extreme heat indicator, and adjust for seasonal timing. These are inputs most systems either already have or could add with minimal effort.
+The upgrades worth chasing are unglamorous. Build "heat memory" into your system by incorporating the last few days and weeks of exposure. Use a streak-based measure of extreme heat. Adjust for the season. These are inputs most systems either already have or could add cheaply.
 
-For researchers, the finding does not invalidate the laboratory physiology. It means the jump from "individual bodies fail under sustained humid heat" to "city-level death counts are predicted by overnight humidity" was not detected at this scale, across predominantly temperate cities, with all-ages mortality. Resolving that gap requires individual-level studies with continuous exposure measurement at daily or finer resolution -- particularly in tropical and subtropical cities where wet-bulb temperatures routinely approach physiological thresholds.
+**For researchers.** The finding does not invalidate the laboratory physiology. It means the jump from "individual bodies fail under sustained humid heat" to "city-level death counts track overnight humidity" is not visible at the population-week scale. Closing that gap needs individual-level studies at daily or finer resolution, especially in tropical and subtropical cities where the physiological thresholds are actually routinely approached.
 
-## How We Did It
+## How we did it
 
-We assembled weekly all-cause mortality for 30 cities (15 in the United States from the [Centers for Disease Control and Prevention](https://data.cdc.gov/), 15 in Europe from [Eurostat](https://ec.europa.eu/eurostat)) and matched each city-week to hourly weather data from the [National Oceanic and Atmospheric Administration Integrated Surface Database](https://www.ncei.noaa.gov/products/land-based-station/integrated-surface-database), spanning 2013 to 2025 with pandemic years excluded, giving 9,276 city-weeks. We ran 116 pre-specified single-change experiments through an [HDR methodology](https://github.com/colinjoc/hdr_autoresearch) loop using [scikit-learn](https://scikit-learn.org/) tree-based models, followed by 10 robustness checks and 8 reviewer-requested supplementary experiments including temporal cross-validation, permutation null distributions, a decoupled label analysis, and a matched case-crossover design. None reversed the finding.
+We built a dataset of weekly all-cause deaths for 30 cities — 15 in the United States from [CDC data](https://data.cdc.gov/), 15 in Europe from [Eurostat](https://ec.europa.eu/eurostat) — and matched each city-week to hourly weather from [NOAA's Integrated Surface Database](https://www.ncei.noaa.gov/products/land-based-station/integrated-surface-database). The data covered 2013 to 2025, with the pandemic years excluded, for 9,276 city-weeks in total. We then ran 116 pre-committed single-change experiments, followed by 10 robustness checks and 8 additional experiments that the independent reviewer asked for — including a matched case-by-case comparison that directly tested the night-humidity claim. None of them reversed the finding.
 
-## Further Reading
+## Further reading
 
-- Vecellio DJ et al. "Evaluating the 35 C wet-bulb temperature adaptability threshold for young healthy subjects." *Journal of Applied Physiology* (2022). [doi:10.1152/japplphysiol.00738.2021](https://doi.org/10.1152/japplphysiol.00738.2021) -- the lab study that lowered the known physiological limit.
-- Gasparrini A et al. "Mortality risk attributable to high and low ambient temperature." *The Lancet* (2015). [doi:10.1016/S0140-6736(14)62114-0](https://doi.org/10.1016/S0140-6736(14)62114-0) -- the landmark multi-country heat-mortality study across 384 locations and 13 countries.
-- Achebak H et al. "Hot nights and heat-related mortality in Europe." *The Lancet Planetary Health* (2022). [doi:10.1016/S2542-5196(21)00302-9](https://doi.org/10.1016/S2542-5196(21)00302-9) -- the Spanish cities study that motivated the night-time hypothesis at the population level.
-
----
-
-📂 **[HDR methodology](https://github.com/colinjoc/hdr_autoresearch)** — the framework and full project history
+- Vecellio et al. (2022), "Evaluating the 35 °C wet-bulb temperature adaptability threshold" — the laboratory study that lowered the known physiological limit.
+- Gasparrini et al. (2015), "Mortality risk attributable to high and low ambient temperature", *The Lancet* — the landmark multi-country heat-mortality study across 384 locations.
+- Achebak et al. (2022), "Hot nights and heat-related mortality in Europe", *The Lancet Planetary Health* — the study that motivated the night-time hypothesis at the population level.
+- [Full technical paper](https://github.com/colinjoc/hdr_autoresearch/blob/main/applications/heat_mortality/paper.md).

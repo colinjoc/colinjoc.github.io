@@ -1,54 +1,56 @@
 ---
-title: "HDR Methodology"
+title: "About HDR"
 ---
 
-## Hypothesis-Driven Research
+## What this site is
 
-HDR is a systematic methodology for finding **novel solutions** to scientific and engineering problems. The search explores across the idea space, not just a hill climb from where it started (as could be argued [AutoResearch](https://github.com/karpathy/autoresearch) does). It applies to any domain where you can evaluate a hypothesis computationally — whether that's fitting a model to data or running a physics simulation.
+Every page in the [results portfolio](/hdr/results/) is a piece of research that an AI did on its own: it picked a question, found the public data, ran the analysis, wrote a paper, and had its work reviewed by a second AI before it was published here.
 
-### The Core Loop
+HDR stands for **Hypothesis-Driven Research**. It is the discipline the AI follows while it works. The rest of this page explains what that discipline is and why it matters for anyone reading the results.
 
-Every experiment follows an 8-step cycle:
+## How a single project runs
 
-1. **Pick a hypothesis** from the research queue (highest-impact first)
-2. **State a prior** — commit to a numerical probability before testing
-3. **Articulate the mechanism** — WHY should this work? What's the causal story?
-4. **Implement one change** — exactly one, isolated
-5. **Evaluate** — run the simulation or model
-6. **Record results** — every metric, no cherry-picking
-7. **Update beliefs** — keep the change if it helped, revert if it didn't
-8. **Update knowledge** — what did we learn? What new questions emerge?
+Every project goes through the same loop, and every page on this site is the output of many passes through it.
 
-### Why It Works
+1. **Read the existing literature first.** No question is attempted until at least a hundred related papers and textbooks have been read and summarised. This is how the AI finds the state of the art and the obvious dead ends.
+2. **Make a list of hypotheses to test.** Each one is scored on how large an effect would be, how novel it would be, and whether there is a clear mechanism that would explain it. At least one in five has to be a long shot.
+3. **Commit to a prior before testing.** The AI writes down, in numbers, how likely it thinks each hypothesis is before it sees any data. This is the discipline that stops "we found X" becoming "we were looking for X all along".
+4. **Change one thing at a time.** Every experiment isolates a single change. If two changes happen at once and the result improves, you do not know which one helped.
+5. **Keep what works, revert what does not.** Every experiment is logged, including the failures. Negative results are the point — they prevent the next version of the AI from walking into the same wall.
+6. **Write the paper only after the experiments are done.** The paper has to be consistent with every experiment in the log, not just the ones that worked.
 
-- **Literature review seeds 100+ hypotheses** from different subfields — the search explores across the idea space, not just uphill from where it started
-- **Negative results accumulate** — the knowledge base prevents retreading dead ends
-- **Bayesian discipline** prevents both premature convergence and endless repetition — priors are calibrated every 20 experiments, used to order work by expected information gain, and updated after each result to retire dead clusters and amplify productive ones
-- **Isolation principle** identifies which ideas actually contribute — after the main loop converges, an interaction sweep tests promising pairs of individually-rejected changes to catch combinatorial effects that single-variable testing misses
-- **Explicit impact scoring** ranks each hypothesis on expected effect size, novelty, and mechanistic clarity — with a mandatory 20% long-shot quota to prevent the queue from becoming purely confirmatory
+## The review step nobody skips
 
-### Two Problem Types
+When the paper is written, a **second AI** with no access to the first one's conversation reads it cold. It does two things:
 
-**Dataset-based**: Train a predictor on known data, then use it for *discovery* — screening novel candidates, identifying non-obvious patterns. The model is infrastructure; the discovery is the result.
+- **Audits the evidence.** Does every claim match what the experiments actually found? Is the headline appropriately hedged? Could a reader reproduce the work?
+- **Asks for more experiments.** If something looks under-tested, the reviewer names the missing experiment. The research AI has to run it and report the result honestly, even when the result weakens the headline.
 
-**Simulation-based**: Optimise designs via GPU-accelerated differentiable simulation. Find configurations that outperform published solutions under realistic physics constraints.
+No project appears on this site until the reviewer signs off.
 
-### Adversarial Peer Review
+## What "discovery" means here
 
-Every project passes through two independent review gates before publication. A separate AI agent — with no access to the research agent's conversation history — audits the work:
+There are two kinds of project on the site.
 
-**Results review** (after experiments, before writing): The reviewer re-runs experiments to check reproducibility, audits for cherry-picking, flags overclaiming, and proposes missing experiments. Any suggested experiments must be run — the research agent cannot decline.
+- **Dataset projects** train a predictor on real measurements (housing prices, weld strengths, mortality counts) and then use it to search for something new — a print recipe the data has never seen, a metro the textbook did not flag, a claim that does not hold up. The model is plumbing; the discovery is what the model finds.
+- **Simulation projects** run physics directly on a GPU and optimise against it. Here the discovery is a configuration — a coil shape, a lattice geometry, a mix of materials — that beats what the published literature has proposed.
 
-**Paper review** (after writing, before publishing): The reviewer reads only the paper — simulating a blind peer review. It checks whether claims match evidence, whether the headline carries appropriate qualifiers, and whether a reader could replicate the work. Again, any suggested experiments must be run and the results reported honestly, even if they weaken the headline.
+A model that fits its training data well is not a result. A result is something the model or the simulation tells you that you did not already know.
 
-No project is published to this site until the reviewer signs off.
+## Three terms that recur on every page
 
-### The Key Principle
+- **Pre-registered.** The hypothesis, the success threshold, and the test procedure are committed to before the experiment runs. No moving the goalposts afterwards.
+- **Out-of-sample.** The model is judged only on data it has never seen. A model that looks great on data it has already memorised is worth nothing.
+- **Null result.** An experiment that shows the expected effect is not there. These are published here alongside positive results, because a study that only reports wins cannot be trusted.
 
-> **The goal is DISCOVERY, not model-fitting.** An R² of 0.95 on a known dataset is infrastructure. The novel result is what the model *finds*: new materials, new designs, new physical insights.
+## What to expect, and what not to
+
+Every page on this site has been through the HDR loop and the adversarial review. That does not mean every page is right. It means every claim has been stress-tested against its own evidence and the published literature, and that negative results are reported alongside positive ones.
+
+None of the work has been through formal academic peer review. If you find an error in any result, [email me](mailto:colinjoc92@gmail.com) and I will have it investigated and corrected.
 
 ---
 
-## Results
+[Browse the results portfolio →](/hdr/results/)
 
-See the [Results Portfolio](/hdr/results/) for completed HDR projects.
+The framework and full project history lives on [GitHub](https://github.com/colinjoc/hdr_autoresearch).
