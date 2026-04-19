@@ -110,4 +110,23 @@ article img {
   border: 1px solid var(--border);
 }
 
+article figure { margin: 1.5rem auto; text-align: center; }
+article figure img { margin: 0 auto 0.6rem auto; }
+article figcaption {
+  max-width: 80%;
+  margin: 0 auto;
+  color: var(--muted);
+  font-size: 0.85rem;
+  line-height: 1.45;
+  text-align: center;
+  font-style: italic;
+}
+
+article sup, article sub {
+  font-size: 0.75em;
+  line-height: 0;
+}
+article sup { vertical-align: super; }
+article sub { vertical-align: sub; }
+
 footer { margin-top: 3rem; padding-top: 1rem; border-top: 1px solid var(--border); color: var(--muted); font-size: 0.7rem; }
