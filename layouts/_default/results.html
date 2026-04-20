@@ -1,0 +1,59 @@
+{{ define "main" }}
+<h1>{{ .Title }}</h1>
+{{ .Content }}
+
+{{ $pages := .Pages }}
+{{ if $pages }}
+
+{{/* Collect unique domains */}}
+{{ $domains := slice }}
+{{ range $pages }}
+  {{ if .Params.domain }}
+    {{ $domains = $domains | append .Params.domain }}
+  {{ end }}
+{{ end }}
+{{ $domains = $domains | uniq | sort }}
+
+<div class="filter-bar">
+  <select id="topic-filter" aria-label="Filter by topic">
+    <option value="">All topics</option>
+    {{ range $domains }}
+    <option value="{{ . }}">{{ . }}</option>
+    {{ end }}
+  </select>
+  <span id="filter-count" class="filter-count">{{ len $pages }} projects</span>
+</div>
+
+<div class="card-grid">
+  {{ range $pages.ByWeight }}
+  <a class="card" href="{{ .Permalink }}" data-domain="{{ .Params.domain }}">
+    {{ if .Params.domain }}<div class="domain">{{ .Params.domain }}</div>{{ end }}
+    <h3>{{ .Title }}</h3>
+    {{ if .Params.blurb }}<div class="headline">{{ .Params.blurb }}</div>{{ else if .Params.headline }}<div class="headline">{{ .Params.headline }}</div>{{ end }}
+  </a>
+  {{ end }}
+</div>
+
+<script>
+(function() {
+  var filter = document.getElementById('topic-filter');
+  var count = document.getElementById('filter-count');
+  var cards = document.querySelectorAll('.card-grid .card');
+
+  filter.addEventListener('change', function() {
+    var val = this.value;
+    var visible = 0;
+    cards.forEach(function(card) {
+      if (!val || card.getAttribute('data-domain') === val) {
+        card.style.display = '';
+        visible++;
+      } else {
+        card.style.display = 'none';
+      }
+    });
+    count.textContent = visible + ' project' + (visible !== 1 ? 's' : '');
+  });
+})();
+</script>
+{{ end }}
+{{ end }}
