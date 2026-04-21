@@ -1,15 +1,15 @@
 ---
 title: "How Fast Can Evolution Actually Go?"
-date: 2026-04-19
+date: 2026-04-21
 domain: "Physics / Biophysics"
-blurb: "Thermodynamics sets a hard speed limit on how quickly any system can gain functional information. Biology runs a trillion times below it."
+blurb: "Thermodynamics sets a hard speed limit on how quickly any system can gain functional information. Biology runs many orders of magnitude below it."
 weight: 22
 tags: ["thermodynamics", "information-theory", "Landauer", "evolution", "functional-information", "biophysics", "stochastic-thermodynamics", "speed-limits"]
 ---
 
 *A plain-language summary. The [full technical paper](https://github.com/colinjoc/generalized_hdr_autoresearch/blob/main/applications/thermodynamic_info_limits/paper.md) has the derivations and experiment logs. See [About HDR](/hdr/) for how this work was produced and reviewed.*
 
-**Bottom line.** Every act of selection — keeping what works, discarding what does not — is a physical process that dissipates heat. Physics sets an absolute ceiling on how fast any system can accumulate functional information. For a bacterium burning 10<sup>−12</sup> watts, that ceiling is roughly 1–10 bits per second. The actual evolutionary rate of *E. coli* is about 10<sup>−13</sup> bits per second. The gap is a factor of 10<sup>12</sup> — a trillion-fold. Evolution is not running out of thermodynamic fuel. It is barely sipping from an enormous reservoir.
+**Bottom line.** Every act of selection — keeping what works, discarding what does not — is a physical process that dissipates heat. Physics sets an absolute ceiling on how fast any system can accumulate functional information. For a bacterium burning 10<sup>−12</sup> watts, that ceiling sits somewhere between roughly one-hundredth and a hundred bits per second, depending on a single poorly measured cellular parameter. The actual evolutionary rate of *E. coli* is about 10<sup>−13</sup> bits per second — at least ten orders of magnitude below the tightest plausible ceiling, and probably more like twelve. Evolution is not running out of thermodynamic fuel. It is barely sipping from an enormous reservoir.
 
 ## Why care about a speed limit nobody is hitting?
 
@@ -40,7 +40,7 @@ At biological temperatures, the ordering from tightest to loosest spans 9.5 orde
 
 The naive Landauer bound is loose because it assumes perfect conditions: infinitely slow operation, thermal equilibrium, no wasted overhead, and statistically independent bits. Real biology violates every one of those assumptions. We incorporated five corrections, each addressing a distinct physical mechanism.
 
-- **Finite-time penalties.** Real molecular operations take about a millisecond, not an eternity. Operating at finite speed costs extra energy per bit. For the asymmetric energy landscapes typical of enzymes, this alone tightens the bound by a factor of 43,000.
+- **Finite-time penalties.** Real molecular operations take about a millisecond, not an eternity. Operating at finite speed costs extra energy per bit. For the symmetric double-well case (Proesmans, Ehrich, and Bechhoefer 2020) this alone tightens the bound by roughly four orders of magnitude. We sketch a heuristic extension to the asymmetric energy landscapes typical of enzymes — a plausible scaling, not a proven result, and one we flag as needing a proper variational derivation.
 
 - **Housekeeping entropy.** A living cell is not at equilibrium. Maintaining that non-equilibrium state — running ion pumps, turning over proteins, holding the cytoskeleton together — consumes a large fraction of the total dissipation. Only the remainder, called the excess entropy production, is available for gaining functional information. If 99 percent of dissipation goes to housekeeping, the bound drops by a factor of 100.
 
@@ -52,16 +52,16 @@ The naive Landauer bound is loose because it assumes perfect conditions: infinit
 
 These corrections are not independent. Within the same framework, they compound: the finite-time penalty enlarges the energy cost per bit while the housekeeping correction shrinks the available energy, and the two effects multiply. Across frameworks, the bounds intersect — you take whichever ceiling is lowest.
 
-The tightest combined bound lands at approximately 1.5 bits per second. That is eight orders of magnitude below the naive Landauer baseline.
+At a reference housekeeping fraction of one percent, the tightest combined bound lands at approximately 1.5 bits per second — eight orders of magnitude below the naive Landauer baseline. Across the full plausible range of that parameter, the bound spans about six to ten orders of magnitude of tightening (more on this below).
 
 <figure>
-  <img src="plots/fig3_headline_finding.png" alt="Vertical waterfall showing successive corrections tightening the Landauer bound from 10^8 bits/second down to 1.5 bits/second, with the actual E. coli rate plotted 12 orders of magnitude below.">
-  <figcaption><strong>Figure 2.</strong> The headline finding as a waterfall. The naive Landauer bound at the top (~10<sup>8</sup> bits per second) is tightened, correction by correction, down to ~1.5 bits per second. The actual evolutionary rate of <em>E. coli</em> sits 10<sup>12</sup> times below the tightest bound — the gap the paper is named after.</figcaption>
+  <img src="plots/fig3_headline_finding.png" alt="Vertical waterfall showing successive corrections tightening the Landauer bound from 10^8 bits/second down to roughly 1 bit/second, with the actual E. coli rate plotted 12 orders of magnitude below.">
+  <figcaption><strong>Figure 2.</strong> The headline finding as a waterfall. The naive Landauer bound at the top (~10<sup>8</sup> bits per second) is tightened, correction by correction, down to ~1.5 bits per second at the reference housekeeping fraction of one percent. The actual evolutionary rate of <em>E. coli</em> sits about 10<sup>12</sup> times below this reference value — the headline gap, with the precise number sensitive to the housekeeping parameter (see Figure 3).</figcaption>
 </figure>
 
-## The trillion-fold gap
+## The huge gap to biology
 
-Even the tightest bound — 1.5 bits per second — exceeds the actual evolutionary rate of *E. coli* by a factor of roughly 10<sup>12</sup>. The bacterium gains about one bit of functional information per thousand generations, each generation lasting about twenty minutes. That works out to around 8 × 10<sup>−13</sup> bits per second.
+At the reference parameter values, the tightest bound exceeds the actual evolutionary rate of *E. coli* by a factor of roughly 10<sup>12</sup>. The bacterium gains about one bit of functional information per thousand generations, each generation lasting about twenty minutes. That works out to around 8 × 10<sup>−13</sup> bits per second. Across the plausible range of the housekeeping parameter the gap can shrink to about ten orders of magnitude or widen to about fourteen, but it stays enormous in every case.
 
 The analysis also found that the minimum power required for Darwinian evolution to outrun neutral genetic drift is about 3 × 10<sup>−26</sup> watts — roughly 10<sup>−14</sup> of *E. coli*'s metabolic rate. Evolution does not need much thermodynamic fuel at all. The bottleneck is not energy. It is population genetics: the interplay of mutation supply, selection strength, and genetic drift.
 
@@ -90,7 +90,7 @@ At a housekeeping fraction of 1 percent, the bound is about 1.5 bits per second.
 
 ## The transferable lesson
 
-Speed limits are useful even when nobody is close to hitting them. The gap between a theoretical ceiling and observed performance tells you where the real constraint lies. Here, the 10<sup>12</sup>-fold gap between the tightest thermodynamic bound and observed evolutionary rates tells us definitively that evolution is not an energy-limited process. The constraint is informational and population-genetic, not thermodynamic. Any attempt to accelerate evolution — directed evolution in the lab, for instance — should look to population size, mutation supply, and selection architecture, not to the energy budget. The thermodynamic headroom is, for all practical purposes, infinite.
+Speed limits are useful even when nobody is close to hitting them. The gap between a theoretical ceiling and observed performance tells you where the real constraint lies. Here, the gap of at least ten orders of magnitude between the tightest thermodynamic bound and observed evolutionary rates tells us definitively that evolution is not an energy-limited process at current metabolic budgets, regardless of where within the housekeeping range biology actually sits. The constraint is informational and population-genetic, not thermodynamic. Any attempt to accelerate evolution — directed evolution in the lab, for instance — should look to population size, mutation supply, and selection architecture, not to the energy budget. The thermodynamic headroom is, for all practical purposes, infinite.
 
 ## How we did it
 
