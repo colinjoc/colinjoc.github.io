@@ -2,7 +2,7 @@
 title: "Can the avalanche-branching ratio be used as an online training-progress signal during language-model pretraining? A pre-registered double null."
 date: 2026-04-27
 domain: "Computational Neuroscience"
-blurb: "We pre-registered two sharp tests of whether σ_MR — a temporal-correlation measure that has shown up as a structural property of trained transformers — is also a *functional* signal during pretraining. Both pre-committed headlines come back negative under their locked criteria."
+blurb: "We pre-registered two sharp tests of whether σ_MR — a temporal-correlation measure that has shown up as a structural property of trained transformers — is also a *functional* signal during pretraining. Both pre-committed headlines come back negative under their locked criteria. A Phase 2 IH-anchor-correction addendum confirms the negative result and vindicates the shipped paper's anchor choice."
 weight: 18
 tags: ["language-models", "criticality", "pythia", "induction-heads", "training-dynamics", "null-result", "pre-registration", "tost-equivalence", "critical-slowing-down"]
 ---
@@ -66,6 +66,23 @@ What the methodology gives back, even on a null, is a clean reusable framework: 
 - **Single-mid-depth-layer mean-|activation|.** The pre-registered partialling control was per-layer; the implementation used the mid-depth layer only. At n=5 this matters less than the under-identification of the partial, but it should be corrected for any extension.
 - **Dense checkpoint resolution is 1 000 steps.** If induction-head formation falls between two dense checkpoints, the residual at the empirical anchor may attenuate the true signature.
 - **Schoenholz Jacobian-spectral-radius companion not executed.** The implementation exists and is unit-tested but was not run on the Pythia-410m dense-checkpoint grid; it is deferred follow-up rather than missing methodology.
+
+## Phase 2 addendum (added 2026-04-27): the IH-anchor correction
+
+The honest follow-up flagged at the bottom of the paper was: compute the Olsson 2022 induction-head score on the pre-formation cached checkpoints {0, 1, 16, 128, 512} so the empirical "induction-head formation step" can land in the actual phase change, rather than at step 1000 — the earliest dense-grid checkpoint, which our shipped paper noted is already 7–12 nats post-formation. We pre-registered a small Phase 2 extension before computing any of the new IH-score values (the σ_MR trajectory data and the 50%-of-asymptote anchor rule are both inherited unchanged), ran the new 25 IH-score evaluations, and re-ran the Q2 CSD residual analysis at the corrected anchor.
+
+**Result.** The IH-anchor correction does not move the empirical induction-head step. Olsson IH-score at step 512 is at most 0.11 nats across the five Pythia scales (range −0.02 to 0.11), against asymptotic IH-scores of 9–12 nats. Under the locked 50%-of-asymptote rule, the first checkpoint where each scale crosses the threshold is still step 1000 — identical to the shipped paper. **Induction-head formation in the Pythia 70m–1.4b lineup is sharply localised between step 512 and step 1000**, jumping from sub-0.2 nats at step 512 to 7.79–9.87 nats at step 1000 in every scale. That is a 2× span in optimiser steps, narrower than the "around step 500" timing reported in Olsson 2022 for similar Pythia-scale models.
+
+Because the empirical anchor doesn't move, the Q2 CSD residual analysis at the corrected anchor algebraically reduces to the shipped paper's analysis. The numbers are identical: 4 of 5 scales below 1.5σ, 0 of 5 above 2.5σ, sign agreement fails, 0 of 5 LOO subsets support the strict criterion. **Q2 is still falsified at the corrected anchor.**
+
+What changes about the shipped paper's interpretation:
+
+- **The paper's "the σ-dip at step 3000 may align with a properly-anchored IH\*" suggestion is retracted.** The properly-anchored IH* under the locked rule is step 1000, not step ~500 — the dip stays post-formation either way.
+- **The shipped IH\* anchor at step 1000 was not an artefact of the missing pre-formation data.** It was the correct anchor. The Phase 2 follow-up vindicates the shipped paper rather than challenging it.
+
+The actually-useful remaining experiment is dense IH-score sampling between step 512 and step 1000 — e.g., {600, 700, 800, 900} — to localise induction-head formation within that 2× span. The σ_MR data already exists at log-spaced checkpoints in this window via the parent paper; only IH-score is missing. Re-running Q2 with empirical IH* inside the {600–900} band would give the strict pre-committed CSD-at-IH test the most rigorous shot it can get.
+
+**Programme-level reading.** With this addendum, the σ_MR-on-LLMs *functional* programme is now 4-of-4 negative across the four sharp tests we have run: instruction-tuning distortion null, per-generation-hallucination predictor killed at tractability gate, trajectory-level CSD-at-IH null at the dense-grid anchor, and (now) trajectory-level CSD-at-IH null *also* at the pre-formation-corrected anchor. The σ_MR observable's *structural* content (it sits in a near-critical band in trained Pythia models, invariant under instruction tuning) is intact; its *functional* readings have not yet vindicated themselves under any of the four sharp tests this programme has run. The addendum's anchor-vindication closes off the cleanest remaining anchor-uncertainty escape route for the Q2 null.
 
 ## How we did it
 
